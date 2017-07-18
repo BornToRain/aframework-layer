@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.repository.customers.ICustomerRepository">
+
+	<select id="getAllCustomer" resultType="com.domain.customers.Customer">
+		select * from customer
+	</select>
+
+	<select id="getCustomerById" resultType="com.domain.customers.Customer">
+		select * from customer
+		where id=#{value}
+	</select>
+
+	<select id="customerPageList" resultType="com.domain.customers.Customer">
+		select * from customer
+		<where>
+			<if test="name != null and name != ''">
+				name like concat('%', #{name}, '%')
+			</if>
+		</where>
+		<if test="offset != null and limit != null ">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="customerPageCount" resultType="java.lang.Integer">
+		select count(*) from customer
+		<where>
+			<if test="name != null and name != ''">
+				name like concat('%', #{name}, '%')
+			</if>
+		</where>
+	</select>
+
+
+	<insert id="insertCustomer" parameterType="com.domain.customers.Customer"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into customer
+		(`name`,`age`, `last_active_time`)
+		values
+		(#{name},#{age},
+		#{lastActiveTime})
+	</insert>
+
+	<insert id="insertCustomers" parameterType="java.util.List"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into customer
+		(`name`,`age`,`last_active_time`)
+		values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.name}, #{item.age}, #{item.lastActiveTime})
+		</foreach>
+	</insert>
+
+
+	<update id="updateCustomer" parameterType="com.domain.customers.Customer">
+		update customer
+		<set>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="age != null">`age` = #{age}, </if>
+			<if test="lastActiveTime != null">`last_active_time` = #{lastActiveTime}, </if>
+		</set>
+		where id = #{id}
+	</update>
+
+
+	<update id="updateCustomersAge">
+		update customer set age = #{age} where id in
+		<foreach item="id" collection="idslist" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+	</update>
+
+
+	<delete id="deleteCutomerByIds">
+		delete from customer where id in
+		<foreach item="id" collection="list" open="(" separator=","
+			close=")">
+			#{id}
+		</foreach>
+
+	</delete>
+
+
+</mapper>
