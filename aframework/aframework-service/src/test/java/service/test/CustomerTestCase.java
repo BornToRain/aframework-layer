@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.domain.customers.Customer;
 import com.service.customers.ICustomerService;
 
-import testbase.BaseTestCase;
+import data.testbase.BaseTestCase;
 
 
 

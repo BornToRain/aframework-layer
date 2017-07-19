@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.domain.customers.Customer;
 import com.jdbcrepository.customers.ICustomerSqlRepository;
 
-import testbase.BaseTestCase;
+import data.testbase.BaseTestCase;
 
 
 
