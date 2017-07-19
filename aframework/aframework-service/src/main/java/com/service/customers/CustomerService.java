@@ -9,7 +9,7 @@
  *
  *    Filename:    CustomerService.java
  *
- *    Description: TODO
+ *    Description: CustomerService
  *
  *    Copyright:   Copyright (c) 2001-2017
  *
@@ -47,7 +47,7 @@ import com.repository.customers.ICustomerRepository;
 */
 /**
  * @ClassName CustomerService
- * @Description TODO
+ * @Description CustomerService
  * @author Alvis
  * @Date Jul 18, 2017 4:32:37 PM
  * @version 1.0.0 

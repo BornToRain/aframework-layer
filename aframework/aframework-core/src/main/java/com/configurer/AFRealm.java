@@ -9,7 +9,7 @@
  *
  *    Filename:    AFRealm.java
  *
- *    Description: TODO
+ *    Description: AFRealm
  *
  *    Copyright:   Copyright (c) 2001-2017
  *
@@ -49,7 +49,7 @@ import org.springframework.context.annotation.Configuration;
 */
 /**
  * @ClassName AFRealm
- * @Description TODO
+ * @Description AFRealm
  * @author Alvis
  * @Date Jul 18, 2017 4:54:32 PM
  * @version 1.0.0

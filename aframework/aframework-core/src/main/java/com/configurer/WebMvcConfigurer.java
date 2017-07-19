@@ -9,7 +9,7 @@
  *
  *    Filename:    WebMvcConfigurer.java
  *
- *    Description: TODO
+ *    Description: WebMvcConfigurer
  *
  *    Copyright:   Copyright (c) 2001-2017
  *
@@ -41,7 +41,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 */
 /**
  * @ClassName WebMvcConfigurer
- * @Description TODO
+ * @Description WebMvcConfigurer
  * @author Alvis
  * @Date Jul 18, 2017 4:55:07 PM
  * @version 1.0.0

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @ClassName HomeController
- * @Description TODO
+ * @Description HomeController
  * @author Alvis
  * @Date Jul 6, 2017 4:12:46 PM
  * @version 1.0.0

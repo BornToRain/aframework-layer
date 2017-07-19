@@ -9,7 +9,7 @@
  *
  *    Filename:    ICustomerService.java
  *
- *    Description: TODO
+ *    Description: ICustomerService
  *
  *    Copyright:   Copyright (c) 2001-2017
  *
@@ -40,7 +40,7 @@ import com.domain.customers.Customer;
 */
 /**
  * @ClassName ICustomerService
- * @Description TODO
+ * @Description ICustomerService
  * @author Alvis
  * @Date Jul 18, 2017 4:30:22 PM
  * @version 1.0.0

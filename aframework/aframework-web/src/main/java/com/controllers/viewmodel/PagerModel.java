@@ -9,7 +9,7 @@
  *
  *    Filename:    PagerModel.java
  *
- *    Description: TODO
+ *    Description: PagerModel
  *
  *    Copyright:   Copyright (c) 2001-2017
  *
@@ -38,7 +38,7 @@ import java.util.List;
 */
 /**
  * @ClassName PagerModel
- * @Description TODO
+ * @Description PagerModel
  * @author Alvis
  * @Date Jul 14, 2017 4:41:57 PM
  * @version 1.0.0

@@ -9,7 +9,7 @@
  *
  *    Filename:    WebTaskScheduler.java
  *
- *    Description: TODO
+ *    Description: WebTaskScheduler
  *
  *    Copyright:   Copyright (c) 2001-2017
  *
@@ -40,7 +40,7 @@ import org.springframework.stereotype.Component;
 */
 /**
  * @ClassName WebTaskScheduler
- * @Description TODO
+ * @Description WebTaskScheduler
  * @author Alvis
  * @Date Jul 18, 2017 5:07:06 PM
  * @version 1.0.0
