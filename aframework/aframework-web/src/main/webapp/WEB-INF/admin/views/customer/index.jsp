@@ -25,6 +25,9 @@
 <body>
 	<h1>Admin-Cutomer_Index</h1>
 
+
+	<%@ include file="/WEB-INF/admin/views/layout/header.jsp"%>
+
 	<form action="${ctx}/admin/customer/index" id="searchForm">
 		<span>Name:</span> <input type="text" name="name" /> <span>Age:</span>
 		<input type="text" name="age" /> <input type="button" id="search"
@@ -48,6 +51,7 @@
 
 	<div id="pageItems"></div>
 
+	<%@ include file="/WEB-INF/admin/views/layout/footer.jsp"%>
 
 </body>
 </html>

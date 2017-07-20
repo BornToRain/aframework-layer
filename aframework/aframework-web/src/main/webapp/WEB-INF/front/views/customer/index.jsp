@@ -10,8 +10,12 @@
 <%@ include file="/WEB-INF/common/htmlheader.jsp"%>
 </head>
 <body>
+
+	<%@ include file="/WEB-INF/front/views/layout/header.jsp"%>
+
 	Front-Customer_Index
 
+	<%@ include file="/WEB-INF/front/views/layout/footer.jsp"%>
 
 </body>
 </html>
