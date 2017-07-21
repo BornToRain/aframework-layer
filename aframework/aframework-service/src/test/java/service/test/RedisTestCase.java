@@ -60,7 +60,7 @@ import service.testbase.BaseTestCase;
  * @Date Jul 20, 2017 5:15:04 PM
  * @version 1.0.0
  */
-public class RedusTestCase extends BaseTestCase {
+public class RedisTestCase extends BaseTestCase {
 
     @Autowired
     private ICustomerService customerService;
@@ -75,14 +75,14 @@ public class RedusTestCase extends BaseTestCase {
     
     
     @Test
-    public void getAllCustomerTest() {
-        Customer customer = customerService.getCustomerById(79);
+    public void RedisTest() {
+        Customer customer = customerService.getCustomerById(91);
         String key="user";
         ValueOperations<String,String> operation = template.opsForValue(); 
         operation.set(key,customer.getName());
        
-      
-        
+       String value= operation.get(key);
+        System.out.println(value);
         //listOps.leftPush(customer.getId(), customer.getName());
         // or use template directly
         //redisTemplate.boundListOps(userId).leftPush(url.toExternalForm());
