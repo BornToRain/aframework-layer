@@ -68,23 +68,22 @@ public class RedisTestCase extends BaseTestCase {
 
     // inject the ICacheManager
     @Autowired
-    private ICacheManager<Customer> cacheManager;
+    private ICacheManager<String> cacheManager;
 
     @Test
     public void RedisTest() {
-
+        /*
+         * Customer customer = customerService.getCustomerById(91); String key = "user"; cacheManager.Set(key,
+         * customer); Customer customer2 = cacheManager.Get(key); cacheManager.Remove(key); customer2 =
+         * cacheManager.Get(key); Assert.assertNotNull(customer2);
+         */
+        
         Customer customer = customerService.getCustomerById(91);
-        String key = "user";
-
-        cacheManager.Set(key, customer);
-
-        Customer customer2 = cacheManager.Get(key);
-
-        cacheManager.Remove(key);
-
-        customer2 = cacheManager.Get(key);
-
-        Assert.assertNotNull(customer2);
+        //cacheManager.Set(customer.getName(), customer.getName());
+        String cname = cacheManager.Get(customer.getName());
+        Assert.assertEquals(customer.getName(),cname);
+        cacheManager.Remove(customer.getName());
+    
     }
 
 }
