@@ -8,13 +8,18 @@
 		<artifactId>aframework</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	
+
 	<groupId>org.aframework.data</groupId>
 	<artifactId>aframework-data</artifactId>
 	<name>Archetype - aframework-data</name>
 	<packaging>jar</packaging>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.aframework.core</groupId>
+			<artifactId>aframework-core</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.aframework.domain</groupId>
 			<artifactId>aframework-domain</artifactId>

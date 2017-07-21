@@ -9,12 +9,9 @@
                            http://www.springframework.org/schema/tx 
        					   http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<context:property-placeholder location="classpath*:/service/testbase/database.properties" />
-	<import resource="classpath:spring-core.xml" />
-	<import resource="classpath:spring-redis.xml" />
-	<import resource="classpath:spring-jdbc.xml" />
-	<context:component-scan base-package="com.jdbcrepository"></context:component-scan>
-	<context:component-scan base-package="com.service"></context:component-scan>
+
+	<context:component-scan base-package="com.caching"></context:component-scan>
+	<context:component-scan base-package="com.taskscheduler"></context:component-scan>
 
 
 		
