@@ -45,8 +45,8 @@ import org.springframework.stereotype.Component;
  * @Date Jul 18, 2017 5:07:06 PM
  * @version 1.0.0
  */
-@Component("WebTaskScheduler")
-public class WebTaskScheduler {
+@Component("AfTaskScheduler")
+public class AfTaskScheduler {
 
     public void execute1() {
         System.out.printf("Task: %s, Current time: %s\n", 1, LocalDateTime.now());

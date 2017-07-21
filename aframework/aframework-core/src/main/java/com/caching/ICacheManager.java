@@ -55,7 +55,7 @@ public interface ICacheManager<T> {
      * @param key
      * @param data
      */
-    void Set(String key, Object data);
+    void Set(String key, T data);
 
     /**
      * @Description Remove

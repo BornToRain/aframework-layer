@@ -41,7 +41,7 @@
 	<task:scheduler id="taskScheduler" pool-size="100" />
 
 	<!-- 每半分钟触发任务 -->
-	<task:scheduled-tasks scheduler="taskScheduler"> <task:scheduled ref="WebTaskScheduler" 
+	<task:scheduled-tasks scheduler="taskScheduler"> <task:scheduled ref="AfTaskScheduler" 
 		method="execute1" cron="30 * * * * ?"/> </task:scheduled-tasks>
 
 

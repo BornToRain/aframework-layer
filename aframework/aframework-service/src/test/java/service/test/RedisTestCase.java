@@ -42,6 +42,7 @@ import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
+import com.caching.ICacheManager;
 import com.domain.customers.Customer;
 import com.jdbcrepository.customers.ICustomerSqlRepository;
 import com.service.customers.ICustomerService;
@@ -64,29 +65,26 @@ public class RedisTestCase extends BaseTestCase {
 
     @Autowired
     private ICustomerService customerService;
-    // inject the actual template
-    @Autowired
-    private RedisTemplate<String, String> template;
 
-    // inject the template as ListOperations
-    // can also inject as Value, Set, ZSet, and HashOperations
-    @Resource(name="redisTemplate")
-    private ListOperations<String, String> listOps;
-    
-    
+    // inject the ICacheManager
+    @Autowired
+    private ICacheManager<Customer> cacheManager;
+
     @Test
     public void RedisTest() {
+
         Customer customer = customerService.getCustomerById(91);
-        String key="user";
-        ValueOperations<String,String> operation = template.opsForValue(); 
-        operation.set(key,customer.getName());
-       
-       String value= operation.get(key);
-        System.out.println(value);
-        //listOps.leftPush(customer.getId(), customer.getName());
-        // or use template directly
-        //redisTemplate.boundListOps(userId).leftPush(url.toExternalForm());
-        
+        String key = "user";
+
+        cacheManager.Set(key, customer);
+
+        Customer customer2 = cacheManager.Get(key);
+
+        cacheManager.Remove(key);
+
+        customer2 = cacheManager.Get(key);
+
+        Assert.assertNotNull(customer2);
     }
 
 }
