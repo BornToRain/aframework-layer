@@ -31,6 +31,12 @@ package com.domain.customers;
 
 import java.sql.Timestamp;
 
+import com.domain.base.BaseEntity;
+
+
+
+
+
 /** 
 * @author 
 * @version 创建时间：Jul 18, 2017 3:24:08 PM 
@@ -43,10 +49,10 @@ import java.sql.Timestamp;
  * @Date Jul 18, 2017 3:24:08 PM
  * @version 1.0.0
  */
-public class Customer {
+public class Customer extends BaseEntity {
 
     private Integer id;
-
+ 
     public Integer getId() {
         return id;
     }
