@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.configurer;
+package com.web.configurer;
 
 import java.util.ArrayList;
 import java.util.List;

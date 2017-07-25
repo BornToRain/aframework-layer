@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.configurer;
+package com.web.configurer;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.AntPathMatcher;
