@@ -50,6 +50,8 @@ public interface ICustomerService {
     List<Customer> getCustomers();
 
     Customer getCustomerById(Integer id);
+    
+    Customer getCustomerByUserName(String username);
 
     List<Customer> customerPageList(String name, Integer pageIndex, Integer pageSize);
 

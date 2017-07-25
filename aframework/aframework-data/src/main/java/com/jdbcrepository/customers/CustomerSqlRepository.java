@@ -56,6 +56,7 @@ import com.domain.customers.Customer;
 @Repository("ICustomerSqlRepository")
 public class CustomerSqlRepository implements ICustomerSqlRepository {
 
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -63,6 +64,7 @@ public class CustomerSqlRepository implements ICustomerSqlRepository {
      * Description:
      * @see com.repository.ICustomerSqlRepository#getAllCustomer()
      */
+    @Override
     public List<Customer> getAllCustomer() {
         String sql = "select id,name,age,last_active_time from customer";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<Customer>(Customer.class);
@@ -73,6 +75,7 @@ public class CustomerSqlRepository implements ICustomerSqlRepository {
      * Description:
      * @see com.jdbcrepository.ICustomerSqlRepository#getAllCustomerCount()
      */
+    @Override
     public Integer getAllCustomerCount() {
         String sql = "select count(*) from customer";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
@@ -83,6 +86,7 @@ public class CustomerSqlRepository implements ICustomerSqlRepository {
      * Description:
      * @see com.repository.ICustomerSqlRepository#getCustomerById(java.lang.Integer)
      */
+    @Override
     public Customer getCustomerById(Integer id) {
         String sql = "select id,name,age,last_active_time from customer where id=?";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<Customer>(Customer.class);
@@ -94,6 +98,7 @@ public class CustomerSqlRepository implements ICustomerSqlRepository {
      * Description:
      * @see com.repository.ICustomerSqlRepository#customerPageList(java.util.Map)
      */
+    @Override
     public List<Customer> customerPageList(Map<String, Object> map) {
         // TODO Auto-generated method stub
         return null;
@@ -103,6 +108,7 @@ public class CustomerSqlRepository implements ICustomerSqlRepository {
      * Description:
      * @see com.repository.ICustomerSqlRepository#insertCustomer(com.domain.Customer)
      */
+    @Override
     public void insertCustomer(Customer customer) {
         String sql = "insert into customer  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
         Object[] parameters = new Object[] {customer.getName(), customer.getAge(), customer.getLastActiveTime() };
@@ -113,6 +119,7 @@ public class CustomerSqlRepository implements ICustomerSqlRepository {
      * Description:
      * @see com.repository.ICustomerSqlRepository#insertCustomers(java.util.List)
      */
+    @Override
     public void insertCustomers(List<Customer> customers) {
         String sql = "insert into customer  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
         List<Object[]> batchArgs = new ArrayList<Object[]>();
@@ -126,6 +133,7 @@ public class CustomerSqlRepository implements ICustomerSqlRepository {
      * Description:
      * @see com.repository.ICustomerSqlRepository#updateCustomer(com.domain.Customer)
      */
+    @Override
     public void updateCustomer(Customer customer) {
         String sql = "update customer set name=?,age=?,last_active_time=? where id=?";
         Object[] parameter = new Object[] {customer.getName(), customer.getAge(), customer.getLastActiveTime(),
@@ -137,6 +145,7 @@ public class CustomerSqlRepository implements ICustomerSqlRepository {
      * Description:
      * @see com.repository.ICustomerSqlRepository#deleteCutomerByIds(java.util.List)
      */
+    @Override
     public void deleteCutomerById(Integer id) {
         String sql = "delete from customer where id=?";
         jdbcTemplate.update(sql, id);

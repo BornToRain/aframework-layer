@@ -33,7 +33,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.core.security.IEncryptionService;
+import com.core.security.IEncryption;
 
 import service.testbase.BaseTestCase;
 
@@ -52,7 +52,7 @@ import service.testbase.BaseTestCase;
 public class RsaTestCase extends BaseTestCase {
 
     @Autowired
-    private IEncryptionService encryptionService;
+    private IEncryption encryptionService;
 
     // pkcs8 key
     final String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJJ7Jlq/ZWvJ85wErbQo1RhXKpsi6LteSr4b5IwmxeznOkbn0COcFsXdE8kp7Zh47OSUW+DZRgZ7eR/C1FhgvZzuVscSSnOi52uNVDqrnzBl55iocGEoR2To1r8AxcRlrohnfauUi4Cc0RAhKUEQKnEwe2Xn3ukP8E+ronJOBtJQIDAQAB";

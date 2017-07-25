@@ -54,7 +54,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("IEncryptionService")
-public class EncryptionService implements IEncryptionService {
+public class Encryption implements IEncryption {
 
     /**
      * String to hold name of the encryption algorithm.

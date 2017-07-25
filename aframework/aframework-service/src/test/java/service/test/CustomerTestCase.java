@@ -4,12 +4,13 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.junit.Assert;
 import org.junit.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.domain.customers.Customer;
+import com.service.authentication.IAuthenticationService;
 import com.service.customers.ICustomerService;
 
 import service.testbase.BaseTestCase;
@@ -29,7 +30,9 @@ public class CustomerTestCase extends BaseTestCase {
 
     @Autowired
     private ICustomerService customerService;
-
+    
+    @Autowired
+    private IAuthenticationService authenticationService;
   
     @Test
     public void InsertCustomersTest() {
@@ -86,5 +89,13 @@ public class CustomerTestCase extends BaseTestCase {
         ids.add(82);
         customerService.deleteCutomerByIds(ids);
     }
+    
+    
+    @Test
+    public void authUser() {
+       boolean isAuth= authenticationService.authUser("alvis", "123456");
+       Assert.assertEquals(isAuth, true);
+    }
+
 
 }

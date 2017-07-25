@@ -41,7 +41,7 @@ package com.core.security;
  * @Date Jul 24, 2017 1:47:32 PM
  * @version 1.0.0
  */
-public interface IEncryptionService {
+public interface IEncryption {
 
     /**
      * @Description (TODO)

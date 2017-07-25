@@ -54,7 +54,9 @@ public interface ICustomerRepository {
     List<Customer> getAllCustomer();
 
     Customer getCustomerById(Integer id);
-
+    
+    Customer getCustomerByUserName(String username);
+    
     List<Customer> customerPageList(Map<String, Object> map);
 
     Integer customerPageCount(Map<String, Object> map);

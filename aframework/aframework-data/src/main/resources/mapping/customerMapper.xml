@@ -14,6 +14,12 @@
 		where id=#{value}
 	</select>
 
+	<select id="getCustomerByUserName" resultType="com.domain.customers.Customer">
+		select * from customer
+		where user_name=#{value}
+	</select>
+
+
 	<select id="customerPageList" resultType="com.domain.customers.Customer">
 		select * from customer
 		<where>

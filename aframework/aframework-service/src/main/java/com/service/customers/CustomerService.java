@@ -50,7 +50,7 @@ import com.repository.customers.ICustomerRepository;
  * @Description CustomerService
  * @author Alvis
  * @Date Jul 18, 2017 4:32:37 PM
- * @version 1.0.0 
+ * @version 1.0.0
  */
 @Service("ICustomerService")
 public class CustomerService implements ICustomerService {
@@ -58,14 +58,22 @@ public class CustomerService implements ICustomerService {
     @Autowired
     private ICustomerRepository customerRepository;
 
+    @Override
     public List<Customer> getCustomers() {
         return customerRepository.getAllCustomer();
     }
 
+    @Override
     public Customer getCustomerById(Integer id) {
         return customerRepository.getCustomerById(id);
     }
 
+    @Override
+    public Customer getCustomerByUserName(String username) {
+        return customerRepository.getCustomerByUserName(username);
+    }
+
+    @Override
     public List<Customer> customerPageList(String name, Integer pageIndex, Integer pageSize) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("name", name);
@@ -74,12 +82,14 @@ public class CustomerService implements ICustomerService {
         return customerRepository.customerPageList(map);
     }
 
+    @Override
     public Integer customerPageCount(String name) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("name", name);
         return customerRepository.customerPageCount(map);
     }
 
+    @Override
     public void insertCustomer(Customer customer) {
         customerRepository.insertCustomer(customer);
     }
@@ -90,10 +100,12 @@ public class CustomerService implements ICustomerService {
         // throw new RuntimeException("test");//抛出unchecked异常，触发事物，回滚
     }
 
+    @Override
     public void updateCustomer(Customer customer) {
         customerRepository.updateCustomer(customer);
     }
 
+    @Override
     public void updateCustomersAge(Integer age, List<Integer> ids) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("idslist", ids);
@@ -101,6 +113,7 @@ public class CustomerService implements ICustomerService {
         customerRepository.updateCustomersAge(map);
     }
 
+    @Override
     public void deleteCutomerByIds(List<Integer> ids) {
         customerRepository.deleteCutomerByIds(ids);
     }

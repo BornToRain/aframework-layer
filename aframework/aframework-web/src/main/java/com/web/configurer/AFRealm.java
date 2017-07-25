@@ -36,11 +36,15 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+
+import com.service.authentication.IAuthenticationService;
 
 /** 
 * @author 
@@ -57,21 +61,21 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AFRealm extends AuthorizingRealm {
 
+    @Autowired
+    private IAuthenticationService authenticationService;
+
     // 用于认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
-        // 1.从token取出用户身份信息
-        String userCode = (String) token.getPrincipal();
-
-        // 2.根据用户userCode查询数据库
-        // 模拟从数据库查询到的密码
-        String password = "123";
-
-        // 3.查询到返回认证信息
-        String realname = this.getName();
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(userCode, password, getName());
-
+        UsernamePasswordToken upToken = (UsernamePasswordToken) token;
+        String username = upToken.getUsername();
+        String password = String.valueOf(upToken.getPassword());
+        boolean isAuth = authenticationService.authUser(username, password);
+        if (!isAuth) {
+            throw new AuthenticationException(username + "invalidate");
+        }
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(username, password, getName());
         return info;
     }
 
