@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.taskscheduler;
+package com.core.taskscheduler;
 
 import java.time.LocalDateTime;
 

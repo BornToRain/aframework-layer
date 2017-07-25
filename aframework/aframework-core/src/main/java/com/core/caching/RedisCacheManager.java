@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.caching;
+package com.core.caching;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

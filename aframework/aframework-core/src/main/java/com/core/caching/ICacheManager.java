@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.caching;
+package com.core.caching;
 
 /** 
 * @author 

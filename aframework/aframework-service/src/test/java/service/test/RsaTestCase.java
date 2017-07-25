@@ -33,7 +33,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.security.IEncryptionService;
+import com.core.security.IEncryptionService;
 
 import service.testbase.BaseTestCase;
 
@@ -60,7 +60,7 @@ public class RsaTestCase extends BaseTestCase {
 
     @Test
     public void rsaEncode() {
-        String str = encryptionService.rsaEncode(publicKey, "唔好飞机");
+        String str = encryptionService.rsaEncode(publicKey, "alvis");
 
         str = encryptionService.rsaDecode(privateKey, str);
 

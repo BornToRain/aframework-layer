@@ -12,11 +12,5 @@
 	<context:property-placeholder
 		location="classpath*:/data/testbase/database.properties" />
 	<import resource="classpath:spring-core.xml" />
-	<import resource="classpath:spring-redis.xml" />
-	<import resource="classpath:spring-jdbc.xml" />
-	
-	
-	<context:component-scan base-package="com.jdbcrepository"></context:component-scan>
-
-
+	<import resource="classpath:spring-data.xml" />
 </beans>

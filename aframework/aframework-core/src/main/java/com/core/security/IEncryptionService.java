@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.security;
+package com.core.security;
 
 /** 
 * @author 

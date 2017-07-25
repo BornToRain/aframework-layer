@@ -42,7 +42,7 @@ import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 
-import com.caching.ICacheManager;
+import com.core.caching.ICacheManager;
 import com.domain.customers.Customer;
 import com.jdbcrepository.customers.ICustomerSqlRepository;
 import com.service.customers.ICustomerService;
