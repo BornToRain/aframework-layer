@@ -49,7 +49,7 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.repository" />
 	</bean>
-
+ 
 	<!-- 开启事务控制的注解支持 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
