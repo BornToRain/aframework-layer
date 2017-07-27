@@ -1,15 +1,19 @@
 package com.controllers.font;
 
+import java.sql.Timestamp;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.domain.customers.Customer;
+import com.service.authentication.IAuthenticationService;
 import com.service.customers.ICustomerService;
 
 /**
@@ -25,6 +29,9 @@ public class CustomerController extends BaseFontController {
 
     @Autowired
     private ICustomerService customerService;
+
+    @Autowired
+    private IAuthenticationService authenticationService;
 
     @RequestMapping("/login")
     public String Login() {
@@ -62,9 +69,25 @@ public class CustomerController extends BaseFontController {
         // System.out.println("基于资源的授权: " + permitted);
 
     }
-    
-    
-    
+
+    @RequestMapping("/register")
+    public String Register() {
+        return prefView + "/customer/register";
+    }
+
+    @PostMapping("/registerPost")
+    public String RegisterPost(String username, String password) {
+
+        Customer customer = new Customer();
+        String encodePwd = authenticationService.pwdEncode(password);
+        customer.setPassword(encodePwd);
+        customer.setUser_name(username);
+        customer.setName(username);
+        customer.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
+        customerService.insertCustomer(customer);
+        return "redirect:/admin/customer/index";
+    }
+
     @RequestMapping("/loginout")
     public String Loginout() {
         Subject currentUser = SecurityUtils.getSubject();

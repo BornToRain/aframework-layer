@@ -49,6 +49,9 @@ import com.service.customers.ICustomerService;
  */
 public interface IAuthenticationService {
 
-    boolean  authUser(String username,String password);
+    boolean authUser(String username, String password);
 
+    String pwdEncode(String password);
+
+    String pwdDecode(String endodePwd);
 }

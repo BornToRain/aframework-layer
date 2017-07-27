@@ -13,7 +13,7 @@
 
 	<%@ include file="/WEB-INF/front/views/layout/header.jsp"%>
 
-	<form action="LoginPost" method="post">
+	<form action="RegisterPost" method="post">
 		<p>
 			<label for="username">Username</label> <input id=username
 				name="username" type="text" />
@@ -22,11 +22,10 @@
 			<label for="password">Password</label> <input id="password"
 				name="password" type="password" />
 		</p>
-		<input type="submit" value="Login" />
+		<input type="submit" value="Register" />
 	</form>
-	
-	<a href="register">Register</a>
-
+ 
+ <a href="login">Login</a>
 	<%@ include file="/WEB-INF/front/views/layout/footer.jsp"%>
 
 </body>

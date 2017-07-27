@@ -15,7 +15,8 @@
 	</select>
 
 	<select id="getCustomerByUserName" resultType="com.domain.customers.Customer">
-		select * from customer
+		select * from
+		customer
 		where user_name=#{value}
 	</select>
 
@@ -45,20 +46,20 @@
 	<insert id="insertCustomer" parameterType="com.domain.customers.Customer"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into customer
-		(`name`,`age`, `last_active_time`)
+		(`user_name`,`password`,`name`,`age`, `last_active_time`)
 		values
-		(#{name},#{age},
-		#{lastActiveTime})
+		(#{user_name},#{password},#{name},#{age},#{lastActiveTime})
 	</insert>
 
 	<insert id="insertCustomers" parameterType="java.util.List"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into customer
-		(`name`,`age`,`last_active_time`)
+		(`user_name`,`password`,`name`,`age`,`last_active_time`)
 		values
 		<foreach collection="list" item="item" index="index"
 			separator=",">
-			(#{item.name}, #{item.age}, #{item.lastActiveTime})
+			(#{item.user_name},#{item.password},#{item.name},#{item.age},
+			#{item.lastActiveTime})
 		</foreach>
 	</insert>
 
