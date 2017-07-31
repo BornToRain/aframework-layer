@@ -61,9 +61,7 @@ public class RsaTestCase extends BaseTestCase {
     @Test
     public void rsaEncode() {
         String str = encryptionService.rsaEncode(publicKey, "alvis");
-
         str = encryptionService.rsaDecode(privateKey, str);
-
-        Assert.assertNotNull(str);
+        Assert.assertEquals("alvis", str);
     }
 }

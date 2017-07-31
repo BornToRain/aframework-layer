@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
@@ -40,9 +41,10 @@ public class HomeController extends BaseAdminController {
             throws IOException {
         if (files.length != 0) {
             for (CommonsMultipartFile file : files) {
-                String path = request.getSession().getServletContext()
-                        .getRealPath("/Upload/" + file.getOriginalFilename());
-                File destFile = new File(path);
+        	String relatePath="/Upload/" + file.getOriginalFilename();
+        	ServletContext context= request.getSession().getServletContext();
+        	String phyPath=context.getRealPath(relatePath);
+                File destFile = new File(phyPath);
                 InputStream in = file.getInputStream();
                 FileUtils.copyInputStreamToFile(in, destFile);
             }
