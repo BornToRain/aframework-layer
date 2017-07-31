@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 172.16.2.86
-Source Server Version : 50636
-Source Host           : 172.16.2.86:3306
+Source Server         : 192.168.0.118
+Source Server Version : 50637
+Source Host           : 192.168.0.118:3306
 Source Database       : AFData
 
 Target Server Type    : MYSQL
-Target Server Version : 50636
+Target Server Version : 50637
 File Encoding         : 65001
 
-Date: 2017-07-10 15:51:18
+Date: 2017-07-31 19:33:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,26 +21,18 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `last_active_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES ('79', 'alvis0', '99', '2017-07-06 09:57:01');
-INSERT INTO `customer` VALUES ('83', 'alvis0', '10', null);
-INSERT INTO `customer` VALUES ('84', 'alvis1', '11', null);
-INSERT INTO `customer` VALUES ('85', 'alvis0', '10', '2017-07-06 11:29:09');
-INSERT INTO `customer` VALUES ('86', 'alvis1', '11', '2017-07-06 11:29:09');
-INSERT INTO `customer` VALUES ('87', 'alvis0', '10', '2017-07-06 11:29:53');
-INSERT INTO `customer` VALUES ('88', 'alvis1', '11', '2017-07-06 11:29:53');
-INSERT INTO `customer` VALUES ('89', 'alvis0', '10', '2017-07-06 11:30:09');
-INSERT INTO `customer` VALUES ('90', 'alvis1', '11', '2017-07-06 11:30:09');
-INSERT INTO `customer` VALUES ('91', 'alvis0', '10', '2017-07-10 15:50:40');
-INSERT INTO `customer` VALUES ('92', 'alvis1', '11', '2017-07-10 15:50:40');
+INSERT INTO `customer` VALUES ('93', 'alvis', 'Saq/Dbqa6g1pOXhcR4zG0GDOy+x/q6DR+ngm+FTiq+RNHNKmTUT3nqp39SPoXh4zbR5TCupXBp/n1zvB12S5r4bKYZLApRGVNpjILjkUSckgRGrD6WrkNKxSHCI6/TuyXWJkeTyimsV01TgqZNXgDtTqM9YofhRGf+2X3flh4xs=', 'alvis', null, '2017-07-31 19:32:34');
 
 -- ----------------------------
 -- Table structure for role
