@@ -13,7 +13,7 @@
 
 	<%@ include file="/WEB-INF/front/views/layout/header.jsp"%>
 
-	<form action="LoginPost" method="post">
+	<form action="loginPost" method="post">
 		<p>
 			<label for="username">Username</label> <input id=username
 				name="username" type="text" />

@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/home")
 public class HomeController extends BaseFontController {
 
-	@RequestMapping("/index")
-	public String Index() {
-		return prefView + "/home/index";
-	}
+    @RequestMapping("/index")
+    public String Index() {
+        return prefView + "/home/index";
+    }
+
+
 
 }
