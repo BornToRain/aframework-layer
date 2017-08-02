@@ -41,7 +41,7 @@ public class HomeController extends BaseAdminController {
             throws IOException {
         if (files.length != 0) {
             for (CommonsMultipartFile file : files) {
-        	String relatePath="/Upload/" + file.getOriginalFilename();
+        	String relatePath="/upload/" + file.getOriginalFilename();
         	ServletContext context= request.getSession().getServletContext();
         	String phyPath=context.getRealPath(relatePath);
                 File destFile = new File(phyPath);
