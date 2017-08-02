@@ -56,7 +56,7 @@ public class HomeController extends BaseAdminController {
                 FileUtils.copyInputStreamToFile(in, destFile);
             }
         }
-        return "redirect:/home/index";
+        return "redirect:/admin/home/index";
     }
 
 }
