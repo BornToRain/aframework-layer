@@ -93,7 +93,7 @@ public class CustomerService implements ICustomerService {
     @Transactional
     public void insertCustomer(Customer customer) {
         customerRepository.insertCustomer(customer);
-        throw new RuntimeException("test");
+        //throw new RuntimeException("test");
     }
 
     @Transactional
