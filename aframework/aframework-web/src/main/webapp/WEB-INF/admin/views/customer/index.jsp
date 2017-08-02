@@ -12,7 +12,7 @@
 <%@ include file="/WEB-INF/common/htmlheader.jsp"%>
 
 <script type="text/javascript"
-	src="${ctx}/Content/scripts/pages/customer-home.js"></script>
+	src="${ctx}/content/scripts/pages/customer-home.js"></script>
 
 <script type="text/javascript">
 	$(function() {
