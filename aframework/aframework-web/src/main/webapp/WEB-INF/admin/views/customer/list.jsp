@@ -15,9 +15,11 @@
 
 
 <body>
-	<h1>Admin-Cutomer_List</h1>
 
-	<div>--------------------tableNoAjax-------------------------------</div>
+
+
+	<%@ include file="/WEB-INF/admin/views/layout/header.jsp"%>
+
 	<table id="tableNoAjaxContain">
 		<tr>
 			<th>Id</th>
@@ -34,6 +36,8 @@
 			</tr>
 		</c:forEach>
 	</table>
+
+	<%@ include file="/WEB-INF/admin/views/layout/footer.jsp"%>
 
 </body>
 </html>

@@ -47,7 +47,7 @@ public class CustomerController extends BaseFontController {
             currentUser.login(token);
             Customer customer = customerService.getCustomerByUserName(username);
             currentUser.getSession().setAttribute("customer", customer);
-            return "redirect:/admin/customer/index";
+            return "redirect:/admin/home/index";
             // return "redirect:/Home/Index";
         } catch (AuthenticationException e) {
             e.printStackTrace();
@@ -85,7 +85,7 @@ public class CustomerController extends BaseFontController {
         customer.setName(username);
         customer.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
         customerService.insertCustomer(customer);
-        return "redirect:/admin/customer/index";
+        return prefView + "/customer/login";
     }
 
     @RequestMapping("/loginout")

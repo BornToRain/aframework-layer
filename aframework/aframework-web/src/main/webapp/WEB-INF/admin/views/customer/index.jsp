@@ -23,7 +23,6 @@
 </head>
 
 <body>
-	<h1>Admin-Cutomer_Index</h1>
 
 
 	<%@ include file="/WEB-INF/admin/views/layout/header.jsp"%>
