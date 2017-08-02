@@ -44,12 +44,6 @@ public class CustomerController extends BaseAdminController {
     @ResponseBody
     public PagerModel<Customer> PageList(@RequestParam(required = false, defaultValue = "1") Integer pageIndex,
             String name, Integer age) {
-	try {
-	     customerService.customerPageCount(name);
-	} catch (Exception e) {
-	  throw e;
-	}
-	
         PagerModel<Customer> pm = new PagerModel<Customer>();
         Integer itemCount = customerService.customerPageCount(name);
         List<Customer> customers = customerService.customerPageList(name, pageIndex - 1, pageSize);
