@@ -93,7 +93,7 @@ public class CustomerTestCase extends BaseTestCase {
     
     @Test
     public void authUser() {
-       boolean isAuth= authenticationService.authUser("alvis", "123456");
+       boolean isAuth= authenticationService.authUser("alvis", "1234567");
        Assert.assertEquals(isAuth, true);
     }
 
