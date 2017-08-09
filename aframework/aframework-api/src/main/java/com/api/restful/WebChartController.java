@@ -67,4 +67,9 @@ public class WebChartController {
     }
 
 
+    @PostMapping("/a")
+    public CustomerResult GetAllCustomera() {
+        throw new RuntimeException("ddd");
+    }
+
 }

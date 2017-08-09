@@ -10,9 +10,11 @@
 package com.web.configurer;
 
 
+import com.api.model.BaseApiResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -29,11 +31,12 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 @ControllerAdvice
+@Controller
 public class AfExceptionHandler {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-/*    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(Exception.class)
     public ModelAndView AfException(HttpServletRequest req, Exception e) {
         String contentType = req.getContentType();
         logger.error(e.getMessage());
@@ -47,7 +50,7 @@ public class AfExceptionHandler {
         } else {
             return new ModelAndView("redirect:/error");
         }
-    }*/
+    }
 
 
 }
