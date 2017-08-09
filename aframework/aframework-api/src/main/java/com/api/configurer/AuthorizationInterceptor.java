@@ -29,7 +29,8 @@ import java.lang.reflect.Method;
 
 @Component
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
-
+    public static final String AccessToken = "access_token";
+    public static final String UserKey = "user_key";
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
@@ -39,12 +40,12 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
 
-        String authorization = request.getHeader(ApiConstant.AccessToken);
+        String authorization = request.getHeader(AccessToken);
         //验证token
         if (false) {
             //如果token验证成功，将token对应的用户id存在request中，便于之后注入
             Customer customer = new Customer();
-            request.setAttribute(ApiConstant.UserKey, customer);
+            request.setAttribute(UserKey, customer);
             return true;
         }
         //如果验证token失败，并且方法注明了Authorization，返回401错误

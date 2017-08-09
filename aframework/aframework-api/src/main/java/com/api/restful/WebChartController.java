@@ -70,7 +70,7 @@ public class WebChartController {
         CustomerResult customerResult = new CustomerResult(1);
         List<Customer> customers = customerService.getCustomers();
         customerResult.setCustomerList(customers);
-        Customer user = (Customer) request.getAttribute(ApiConstant.UserKey);
+
         return customerResult;
     }
 
