@@ -1,10 +1,8 @@
 package com.controllers.admin;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.controllers.viewmodel.PagerModel;
+import com.models.viewmodel.PagerModel;
 import com.domain.customers.Customer;
 import com.service.customers.ICustomerService;
 
@@ -43,7 +41,7 @@ public class CustomerController extends BaseAdminController {
     @PostMapping("/page")
     @ResponseBody
     public PagerModel<Customer> PageList(@RequestParam(required = false, defaultValue = "1") Integer pageIndex,
-            String name, Integer age) {
+                                         String name, Integer age) {
         PagerModel<Customer> pm = new PagerModel<Customer>();
         Integer itemCount = customerService.customerPageCount(name);
         List<Customer> customers = customerService.customerPageList(name, pageIndex - 1, pageSize);
