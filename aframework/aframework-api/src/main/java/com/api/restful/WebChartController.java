@@ -33,6 +33,8 @@ import java.util.List;
 import java.util.Map;
 
 
+import com.api.configurer.ApiConstant;
+import com.api.configurer.Authorization;
 import com.api.model.CustomerResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +43,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.domain.customers.Customer;
 import com.service.customers.ICustomerService;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -57,19 +61,18 @@ public class WebChartController {
     @Autowired
     private ICustomerService customerService;
 
+    @Autowired
+    HttpServletRequest request;
 
+    @Authorization
     @PostMapping("/list")
     public CustomerResult GetAllCustomer(Integer age) {
         CustomerResult customerResult = new CustomerResult(1);
         List<Customer> customers = customerService.getCustomers();
         customerResult.setCustomerList(customers);
+        Customer user = (Customer) request.getAttribute(ApiConstant.UserKey);
         return customerResult;
     }
 
-
-    @PostMapping("/a")
-    public CustomerResult GetAllCustomera() {
-        throw new RuntimeException("ddd");
-    }
 
 }

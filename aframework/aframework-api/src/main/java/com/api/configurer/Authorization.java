@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package com.web.configurer;
+package com.api.configurer;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
