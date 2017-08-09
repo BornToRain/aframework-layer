@@ -17,11 +17,11 @@ import com.service.authentication.IAuthenticationService;
 import com.service.customers.ICustomerService;
 
 /**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName CustomerController
  * @Description CustomerController
- * @author Alvis
  * @Date Jul 6, 2017 4:12:42 PM
- * @version 1.0.0
  */
 @Controller("FCustomerController")
 @RequestMapping("/customer")
@@ -94,5 +94,6 @@ public class CustomerController extends BaseFontController {
         currentUser.logout();
         return prefView + "/customer/login";
     }
+
 
 }

@@ -28,8 +28,6 @@ import com.service.customers.ICustomerService;
 @RequestMapping("/admin/customer")
 public class CustomerController extends BaseAdminController {
 
-    private Logger logger = LoggerFactory.getLogger(getClass());
-
     @Autowired
     private ICustomerService customerService;
 

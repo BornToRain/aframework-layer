@@ -58,14 +58,12 @@ public class WebChartController {
 
 
     @PostMapping("/list")
-    public CustomerResult GetAllCustomer (Integer age) throws RuntimeException {
+    public CustomerResult GetAllCustomer(Integer age) {
         CustomerResult customerResult = new CustomerResult(1);
         List<Customer> customers = customerService.getCustomers();
         customerResult.setCustomerList(customers);
         return customerResult;
     }
-
-
 
 
 }
