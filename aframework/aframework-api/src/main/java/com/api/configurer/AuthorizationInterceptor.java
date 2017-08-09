@@ -10,8 +10,10 @@
 package com.api.configurer;
 
 import com.api.model.BaseApiResult;
+import com.core.utility.IWorkContext;
 import com.domain.customers.Customer;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -30,7 +32,10 @@ import java.lang.reflect.Method;
 @Component
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     public static final String AccessToken = "access_token";
-    public static final String UserKey = "user_key";
+
+    @Autowired
+    private IWorkContext workContext;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
@@ -45,7 +50,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         if (false) {
             //如果token验证成功，将token对应的用户id存在request中，便于之后注入
             Customer customer = new Customer();
-            request.setAttribute(UserKey, customer);
+            workContext.SetCurrentUser(customer);
             return true;
         }
         //如果验证token失败，并且方法注明了Authorization，返回401错误
