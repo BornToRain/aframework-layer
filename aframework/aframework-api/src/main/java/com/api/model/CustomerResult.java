@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package com.models.apimodel;
+package com.api.model;
 
 import com.domain.customers.Customer;
 

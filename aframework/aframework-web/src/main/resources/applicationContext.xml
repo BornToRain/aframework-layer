@@ -12,7 +12,7 @@
 	<import resource="classpath:spring-data.xml" />
 	<import resource="classpath:spring-service.xml" />
 	<import resource="classpath:spring-mvc.xml" />
-
+	<import resource="classpath:spring-api.xml" />
 	<import resource="classpath:shiro-config.xml" />
 
 

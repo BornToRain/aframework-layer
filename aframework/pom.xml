@@ -65,12 +65,13 @@
 
 
 	<modules>
+		<module>aframework-api</module>
 		<module>aframework-web</module>
 		<module>aframework-service</module>
 		<module>aframework-domain</module>
 		<module>aframework-data</module>
 		<module>aframework-core</module>
-	</modules>
+    </modules>
 
 	<dependencies>
 

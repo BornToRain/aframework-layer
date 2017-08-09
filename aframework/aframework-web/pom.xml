@@ -28,6 +28,11 @@
 			<artifactId>aframework-core</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.aframework.api</groupId>
+			<artifactId>aframework-api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 
 
