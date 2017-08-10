@@ -67,9 +67,6 @@ public class AfAuthorizingRealm extends AuthorizingRealm {
     @Autowired
     private IAuthenticationService authenticationService;
 
-    @Autowired
-    private IWorkContext workContext;
-
 
     // 用于认证
     @Override
