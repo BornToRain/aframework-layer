@@ -11,6 +11,8 @@ package com.core.utility;
 
 import com.domain.users.User;
 
+import javax.servlet.ServletRequest;
+
 /**
  * @author :  dell
  * @Description :  TODO
@@ -20,5 +22,7 @@ public interface IWorkContext {
 
     void setCurrentUser(User user);
 
-    User GetCurrentUser();
+    void setCurrentUser(User user, ServletRequest request);
+
+    User getCurrentUser();
 }

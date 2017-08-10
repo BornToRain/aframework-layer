@@ -70,7 +70,7 @@ public class WebChartController {
     @PostMapping("/list")
     @Authorization
     public UserResult GetAllUser(Integer age) {
-        User user = workContext.GetCurrentUser();
+        User user = workContext.getCurrentUser();
         UserResult customerResult = new UserResult(1);
         List<User> customers = customerService.getUsers();
         customerResult.setUserList(customers);
@@ -80,7 +80,7 @@ public class WebChartController {
     @PostMapping("/test")
     @Authorization
     public BaseApiResult Test() {
-        User user = workContext.GetCurrentUser();
+        User user = workContext.getCurrentUser();
         BaseApiResult result = new BaseApiResult(1, "OK");
         return result;
     }

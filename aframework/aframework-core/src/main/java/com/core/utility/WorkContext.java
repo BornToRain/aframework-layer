@@ -13,6 +13,7 @@ import com.domain.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -35,7 +36,13 @@ public class WorkContext implements IWorkContext {
     }
 
     @Override
-    public User GetCurrentUser() {
+    public void setCurrentUser(User user, ServletRequest request) {
+        request.setAttribute(UserKey, user);
+    }
+
+
+    @Override
+    public User getCurrentUser() {
         User user = (User) request.getAttribute(UserKey);
         return user;
     }

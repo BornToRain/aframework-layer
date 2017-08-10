@@ -21,11 +21,11 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import com.core.utility.IWebHelper;
 
 /**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName HomeController
  * @Description
- * @author Alvis
  * @Date Jul 6, 2017 4:11:42 PM
- * @version 1.0.0
  */
 @Controller("AHomeController")
 @RequestMapping("/admin/home")
@@ -37,11 +37,12 @@ public class HomeController extends BaseAdminController {
     @Autowired
     private HttpServletRequest request;
 
-
+    @Autowired
+    private IWorkContext context;
 
     @RequestMapping("/index")
     public String Index() {
-
+        User user = context.getCurrentUser();
         return prefView + "/home/index";
     }
 

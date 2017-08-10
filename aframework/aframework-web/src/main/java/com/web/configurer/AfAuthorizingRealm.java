@@ -34,7 +34,6 @@ import java.util.List;
 
 import com.core.utility.IWorkContext;
 import com.domain.users.User;
-import com.service.users.IUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -48,8 +47,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import com.service.authentication.IAuthenticationService;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author
@@ -71,10 +68,8 @@ public class AfAuthorizingRealm extends AuthorizingRealm {
     private IAuthenticationService authenticationService;
 
     @Autowired
-    private IUserService userService;
+    private IWorkContext workContext;
 
-    @Autowired
-    HttpServletRequest request;
 
     // 用于认证
     @Override
@@ -96,7 +91,7 @@ public class AfAuthorizingRealm extends AuthorizingRealm {
 
         // 获取主身份信息
         String userName = (String) principals.getPrimaryPrincipal();
-        User user = userService.getUserByUserName(userName);
+
 
         // 将查询到授权信息填充到对象中
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
@@ -112,4 +107,6 @@ public class AfAuthorizingRealm extends AuthorizingRealm {
 
         return info;
     }
+
+
 }
