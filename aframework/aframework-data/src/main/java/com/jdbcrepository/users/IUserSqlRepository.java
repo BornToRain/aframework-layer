@@ -5,11 +5,11 @@
  *    Copyright (c) 2001-2017 Alvis.Yu Co.,Ltd
  *    http://yu.alvis.com/
  *
- *    Package:     com.jdbcrepository.customers
+ *    Package:     com.jdbcrepository.users
  *
- *    Filename:    ICustomerSqlRepository.java
+ *    Filename:    IUserSqlRepository.java
  *
- *    Description: ICustomerSqlRepository
+ *    Description: IUserSqlRepository
  *
  *    Copyright:   Copyright (c) 2001-2017
  *
@@ -27,12 +27,12 @@
  *        - first revision
  *
  *****************************************************************/
-package com.jdbcrepository.customers;
+package com.jdbcrepository.users;
 
 import java.util.List;
 import java.util.Map;
 
-import com.domain.customers.Customer;
+import com.domain.users.User;
 
 /** 
 * @author 
@@ -40,28 +40,28 @@ import com.domain.customers.Customer;
 * 类说明 
 */
 /**
- * @ClassName ICustomerSqlRepository
- * @Description ICustomerSqlRepository
+ * @ClassName IUserSqlRepository
+ * @Description IUserSqlRepository
  * @author Alvis
  * @Date Jul 18, 2017 3:59:53 PM
  * @version 1.0.0
  */
-public interface ICustomerSqlRepository {
+public interface IUserSqlRepository {
 
-    List<Customer> getAllCustomer();
+    List<User> getAllUser();
 
-    Integer getAllCustomerCount();
+    Integer getAllUserCount();
 
-    Customer getCustomerById(Integer id);
+    User getUserById(Integer id);
 
-    List<Customer> customerPageList(Map<String, Object> map);
+    List<User> UserPageList(Map<String, Object> map);
 
-    void insertCustomer(Customer customer);
+    void insertUser(User User);
 
-    void insertCustomers(List<Customer> customers);
+    void insertUsers(List<User> Users);
 
-    void updateCustomer(Customer customer);
+    void updateUser(User User);
 
-    void deleteCutomerById(Integer id);
+    void deleteUserById(Integer id);
 
 }

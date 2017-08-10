@@ -1,4 +1,4 @@
-var CustomerHome = function() {
+var UserHome = function() {
 
 	function talbeRender(data) {
 		var renderitems = "";
@@ -21,7 +21,7 @@ var CustomerHome = function() {
 	}
 
 	function dataPost(postdata) {
-		$.post(ctx + "/admin/customer/page", postdata, function(response) {
+		$.post(ctx + "/admin/user/page", postdata, function(response) {
 			talbeRender(response);
 			if (response.pageCount != 0) {
 				var options = {

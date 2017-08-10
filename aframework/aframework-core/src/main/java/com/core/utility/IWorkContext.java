@@ -9,7 +9,7 @@
  */
 package com.core.utility;
 
-import com.domain.customers.Customer;
+import com.domain.users.User;
 
 /**
  * @author :  dell
@@ -18,7 +18,7 @@ import com.domain.customers.Customer;
  */
 public interface IWorkContext {
 
-    void SetCurrentUser(Customer customer);
+    void SetCurrentUser(User customer);
 
-    Customer GetCurrentUser();
+    User GetCurrentUser();
 }

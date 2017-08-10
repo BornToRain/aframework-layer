@@ -9,7 +9,7 @@
 		<a href="${ctx}/admin/home/index">Home Pager</a>
 	</div>
 	<div style="width:400px;float:left;height:100px;">
-		<a href="${ctx}/customer/loginout">登出</a>
+		<a href="${ctx}/user/loginout">登出</a>
 	</div>
 </div>
 

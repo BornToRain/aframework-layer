@@ -9,7 +9,7 @@
  */
 package com.api.model;
 
-import com.domain.customers.Customer;
+import com.domain.users.User;
 
 import java.util.List;
 
@@ -18,21 +18,21 @@ import java.util.List;
  * @Description :  TODO
  * @Creation Date:  2017-08-09 10:55 AM
  */
-public class CustomerResult extends BaseApiResult {
-    public CustomerResult() {
+public class UserResult extends BaseApiResult {
+    public UserResult() {
     }
 
-    public CustomerResult(int code) {
+    public UserResult(int code) {
         super(code);
     }
 
-    private List<Customer> customerList;
+    private List<User> userList;
 
-    public List<Customer> getCustomerList() {
-        return customerList;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setCustomerList(List<Customer> customerList) {
-        this.customerList = customerList;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 }

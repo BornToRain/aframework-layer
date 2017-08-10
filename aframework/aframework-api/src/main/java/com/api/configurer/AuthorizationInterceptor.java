@@ -11,7 +11,7 @@ package com.api.configurer;
 
 import com.api.model.BaseApiResult;
 import com.core.utility.IWorkContext;
-import com.domain.customers.Customer;
+import com.domain.users.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -49,7 +49,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         //验证token
         if (false) {
             //如果token验证成功，将token对应的用户id存在request中，便于之后注入
-            Customer customer = new Customer();
+            User customer = new User();
             workContext.SetCurrentUser(customer);
             return true;
         }

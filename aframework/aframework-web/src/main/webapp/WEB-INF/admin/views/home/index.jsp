@@ -21,11 +21,11 @@
 		</tr>
 		<tr>
 			<td>ajax page</td>
-			<td><a href="${ctx}/admin/customer/index">ajax page</a></td>
+			<td><a href="${ctx}/admin/user/index">ajax page</a></td>
 		</tr>
 		<tr>
 			<td>list</td>
-			<td><a href="${ctx}/admin/customer/list">list</a></td>
+			<td><a href="${ctx}/admin/user/list">list</a></td>
 		</tr>
 		<tr>
 			<td>fileload</td>

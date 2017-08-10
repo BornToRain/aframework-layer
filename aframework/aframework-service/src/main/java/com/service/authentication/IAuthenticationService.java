@@ -29,13 +29,7 @@
  *****************************************************************/
 package com.service.authentication;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.domain.customers.Customer;
-import com.repository.customers.ICustomerRepository;
-import com.service.customers.ICustomerService;
-
-/** 
+/**
 * @author 
 * @version 创建时间：Jul 25, 2017 2:14:22 PM 
 * 类说明 

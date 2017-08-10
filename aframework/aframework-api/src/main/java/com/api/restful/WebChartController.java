@@ -30,19 +30,17 @@
 package com.api.restful;
 
 import java.util.List;
-import java.util.Map;
 
 
-import com.api.configurer.ApiConstant;
 import com.api.configurer.Authorization;
-import com.api.model.CustomerResult;
+import com.api.model.UserResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.domain.customers.Customer;
-import com.service.customers.ICustomerService;
+import com.domain.users.User;
+import com.service.users.IUserService;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -59,17 +57,17 @@ import javax.servlet.http.HttpServletRequest;
 public class WebChartController {
 
     @Autowired
-    private ICustomerService customerService;
+    private IUserService customerService;
 
     @Autowired
     HttpServletRequest request;
 
     @Authorization
     @PostMapping("/list")
-    public CustomerResult GetAllCustomer(Integer age) {
-        CustomerResult customerResult = new CustomerResult(1);
-        List<Customer> customers = customerService.getCustomers();
-        customerResult.setCustomerList(customers);
+    public UserResult GetAllUser(Integer age) {
+        UserResult customerResult = new UserResult(1);
+        List<User> customers = customerService.getUsers();
+        customerResult.setUserList(customers);
 
         return customerResult;
     }

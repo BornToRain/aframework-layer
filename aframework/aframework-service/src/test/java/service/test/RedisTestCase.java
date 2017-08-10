@@ -29,23 +29,13 @@
  *****************************************************************/
 package service.test;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.redis.core.BoundHashOperations;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 
 import com.core.caching.ICacheManager;
-import com.domain.customers.Customer;
-import com.jdbcrepository.customers.ICustomerSqlRepository;
-import com.service.customers.ICustomerService;
+import com.domain.users.User;
+import com.service.users.IUserService;
 
 import service.testbase.BaseTestCase;
 
@@ -64,7 +54,7 @@ import service.testbase.BaseTestCase;
 public class RedisTestCase extends BaseTestCase {
 
     @Autowired
-    private ICustomerService customerService;
+    private IUserService userService;
 
     // inject the ICacheManager
     @Autowired
@@ -73,16 +63,16 @@ public class RedisTestCase extends BaseTestCase {
     @Test
     public void RedisTest() {
         /*
-         * Customer customer = customerService.getCustomerById(91); String key = "user"; cacheManager.Set(key,
-         * customer); Customer customer2 = cacheManager.Get(key); cacheManager.Remove(key); customer2 =
-         * cacheManager.Get(key); Assert.assertNotNull(customer2);
+         * User user = userService.getUserById(91); String key = "user"; cacheManager.Set(key,
+         * user); User user2 = cacheManager.Get(key); cacheManager.Remove(key); user2 =
+         * cacheManager.Get(key); Assert.assertNotNull(user2);
          */
         
-        Customer customer = customerService.getCustomerById(91);
-        //cacheManager.Set(customer.getName(), customer.getName());
-        String cname = cacheManager.Get(customer.getName());
-        Assert.assertEquals(customer.getName(),cname);
-        cacheManager.Remove(customer.getName());
+        User user = userService.getUserById(91);
+        //cacheManager.Set(user.getName(), user.getName());
+        String cname = cacheManager.Get(user.getName());
+        Assert.assertEquals(user.getName(),cname);
+        cacheManager.Remove(user.getName());
     
     }
 

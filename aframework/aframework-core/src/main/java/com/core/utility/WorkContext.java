@@ -9,10 +9,9 @@
  */
 package com.core.utility;
 
-import com.domain.customers.Customer;
+import com.domain.users.User;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -26,15 +25,15 @@ public class WorkContext implements IWorkContext {
     public static final String UserKey = "user_key";
 
     @Override
-    public void SetCurrentUser(Customer customer) {
+    public void SetCurrentUser(User customer) {
         HttpServletRequest request = AfSpringContext.getBean(HttpServletRequest.class);
         request.setAttribute(UserKey, customer);
     }
 
     @Override
-    public Customer GetCurrentUser() {
+    public User GetCurrentUser() {
         HttpServletRequest request = AfSpringContext.getBean(HttpServletRequest.class);
-        Customer customer = (Customer) request.getAttribute(UserKey);
+        User customer = (User) request.getAttribute(UserKey);
         return customer;
     }
 }
