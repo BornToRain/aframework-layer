@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Jul 18, 2017 4:54:32 PM
  *
@@ -32,6 +32,9 @@ package com.web.configurer;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.core.utility.IWorkContext;
+import com.domain.users.User;
+import com.service.users.IUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -46,23 +49,35 @@ import org.springframework.context.annotation.Configuration;
 
 import com.service.authentication.IAuthenticationService;
 
-/** 
-* @author 
-* @version 创建时间：Jul 18, 2017 4:54:32 PM 
-* 类说明 
-*/
+import javax.servlet.http.HttpServletRequest;
+
 /**
+ * @author
+ * @version 创建时间：Jul 18, 2017 4:54:32 PM
+ * 类说明
+ */
+
+/**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName AFRealm
  * @Description AFRealm
- * @author Alvis
  * @Date Jul 18, 2017 4:54:32 PM
- * @version 1.0.0
  */
 @Configuration
 public class AFRealm extends AuthorizingRealm {
 
     @Autowired
     private IAuthenticationService authenticationService;
+
+    @Autowired
+    private IWorkContext workContext;
+
+    @Autowired
+    private IUserService userService;
+
+    @Autowired
+    HttpServletRequest request;
 
     // 用于认证
     @Override
@@ -84,7 +99,7 @@ public class AFRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 
         // 获取主身份信息
-        // String userCode = (String)principals.getPrimaryPrincipal();
+        String userName = (String) principals.getPrimaryPrincipal();
 
         // 将查询到授权信息填充到对象中
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();

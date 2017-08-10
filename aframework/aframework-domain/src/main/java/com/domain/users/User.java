@@ -123,6 +123,13 @@ public class User extends BaseEntity {
     
     private String password;
     
-    
-    
+    private String uuid;
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
 }

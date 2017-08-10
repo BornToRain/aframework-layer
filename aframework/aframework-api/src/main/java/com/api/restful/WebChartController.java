@@ -34,6 +34,8 @@ import java.util.List;
 
 import com.api.configurer.Authorization;
 import com.api.model.UserResult;
+import com.core.utility.AfSpringContext;
+import com.core.utility.IWorkContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +43,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.domain.users.User;
 import com.service.users.IUserService;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -58,17 +65,18 @@ public class WebChartController {
 
     @Autowired
     private IUserService customerService;
-
     @Autowired
-    HttpServletRequest request;
+    private HttpServletRequest request;
+    @Autowired
+    private IWorkContext workContext;
 
     @Authorization
     @PostMapping("/list")
     public UserResult GetAllUser(Integer age) {
+        User user = workContext.GetCurrentUser();
         UserResult customerResult = new UserResult(1);
         List<User> customers = customerService.getUsers();
         customerResult.setUserList(customers);
-
         return customerResult;
     }
 

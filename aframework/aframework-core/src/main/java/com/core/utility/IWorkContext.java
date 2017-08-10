@@ -18,7 +18,7 @@ import com.domain.users.User;
  */
 public interface IWorkContext {
 
-    void SetCurrentUser(User customer);
+    void setCurrentUser(User user);
 
     User GetCurrentUser();
 }

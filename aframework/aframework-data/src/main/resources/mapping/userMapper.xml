@@ -2,96 +2,101 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-
 <mapper namespace="com.repository.users.IUserRepository">
 
-	<select id="getAllUser" resultType="com.domain.users.User">
+    <select id="getAllUser" resultType="com.domain.users.User">
 		select * from user
 	</select>
 
-	<select id="getUserById" resultType="com.domain.users.User">
+    <select id="getUserById" resultType="com.domain.users.User">
 		select * from user
 		where id=#{value}
 	</select>
 
-	<select id="getUserByUserName" resultType="com.domain.users.User">
+    <select id="getUserByUserName" resultType="com.domain.users.User">
 		select * from
 		user
 		where user_name=#{value}
 	</select>
 
-
-	<select id="userPageList" resultType="com.domain.users.User">
-		select * from user
-		<where>
-			<if test="name != null and name != ''">
-				name like concat('%', #{name}, '%')
-			</if>
-		</where>
-		<if test="offset != null and limit != null ">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-
-	<select id="userPageCount" resultType="java.lang.Integer">
-		select count(*) from user
-		<where>
-			<if test="name != null and name != ''">
-				name like concat('%', #{name}, '%')
-			</if>
-		</where>
-	</select>
+    <select id="getUserByUuid" resultType="com.domain.users.User">
+        select * from
+        user
+        where user_uuid=#{value}
+    </select>
 
 
-	<insert id="insertUser" parameterType="com.domain.users.User"
-		useGeneratedKeys="true" keyProperty="id">
+    <select id="userPageList" resultType="com.domain.users.User">
+        select * from user
+        <where>
+            <if test="name != null and name != ''">
+                name like concat('%', #{name}, '%')
+            </if>
+        </where>
+        <if test="offset != null and limit != null ">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="userPageCount" resultType="java.lang.Integer">
+        select count(*) from user
+        <where>
+            <if test="name != null and name != ''">
+                name like concat('%', #{name}, '%')
+            </if>
+        </where>
+    </select>
+
+
+    <insert id="insertUser" parameterType="com.domain.users.User"
+            useGeneratedKeys="true" keyProperty="id">
 		insert into user
-		(`user_name`,`password`,`name`,`age`, `last_active_time`)
+		(`user_uuid`,`user_name`,`password`,`name`,`age`, `last_active_time`)
 		values
-		(#{user_name},#{password},#{name},#{age},#{lastActiveTime})
+		(#{uuid},#{user_name},#{password},#{name},#{age},#{lastActiveTime})
 	</insert>
 
-	<insert id="insertUsers" parameterType="java.util.List"
-		useGeneratedKeys="true" keyProperty="id">
-		insert into user
-		(`user_name`,`password`,`name`,`age`,`last_active_time`)
-		values
-		<foreach collection="list" item="item" index="index"
-			separator=",">
-			(#{item.user_name},#{item.password},#{item.name},#{item.age},
-			#{item.lastActiveTime})
-		</foreach>
-	</insert>
+    <insert id="insertUsers" parameterType="java.util.List"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into user
+        (`user_uuid`,`user_name`,`password`,`name`,`age`,`last_active_time`)
+        values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (#{item.uuid},#{item.user_name},#{item.password},#{item.name},#{item.age},
+            #{item.lastActiveTime})
+        </foreach>
+    </insert>
 
 
-	<update id="updateUser" parameterType="com.domain.users.User">
-		update user
-		<set>
-			<if test="name != null">`name` = #{name}, </if>
-			<if test="age != null">`age` = #{age}, </if>
-			<if test="lastActiveTime != null">`last_active_time` = #{lastActiveTime}, </if>
-		</set>
-		where id = #{id}
-	</update>
+    <update id="updateUser" parameterType="com.domain.users.User">
+        update user
+        <set>
+            <if test="name != null">`name` = #{name},</if>
+            <if test="age != null">`age` = #{age},</if>
+            <if test="lastActiveTime != null">`last_active_time` = #{lastActiveTime},</if>
+        </set>
+        where id = #{id}
+    </update>
 
 
-	<update id="updateUsersAge">
-		update user set age = #{age} where id in
-		<foreach item="id" collection="idslist" open="(" separator=","
-			close=")">
-			#{id}
-		</foreach>
-	</update>
+    <update id="updateUsersAge">
+        update user set age = #{age} where id in
+        <foreach item="id" collection="idslist" open="(" separator=","
+                 close=")">
+            #{id}
+        </foreach>
+    </update>
 
 
-	<delete id="deleteUserByIds">
-		delete from user where id in
-		<foreach item="id" collection="list" open="(" separator=","
-			close=")">
-			#{id}
-		</foreach>
+    <delete id="deleteUserByIds">
+        delete from user where id in
+        <foreach item="id" collection="list" open="(" separator=","
+                 close=")">
+            #{id}
+        </foreach>
 
-	</delete>
+    </delete>
 
 
 </mapper>

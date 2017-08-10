@@ -3,6 +3,7 @@ package service.test;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -40,11 +41,13 @@ public class UserTestCase extends BaseTestCase {
         List<User> insertusers = new ArrayList<User>(2);
 
         for (int i = 0; i < 2; i++) {
-            User custoemr = new User();
-            custoemr.setName("alvis" + i);
-            custoemr.setAge(10 + i);
-            custoemr.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-            insertusers.add(custoemr);
+            User user = new User();
+            UUID uuid = UUID.randomUUID();
+            user.setUuid(uuid.toString());
+            user.setName("alvis" + i);
+            user.setAge(10 + i);
+            user.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
+            insertusers.add(user);
         }
         userService.insertUsers(insertusers);
 

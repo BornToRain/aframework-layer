@@ -1,6 +1,7 @@
 package com.controllers.font;
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -41,12 +42,9 @@ public class UserController extends BaseFontController {
     @RequestMapping(value = "/loginPost", method = RequestMethod.POST)
     public String LoginPost(String username, String password) {
         Subject currentUser = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password,true);
         try {
-
             currentUser.login(token);
-            User user = userService.getUserByUserName(username);
-            currentUser.getSession().setAttribute("user", user);
             return "redirect:/admin/home/index";
             // return "redirect:/Home/Index";
         } catch (AuthenticationException e) {
@@ -79,6 +77,8 @@ public class UserController extends BaseFontController {
     public String RegisterPost(String username, String password) {
 
         User user = new User();
+        UUID uuid = UUID.randomUUID();
+        user.setUuid(uuid.toString());
         String encodePwd = authenticationService.pwdEncode(password);
         user.setPassword(encodePwd);
         user.setUser_name(username);

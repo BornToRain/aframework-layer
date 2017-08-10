@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 /**
  * @author :  dell
  * @Description :  TODO
@@ -25,15 +26,15 @@ public class WorkContext implements IWorkContext {
     public static final String UserKey = "user_key";
 
     @Override
-    public void SetCurrentUser(User customer) {
-        HttpServletRequest request = AfSpringContext.getBean(HttpServletRequest.class);
-        request.setAttribute(UserKey, customer);
+    public void setCurrentUser(User user) {
+        HttpServletRequest request = AfSpringContext.getServletRequest();
+        request.setAttribute(UserKey, user);
     }
 
     @Override
     public User GetCurrentUser() {
-        HttpServletRequest request = AfSpringContext.getBean(HttpServletRequest.class);
-        User customer = (User) request.getAttribute(UserKey);
-        return customer;
+        HttpServletRequest request = AfSpringContext.getServletRequest();
+        User user = (User) request.getAttribute(UserKey);
+        return user;
     }
 }

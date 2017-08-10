@@ -53,6 +53,8 @@ public interface IUserService {
     
     User getUserByUserName(String username);
 
+    User getUserByUuid(String uuid);
+
     List<User> userPageList(String name, Integer pageIndex, Integer pageSize);
 
     Integer userPageCount(String name);

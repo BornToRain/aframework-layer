@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Jul 18, 2017 4:32:37 PM
  *
@@ -40,17 +40,18 @@ import org.springframework.transaction.annotation.Transactional;
 import com.domain.users.User;
 import com.repository.users.IUserRepository;
 
-/** 
-* @author 
-* @version 创建时间：Jul 18, 2017 4:32:37 PM 
-* 类说明 
-*/
 /**
+ * @author
+ * @version 创建时间：Jul 18, 2017 4:32:37 PM
+ * 类说明
+ */
+
+/**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName UserService
  * @Description UserService
- * @author Alvis
  * @Date Jul 18, 2017 4:32:37 PM
- * @version 1.0.0
  */
 @Service("IUserService")
 public class UserService implements IUserService {
@@ -71,6 +72,12 @@ public class UserService implements IUserService {
     @Override
     public User getUserByUserName(String username) {
         return userRepository.getUserByUserName(username);
+    }
+
+    @Override
+    public User getUserByUuid(String uuid) {
+
+        return userRepository.getUserByUuid(uuid);
     }
 
     @Override

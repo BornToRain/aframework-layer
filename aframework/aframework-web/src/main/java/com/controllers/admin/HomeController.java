@@ -8,6 +8,8 @@ import java.io.InputStream;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import com.core.utility.IWorkContext;
+import com.domain.users.User;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,8 +37,11 @@ public class HomeController extends BaseAdminController {
     @Autowired
     private HttpServletRequest request;
 
+
+
     @RequestMapping("/index")
     public String Index() {
+
         return prefView + "/home/index";
     }
 

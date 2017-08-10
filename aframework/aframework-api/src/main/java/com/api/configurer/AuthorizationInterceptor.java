@@ -12,7 +12,9 @@ package com.api.configurer;
 import com.api.model.BaseApiResult;
 import com.core.utility.IWorkContext;
 import com.domain.users.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.service.users.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
 
@@ -31,10 +34,16 @@ import java.lang.reflect.Method;
 
 @Component
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
-    public static final String AccessToken = "access_token";
-
+    private static final String AccessToken = "access_token";
+    private static final String UserUuid = "user_uuid";
     @Autowired
     private IWorkContext workContext;
+
+    @Autowired
+    private PropertyConfigurer propertyConfigurer;
+
+    @Autowired
+    private IUserService userService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -46,31 +55,37 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         Method method = handlerMethod.getMethod();
 
         String authorization = request.getHeader(AccessToken);
+        String userUuid = request.getHeader(UserUuid);
+        String localAccesToken = propertyConfigurer.getProperty("api.accessToken");
+
         //验证token
-        if (false) {
-            //如果token验证成功，将token对应的用户id存在request中，便于之后注入
-            User customer = new User();
-            workContext.SetCurrentUser(customer);
+        if (authorization.equals(localAccesToken)) {
+            User user = userService.getUserByUuid(userUuid);
+            if (user == null) {
+                BaseApiResult result = new BaseApiResult(401, "User Uuid Unvalidated!");
+                msgWrite(response, result);
+                return false;
+            }
+            workContext.setCurrentUser(user);
             return true;
         }
         //如果验证token失败，并且方法注明了Authorization，返回401错误
         if (method.getAnnotation(Authorization.class) != null) {
-
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-
-            BaseApiResult result = new BaseApiResult(400, "User Unvalidated!");
-            ObjectMapper objectMapper = new ObjectMapper();
-            String jsonString = objectMapper.writeValueAsString(result);
-            PrintWriter out = response.getWriter();
-            out.print(jsonString);
-            out.flush();
-
+            BaseApiResult result = new BaseApiResult(400, "AccessToken Unvalidated!");
+            msgWrite(response, result);
             return false;
         }
         return true;
     }
 
-
+    private void msgWrite(HttpServletResponse response, BaseApiResult result) throws IOException {
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonString = objectMapper.writeValueAsString(result);
+        PrintWriter out = response.getWriter();
+        out.print(jsonString);
+        out.flush();
+    }
 }
