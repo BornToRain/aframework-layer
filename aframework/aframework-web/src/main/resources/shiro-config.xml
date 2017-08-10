@@ -41,9 +41,9 @@
 				/error=anon
 	        	/api/**=anon
 	           	/user/**=anon
-	        	/font/** = authc
-	        	/admin/** = authc, roles[admin]
-	        	/**=authc
+	        	/font/** = user
+	        	/admin/** = user, roles[admin]
+	        	/**=user
 	        </value>
 	    </property>
 	</bean>

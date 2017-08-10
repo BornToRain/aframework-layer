@@ -10,6 +10,7 @@
 package com.core.utility;
 
 import com.domain.users.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,16 +26,16 @@ import javax.servlet.http.HttpServletRequest;
 public class WorkContext implements IWorkContext {
     public static final String UserKey = "user_key";
 
+    @Autowired
+    HttpServletRequest request;
 
     @Override
     public void setCurrentUser(User user) {
-        HttpServletRequest request = AfSpringContext.getServletRequest();
         request.setAttribute(UserKey, user);
     }
 
     @Override
     public User GetCurrentUser() {
-        HttpServletRequest request = AfSpringContext.getServletRequest();
         User user = (User) request.getAttribute(UserKey);
         return user;
     }

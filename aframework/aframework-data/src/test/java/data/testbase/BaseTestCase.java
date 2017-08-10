@@ -3,6 +3,7 @@ package data.testbase;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)  //使用junit4进行测试  
 @ContextConfiguration(locations = {"classpath*:springTest-config.xml"})
+@WebAppConfiguration
 public class BaseTestCase {
 
 }

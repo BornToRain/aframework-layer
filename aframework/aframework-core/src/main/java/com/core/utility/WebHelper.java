@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Aug 2, 2017 3:05:00 PM
  *
@@ -30,26 +30,30 @@
 package com.core.utility;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/** 
-* @author 
-* @version 创建时间：Aug 2, 2017 3:05:00 PM 
-* 类说明 
-*/
 /**
+ * @author
+ * @version 创建时间：Aug 2, 2017 3:05:00 PM
+ * 类说明
+ */
+
+/**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName IWebHelper
  * @Description TODO
- * @author Alvis
  * @Date Aug 2, 2017 3:05:00 PM
- * @version 1.0.0
  */
 @Component("IWebHelper")
 public class WebHelper implements IWebHelper {
+    @Autowired
+    ServletContext context;
 
     public String MapPath(String relatePath) {
-        ServletContext context = AfSpringContext.getBean(ServletContext.class);
         String realPath = context.getRealPath(relatePath);
         return realPath;
     }
