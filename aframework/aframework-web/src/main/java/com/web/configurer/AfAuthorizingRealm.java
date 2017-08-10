@@ -65,13 +65,10 @@ import javax.servlet.http.HttpServletRequest;
  * @Date Jul 18, 2017 4:54:32 PM
  */
 @Configuration
-public class AFRealm extends AuthorizingRealm {
+public class AfAuthorizingRealm extends AuthorizingRealm {
 
     @Autowired
     private IAuthenticationService authenticationService;
-
-    @Autowired
-    private IWorkContext workContext;
 
     @Autowired
     private IUserService userService;
@@ -82,7 +79,6 @@ public class AFRealm extends AuthorizingRealm {
     // 用于认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-
         UsernamePasswordToken upToken = (UsernamePasswordToken) token;
         String username = upToken.getUsername();
         String password = String.valueOf(upToken.getPassword());
@@ -100,6 +96,7 @@ public class AFRealm extends AuthorizingRealm {
 
         // 获取主身份信息
         String userName = (String) principals.getPrimaryPrincipal();
+        User user = userService.getUserByUserName(userName);
 
         // 将查询到授权信息填充到对象中
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();

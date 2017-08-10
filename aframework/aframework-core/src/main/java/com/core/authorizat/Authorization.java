@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package com.api.configurer;
+package com.core.authorizat;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -15,11 +15,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Description  :  TODO
- * @author       :  dell
+ * @author :  dell
+ * @Description :  TODO
  * @Creation Date:  2017-08-09 2:17 PM
  */
-@Target(ElementType.METHOD)
+
+@Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Authorization {
 

@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 public class WorkContext implements IWorkContext {
     public static final String UserKey = "user_key";
 
+
     @Override
     public void setCurrentUser(User user) {
         HttpServletRequest request = AfSpringContext.getServletRequest();
