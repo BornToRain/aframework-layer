@@ -89,6 +89,12 @@
 			<version>${springframework-version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.restdocs</groupId>
+			<artifactId>spring-restdocs-mockmvc</artifactId>
+			<version>1.2.1.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- unit end -->
 
 
@@ -270,8 +276,36 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.20</version>
 				<configuration>
-					<skip>true</skip>
+					<!--<skip>true</skip>-->
+					<includes>
+						<include>**/*Documentation.java</include>
+					</includes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.3</version>
+				<executions>
+					<execution>
+						<id>generate-docs</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html</backend>
+							<doctype>book</doctype>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework.restdocs</groupId>
+						<artifactId>spring-restdocs-asciidoctor</artifactId>
+						<version>1.2.1.RELEASE</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 		<resources>

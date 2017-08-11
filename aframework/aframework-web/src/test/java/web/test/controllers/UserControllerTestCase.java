@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package web.test;
+package web.test.controllers;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.domain.users.User;
 import com.service.users.IUserService;
 
-import web.testbase.BaseTestCase;
+import web.testbase.BaseControllerTest;
 
 /** 
 * @author 
@@ -52,7 +52,7 @@ import web.testbase.BaseTestCase;
  * @Date Jul 21, 2017 2:29:07 PM
  * @version 1.0.0
  */
-public class UserControllerTestCase extends BaseTestCase {
+public class UserControllerTestCase extends BaseControllerTest {
     
     @Autowired
     private IUserService userService;
