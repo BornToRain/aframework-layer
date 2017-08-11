@@ -1,71 +1,57 @@
-= Af 接口生成文档
+= AFramework 接口文档
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
 :toc: left
 :sectlinks:
 
-= 简介
+= 一. 简介
 
-== 接口列表
+ RESTful一种软件架构风格，设计风格而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制 
 
-=== 测试接口
+== 二. 接口列表
 
-==== curl-request
+=== 1.1 获取所有用户接口
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\curl-request.adoc[]
+==== request-headers 类型说明 
 
-==== http-request
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\request-headers.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\http-request.adoc[]
+==== http-request 
 
-==== http-response
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\http-request.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\http-response.adoc[]
+==== request-parameters类型说明 
 
-==== httpie-request
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\request-parameters.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\httpie-request.adoc[]
+==== request-body类型说明 
 
-==== request-body
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\request-body.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\request-body.adoc[]
+==== http-response 
 
-==== request-headers
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\http-response.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\request-headers.adoc[]
+==== response-fields 类型说明 
 
-==== response-body
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\response-fields.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\response-body.adoc[]
+=== 1.2 测试接口
 
-=== 获取所有用户接口
+==== request-headers 类型说明 
 
-==== curl-request
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.2 测试接口\request-headers.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\curl-request.adoc[]
+==== http-request 
 
-==== http-request
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.2 测试接口\http-request.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\http-request.adoc[]
+==== request-body类型说明 
 
-==== http-response
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.2 测试接口\request-body.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\http-response.adoc[]
+==== http-response 
 
-==== httpie-request
-
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\httpie-request.adoc[]
-
-==== request-body
-
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\request-body.adoc[]
-
-==== request-headers
-
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\request-headers.adoc[]
-
-==== response-body
-
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\response-body.adoc[]
+include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.2 测试接口\http-response.adoc[]
 
