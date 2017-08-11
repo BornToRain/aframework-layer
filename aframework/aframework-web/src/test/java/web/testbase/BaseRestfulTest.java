@@ -82,7 +82,7 @@ public class BaseRestfulTest {
             String apiName = apidir.getName();
             content.append("=== " + apiName + "\n\n");
             for (File file : apidir.listFiles()) {
-                String fileName = file.getName();
+                String fileName = file.getName().replace(".adoc","");
                 String path = file.getAbsolutePath();
                 content.append("==== " + fileName + "\n\n");
                 content.append("include::" + path + "[]" + "\n\n");

@@ -428,8 +428,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_接口列表">接口列表</a>
 <ul class="sectlevel2">
-<li><a href="#_web_chart_test_case">web-chart-test-case</a></li>
-<li><a href="#_webchart_list_2">webchart-list</a></li>
+<li><a href="#_测试接口">测试接口</a></li>
+<li><a href="#_获取所有用户接口">获取所有用户接口</a></li>
 </ul>
 </li>
 </ul>
@@ -443,31 +443,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_接口列表"><a class="link" href="#_接口列表">接口列表</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_web_chart_test_case"><a class="link" href="#_web_chart_test_case">web-chart-test-case</a></h3>
+<h3 id="_测试接口"><a class="link" href="#_测试接口">测试接口</a></h3>
 <div class="sect3">
-<h4 id="_webchart_list"><a class="link" href="#_webchart_list">webchart-list</a></h4>
-<div class="paragraph">
-<p>Unresolved directive in apiList.adoc - include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\web-chart-test-case\webchart-list[]</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_webchart_list_2"><a class="link" href="#_webchart_list_2">webchart-list</a></h3>
-<div class="sect3">
-<h4 id="_curl_request_adoc"><a class="link" href="#_curl_request_adoc">curl-request.adoc</a></h4>
+<h4 id="_curl_request"><a class="link" href="#_curl_request">curl-request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/api/webchart/list' -i -X POST \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/api/webchart/test' -i -X POST \
     -H 'access_token: 2E14D92B-1FB1-4D04-8EA3-486DA78914BA' \
     -H 'user_uuid: 05d44c79-627b-466c-940a-c62074107226'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_http_request_adoc"><a class="link" href="#_http_request_adoc">http-request.adoc</a></h4>
+<h4 id="_http_request"><a class="link" href="#_http_request">http-request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/webchart/list HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/webchart/test HTTP/1.1
 access_token: 2E14D92B-1FB1-4D04-8EA3-486DA78914BA
 user_uuid: 05d44c79-627b-466c-940a-c62074107226
 Host: localhost:8080</code></pre>
@@ -475,29 +466,29 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_http_response_adoc"><a class="link" href="#_http_response_adoc">http-response.adoc</a></h4>
+<h4 id="_http_response"><a class="link" href="#_http_response">http-response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 605
+Content-Length: 25
 
-{"code":1,"message":null,"userList":[{"id":172,"name":"alvis","age":null,"lastActiveTime":1502334407000,"user_name":null,"password":"TRMYMCbWUzLbyLjQu11nkUA8adT+sAyIxRIiLEPLnjFkMch+omlYC1TzVjW3E7eDFR2EdMc2NMpVrZT9GVKGQPl4lzH6/6MIG70k+asZNiDdWh7ZGPqIGGkGbJa/5h/emNnGwGIhRBKnJ47kiIhgPlS86XTVBPLufHYn4jwxSzk=","uuid":null},{"id":185,"name":"alvis1","age":null,"lastActiveTime":1502357625000,"user_name":null,"password":"qVYBhBlAbUBYXeKxKhR1/1Sl3GPeWanoEPackz1bPPOnQj1iPmVWaRfKqWJ/yAd9yR4VpAyWpWXTWQj21bEi2usS/6Oi1hSrvw/KunkaSEUw01+LyJUordP8oiyVpipfR5099oZfvzbBRCUJFed6oaX7DQ/zejIIjNk+WnfTLK4=","uuid":null}]}</code></pre>
+{"code":1,"message":"OK"}</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_httpie_request_adoc"><a class="link" href="#_httpie_request_adoc">httpie-request.adoc</a></h4>
+<h4 id="_httpie_request"><a class="link" href="#_httpie_request">httpie-request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">$ http POST 'http://localhost:8080/api/webchart/list' \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http POST 'http://localhost:8080/api/webchart/test' \
     'access_token:2E14D92B-1FB1-4D04-8EA3-486DA78914BA' \
     'user_uuid:05d44c79-627b-466c-940a-c62074107226'</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_request_body_adoc"><a class="link" href="#_request_body_adoc">request-body.adoc</a></h4>
+<h4 id="_request_body"><a class="link" href="#_request_body">request-body</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code></code></pre>
@@ -505,7 +496,7 @@ Content-Length: 605
 </div>
 </div>
 <div class="sect3">
-<h4 id="_request_headers_adoc"><a class="link" href="#_request_headers_adoc">request-headers.adoc</a></h4>
+<h4 id="_request_headers"><a class="link" href="#_request_headers">request-headers</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -530,10 +521,97 @@ Content-Length: 605
 </table>
 </div>
 <div class="sect3">
-<h4 id="_response_body_adoc"><a class="link" href="#_response_body_adoc">response-body.adoc</a></h4>
+<h4 id="_response_body"><a class="link" href="#_response_body">response-body</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code>{"code":1,"message":null,"userList":[{"id":172,"name":"alvis","age":null,"lastActiveTime":1502334407000,"user_name":null,"password":"TRMYMCbWUzLbyLjQu11nkUA8adT+sAyIxRIiLEPLnjFkMch+omlYC1TzVjW3E7eDFR2EdMc2NMpVrZT9GVKGQPl4lzH6/6MIG70k+asZNiDdWh7ZGPqIGGkGbJa/5h/emNnGwGIhRBKnJ47kiIhgPlS86XTVBPLufHYn4jwxSzk=","uuid":null},{"id":185,"name":"alvis1","age":null,"lastActiveTime":1502357625000,"user_name":null,"password":"qVYBhBlAbUBYXeKxKhR1/1Sl3GPeWanoEPackz1bPPOnQj1iPmVWaRfKqWJ/yAd9yR4VpAyWpWXTWQj21bEi2usS/6Oi1hSrvw/KunkaSEUw01+LyJUordP8oiyVpipfR5099oZfvzbBRCUJFed6oaX7DQ/zejIIjNk+WnfTLK4=","uuid":null}]}</code></pre>
+<pre class="highlight nowrap"><code>{"code":1,"message":"OK"}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_获取所有用户接口"><a class="link" href="#_获取所有用户接口">获取所有用户接口</a></h3>
+<div class="sect3">
+<h4 id="_curl_request_2"><a class="link" href="#_curl_request_2">curl-request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl 'http://localhost:8080/api/webchart/list' -i -X POST \
+    -H 'access_token: 2E14D92B-1FB1-4D04-8EA3-486DA78914BA' \
+    -H 'user_uuid: 05d44c79-627b-466c-940a-c62074107226'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_http_request_2"><a class="link" href="#_http_request_2">http-request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/webchart/list HTTP/1.1
+access_token: 2E14D92B-1FB1-4D04-8EA3-486DA78914BA
+user_uuid: 05d44c79-627b-466c-940a-c62074107226
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_http_response_2"><a class="link" href="#_http_response_2">http-response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 1613
+
+{"code":1,"message":null,"userList":[{"id":172,"name":"alvis","age":null,"lastActiveTime":1502334407000,"user_name":null,"password":"TRMYMCbWUzLbyLjQu11nkUA8adT+sAyIxRIiLEPLnjFkMch+omlYC1TzVjW3E7eDFR2EdMc2NMpVrZT9GVKGQPl4lzH6/6MIG70k+asZNiDdWh7ZGPqIGGkGbJa/5h/emNnGwGIhRBKnJ47kiIhgPlS86XTVBPLufHYn4jwxSzk=","uuid":null},{"id":185,"name":"alvis1","age":null,"lastActiveTime":1502357625000,"user_name":null,"password":"qVYBhBlAbUBYXeKxKhR1/1Sl3GPeWanoEPackz1bPPOnQj1iPmVWaRfKqWJ/yAd9yR4VpAyWpWXTWQj21bEi2usS/6Oi1hSrvw/KunkaSEUw01+LyJUordP8oiyVpipfR5099oZfvzbBRCUJFed6oaX7DQ/zejIIjNk+WnfTLK4=","uuid":null},{"id":186,"name":"alvis0","age":10,"lastActiveTime":1502426037000,"user_name":null,"password":null,"uuid":null},{"id":187,"name":"alvis1","age":11,"lastActiveTime":1502426037000,"user_name":null,"password":null,"uuid":null},{"id":188,"name":"alvis0","age":10,"lastActiveTime":1502426037000,"user_name":null,"password":null,"uuid":null},{"id":189,"name":"alvis0","age":10,"lastActiveTime":1502426058000,"user_name":null,"password":null,"uuid":null},{"id":190,"name":"alvis1","age":11,"lastActiveTime":1502426058000,"user_name":null,"password":null,"uuid":null},{"id":191,"name":"alvis0","age":10,"lastActiveTime":1502426058000,"user_name":null,"password":null,"uuid":null},{"id":192,"name":"alvis0","age":10,"lastActiveTime":1502426092000,"user_name":null,"password":null,"uuid":null},{"id":193,"name":"alvis1","age":11,"lastActiveTime":1502426092000,"user_name":null,"password":null,"uuid":null},{"id":194,"name":"alvis0","age":10,"lastActiveTime":1502426092000,"user_name":null,"password":null,"uuid":null}]}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_httpie_request_2"><a class="link" href="#_httpie_request_2">httpie-request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ http POST 'http://localhost:8080/api/webchart/list' \
+    'access_token:2E14D92B-1FB1-4D04-8EA3-486DA78914BA' \
+    'user_uuid:05d44c79-627b-466c-940a-c62074107226'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_body_2"><a class="link" href="#_request_body_2">request-body</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_headers_2"><a class="link" href="#_request_headers_2">request-headers</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>access_token</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic auth credentials</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>user_uuid</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User Uuid Key</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_body_2"><a class="link" href="#_response_body_2">response-body</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{"code":1,"message":null,"userList":[{"id":172,"name":"alvis","age":null,"lastActiveTime":1502334407000,"user_name":null,"password":"TRMYMCbWUzLbyLjQu11nkUA8adT+sAyIxRIiLEPLnjFkMch+omlYC1TzVjW3E7eDFR2EdMc2NMpVrZT9GVKGQPl4lzH6/6MIG70k+asZNiDdWh7ZGPqIGGkGbJa/5h/emNnGwGIhRBKnJ47kiIhgPlS86XTVBPLufHYn4jwxSzk=","uuid":null},{"id":185,"name":"alvis1","age":null,"lastActiveTime":1502357625000,"user_name":null,"password":"qVYBhBlAbUBYXeKxKhR1/1Sl3GPeWanoEPackz1bPPOnQj1iPmVWaRfKqWJ/yAd9yR4VpAyWpWXTWQj21bEi2usS/6Oi1hSrvw/KunkaSEUw01+LyJUordP8oiyVpipfR5099oZfvzbBRCUJFed6oaX7DQ/zejIIjNk+WnfTLK4=","uuid":null},{"id":186,"name":"alvis0","age":10,"lastActiveTime":1502426037000,"user_name":null,"password":null,"uuid":null},{"id":187,"name":"alvis1","age":11,"lastActiveTime":1502426037000,"user_name":null,"password":null,"uuid":null},{"id":188,"name":"alvis0","age":10,"lastActiveTime":1502426037000,"user_name":null,"password":null,"uuid":null},{"id":189,"name":"alvis0","age":10,"lastActiveTime":1502426058000,"user_name":null,"password":null,"uuid":null},{"id":190,"name":"alvis1","age":11,"lastActiveTime":1502426058000,"user_name":null,"password":null,"uuid":null},{"id":191,"name":"alvis0","age":10,"lastActiveTime":1502426058000,"user_name":null,"password":null,"uuid":null},{"id":192,"name":"alvis0","age":10,"lastActiveTime":1502426092000,"user_name":null,"password":null,"uuid":null},{"id":193,"name":"alvis1","age":11,"lastActiveTime":1502426092000,"user_name":null,"password":null,"uuid":null},{"id":194,"name":"alvis0","age":10,"lastActiveTime":1502426092000,"user_name":null,"password":null,"uuid":null}]}</code></pre>
 </div>
 </div>
 </div>
@@ -543,7 +621,7 @@ Content-Length: 605
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-11 04:22:06 CST
+Last updated 2017-08-11 06:28:19 CST
 </div>
 </div>
 </body>

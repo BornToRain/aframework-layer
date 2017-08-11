@@ -9,39 +9,63 @@
 
 == 接口列表
 
-=== web-chart-test-case
+=== 测试接口
 
-==== webchart-list
+==== curl-request
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\web-chart-test-case\webchart-list[]
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\curl-request.adoc[]
 
-=== webchart-list
+==== http-request
 
-==== curl-request.adoc
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\http-request.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\curl-request.adoc[]
+==== http-response
 
-==== http-request.adoc
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\http-response.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\http-request.adoc[]
+==== httpie-request
 
-==== http-response.adoc
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\httpie-request.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\http-response.adoc[]
+==== request-body
 
-==== httpie-request.adoc
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\request-body.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\httpie-request.adoc[]
+==== request-headers
 
-==== request-body.adoc
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\request-headers.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\request-body.adoc[]
+==== response-body
 
-==== request-headers.adoc
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\测试接口\response-body.adoc[]
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\request-headers.adoc[]
+=== 获取所有用户接口
 
-==== response-body.adoc
+==== curl-request
 
-include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\response-body.adoc[]
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\curl-request.adoc[]
+
+==== http-request
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\http-request.adoc[]
+
+==== http-response
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\http-response.adoc[]
+
+==== httpie-request
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\httpie-request.adoc[]
+
+==== request-body
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\request-body.adoc[]
+
+==== request-headers
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\request-headers.adoc[]
+
+==== response-body
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\获取所有用户接口\response-body.adoc[]
 

@@ -44,7 +44,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class WebChartTestCase extends BaseRestfulTest {
 
     @Test
-    public void WebchartList() throws Exception {
+    public void GetAllUserTest() throws Exception {
 
         this.mockMvc
                 .perform(
@@ -53,7 +53,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                                 .header("user_uuid", "05d44c79-627b-466c-940a-c62074107226")
                 )
                 .andExpect(status().isOk())
-                .andDo(document("{class-name}/{method-name}",
+                .andDo(document("获取所有用户接口",
                         requestHeaders(
                                 headerWithName("access_token").description(
                                         "Basic auth credentials"),
@@ -71,5 +71,33 @@ public class WebChartTestCase extends BaseRestfulTest {
                 );
     }
 
+
+    @Test
+    public void Test() throws Exception {
+
+        this.mockMvc
+                .perform(
+                        post("/api/webchart/test")
+                                .header("access_token", "2E14D92B-1FB1-4D04-8EA3-486DA78914BA")
+                                .header("user_uuid", "05d44c79-627b-466c-940a-c62074107226")
+                )
+                .andExpect(status().isOk())
+                .andDo(document("测试接口",
+                        requestHeaders(
+                                headerWithName("access_token").description(
+                                        "Basic auth credentials"),
+                                headerWithName("user_uuid").description(
+                                        "User Uuid Key")
+                        )/*,
+                        responseHeaders(
+                                headerWithName("X-RateLimit-Limit").description(
+                                        "The total number of requests permitted per period"),
+                                headerWithName("X-RateLimit-Remaining").description(
+                                        "Remaining requests permitted in current period"),
+                                headerWithName("X-RateLimit-Reset").description(
+                                        "Time at which the rate limit period will reset"))*/
+                        )
+                );
+    }
 
 }
