@@ -53,8 +53,11 @@
                         <configuration>
                             <backend>html</backend>
                             <doctype>book</doctype>
-                            <sourceDirectory>${project.build.directory}/generated-snippets</sourceDirectory>
-                            <outputDirectory>${project.build.directory}/generated-docs</outputDirectory>
+                            <attributes>
+                                <snippets>${project.build.directory}/generated-snippets</snippets>
+                            </attributes>
+                            <sourceDirectory>src/docs/api/asciidocs</sourceDirectory>
+                            <outputDirectory>src/docs/api/html</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
