@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Jul 21, 2017 2:29:07 PM
  *
@@ -40,28 +40,32 @@ import com.service.users.IUserService;
 
 import web.testbase.BaseControllerTest;
 
-/** 
-* @author 
-* @version 创建时间：Jul 21, 2017 2:29:07 PM 
-* 类说明 
-*/
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 /**
+ * @author
+ * @version 创建时间：Jul 21, 2017 2:29:07 PM
+ * 类说明
+ */
+
+/**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName UserTestCase
  * @Description TODO
- * @author Alvis
  * @Date Jul 21, 2017 2:29:07 PM
- * @version 1.0.0
  */
 public class UserControllerTestCase extends BaseControllerTest {
-    
-    @Autowired
-    private IUserService userService;
-    
-   
-    @Test
-    public void GetAllUsers() {
 
-        List<User> users = userService.getUsers();
-        Assert.assertNotNull(users);
+    @Test
+    public void HomeIndex() throws Exception {
+        this.mockMvc
+                .perform(
+                        get("/home/index")
+                )
+                .andExpect(status().isOk());
     }
+
 }

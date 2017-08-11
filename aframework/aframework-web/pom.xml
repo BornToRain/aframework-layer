@@ -1,44 +1,74 @@
 <?xml version="1.0"?>
 <project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.aframework</groupId>
-		<artifactId>aframework</artifactId>
-		<version>1.0.0</version>
-	</parent>
-	<groupId>org.aframework.web</groupId>
-	<artifactId>aframework-web</artifactId>
-	<packaging>war</packaging>
-	<name>aframework-web Maven Webapp</name>
-	<dependencies>
-		<dependency>
-			<groupId>org.aframework.domain</groupId>
-			<artifactId>aframework-domain</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aframework.service</groupId>
-			<artifactId>aframework-service</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aframework.core</groupId>
-			<artifactId>aframework-core</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aframework.api</groupId>
-			<artifactId>aframework-api</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-	</dependencies>
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.aframework</groupId>
+        <artifactId>aframework</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <groupId>org.aframework.web</groupId>
+    <artifactId>aframework-web</artifactId>
+    <packaging>war</packaging>
+    <name>aframework-web Maven Webapp</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.aframework.domain</groupId>
+            <artifactId>aframework-domain</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aframework.service</groupId>
+            <artifactId>aframework-service</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aframework.core</groupId>
+            <artifactId>aframework-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aframework.api</groupId>
+            <artifactId>aframework-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 
-	<build>
-		<finalName>aframework-web</finalName>
-	</build>
+    <build>
+        <finalName>aframework-web</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <id>generate-docs</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html</backend>
+                            <doctype>book</doctype>
+                            <sourceDirectory>${project.build.directory}/generated-snippets</sourceDirectory>
+                            <outputDirectory>${project.build.directory}/generated-docs</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.restdocs</groupId>
+                        <artifactId>spring-restdocs-asciidoctor</artifactId>
+                        <version>1.2.1.RELEASE</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+        </plugins>
+    </build>
 
 
 </project>

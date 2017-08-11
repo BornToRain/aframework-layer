@@ -53,7 +53,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                                 .header("user_uuid", "05d44c79-627b-466c-940a-c62074107226")
                 )
                 .andExpect(status().isOk())
-                .andDo(document("headers",
+                .andDo(document("webchart-list",
                         requestHeaders(
                                 headerWithName("access_token").description(
                                         "Basic auth credentials"),
