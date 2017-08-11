@@ -61,35 +61,43 @@ public class BaseRestfulTest {
     }
 
 
-
     @Test
     public void adocBuild() throws IOException {
         String appDir = System.getProperty("user.dir");
         String adocPath = appDir + "/src/docs/api/asciidocs/apiList.adoc";
 
         StringBuilder content = new StringBuilder();
-        content.append("= Af 接口生成文档\n")
+        content.append("= AFramework 接口文档\n")
                 .append(":doctype: book\n")
                 .append(":icons: font\n")
                 .append(":source-highlighter: highlightjs\n")
                 .append(":toc: left\n")
                 .append(":sectlinks:\n\n")
-                .append("= 简介\n\n")
-                .append("== 接口列表\n\n");
+                .append("= 一. 简介\n\n")
+                .append(" RESTful一种软件架构风格，设计风格而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制 \n\n")
+                .append("== 二. 接口列表\n\n");
 
         File apidirs = new File(appDir + "/target/generated-snippets");
         for (File apidir : apidirs.listFiles()) {
             String apiName = apidir.getName();
             content.append("=== " + apiName + "\n\n");
-            for (File file : apidir.listFiles()) {
-                String fileName = file.getName().replace(".adoc","");
-                String path = file.getAbsolutePath();
-                content.append("==== " + fileName + "\n\n");
-                content.append("include::" + path + "[]" + "\n\n");
-            }
+            fileAppend(content, apidir + "/request-headers.adoc", "request-headers 类型说明");
+            fileAppend(content, apidir + "/http-request.adoc", "http-request");
+            fileAppend(content, apidir + "/request-parameters.adoc", "request-parameters类型说明");
+            fileAppend(content, apidir + "/request-body.adoc", "request-body类型说明");
+            fileAppend(content, apidir + "/http-response.adoc", "http-response");
+            fileAppend(content, apidir + "/response-fields.adoc", "response-fields 类型说明");
         }
         File file = new File(adocPath);
         FileUtils.writeStringToFile(file, content.toString(), "utf-8");
+    }
+
+    private void fileAppend(StringBuilder stringBuilder, String path, String title) {
+        File file = new File(path);
+        if (file.exists()) {
+            stringBuilder.append("==== " + title + " \n\n");
+            stringBuilder.append("include::" + file + "[]" + "\n\n");
+        }
     }
 
 
