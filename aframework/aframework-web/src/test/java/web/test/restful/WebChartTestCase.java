@@ -72,7 +72,6 @@ public class WebChartTestCase extends BaseRestfulTest {
                         ),
                         requestParameters(
                                 parameterWithName("age").description("年龄")
-                                //fieldWithPath("age").description("年龄").type(JsonFieldType.STRING)
                         ),
                         responseFields(
                                 fieldWithPath("code").description("0.失败 1.成功").type(JsonFieldType.NUMBER),
@@ -106,14 +105,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                                         "Basic auth credentials"),
                                 headerWithName("user_uuid").description(
                                         "User Uuid Key")
-                        )/*,
-                        responseHeaders(
-                                headerWithName("X-RateLimit-Limit").description(
-                                        "The total number of requests permitted per period"),
-                                headerWithName("X-RateLimit-Remaining").description(
-                                        "Remaining requests permitted in current period"),
-                                headerWithName("X-RateLimit-Reset").description(
-                                        "Time at which the rate limit period will reset"))*/
+                        )
                         )
                 );
     }
