@@ -1,0 +1,47 @@
+= Af 接口生成文档
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:sectlinks:
+
+= 简介
+
+== 接口列表
+
+=== web-chart-test-case
+
+==== webchart-list
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\web-chart-test-case\webchart-list[]
+
+=== webchart-list
+
+==== curl-request.adoc
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\curl-request.adoc[]
+
+==== http-request.adoc
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\http-request.adoc[]
+
+==== http-response.adoc
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\http-response.adoc[]
+
+==== httpie-request.adoc
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\httpie-request.adoc[]
+
+==== request-body.adoc
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\request-body.adoc[]
+
+==== request-headers.adoc
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\request-headers.adoc[]
+
+==== response-body.adoc
+
+include::F:\JAFrameWorkLayer-Ideal\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\webchart-list\response-body.adoc[]
+
