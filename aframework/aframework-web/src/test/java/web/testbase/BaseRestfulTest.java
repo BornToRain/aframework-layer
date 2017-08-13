@@ -65,17 +65,8 @@ public class BaseRestfulTest {
     public void adocBuild() throws IOException {
         String appDir = System.getProperty("user.dir");
         String adocPath = appDir + "/src/docs/api/asciidocs/apiList.adoc";
-
         StringBuilder content = new StringBuilder();
-        content.append("= AFramework 接口文档\n")
-                .append(":doctype: book\n")
-                .append(":icons: font\n")
-                .append(":source-highlighter: highlightjs\n")
-                .append(":toc: left\n")
-                .append(":sectlinks:\n\n")
-                .append("= 一. 简介\n\n")
-                .append(" RESTful一种软件架构风格，设计风格而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制 \n\n")
-                .append("== 二. 接口列表\n\n");
+        content.append("include::" + appDir + "/src/docs/api/asciidocs/preview.adoc");
 
         File apidirs = new File(appDir + "/target/generated-snippets");
         for (File apidir : apidirs.listFiles()) {

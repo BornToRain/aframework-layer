@@ -13,6 +13,7 @@
         </project.build.sourceEncoding>
 
         <junit-version>4.12</junit-version>
+        <spring-restdoc-version>1.2.1.RELEASE</spring-restdoc-version>
 
         <mybatis-version>3.4.0</mybatis-version>
         <mybatis-spring-version>1.3.0</mybatis-spring-version>
@@ -92,7 +93,7 @@
         <dependency>
             <groupId>org.springframework.restdocs</groupId>
             <artifactId>spring-restdocs-mockmvc</artifactId>
-            <version>1.2.1.RELEASE</version>
+            <version>${spring-restdoc-version}</version>
             <scope>test</scope>
         </dependency>
         <!-- unit end -->

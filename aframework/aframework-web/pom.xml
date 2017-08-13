@@ -38,11 +38,12 @@
 
     <build>
         <finalName>aframework-web</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>1.5.3</version>
+                <version>1.5.5</version>
                 <executions>
                     <execution>
                         <id>generate-docs</id>
@@ -58,6 +59,14 @@
                             </attributes>
                             <sourceDirectory>src/docs/api/asciidocs</sourceDirectory>
                             <outputDirectory>src/docs/api/html</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/docs/api/asciidocs</directory>
+                                    <excludes>
+                                        <exclude>**/preview.adoc</exclude>
+                                    </excludes>
+                                </resource>
+                            </resources>
                         </configuration>
                     </execution>
                 </executions>
@@ -65,7 +74,7 @@
                     <dependency>
                         <groupId>org.springframework.restdocs</groupId>
                         <artifactId>spring-restdocs-asciidoctor</artifactId>
-                        <version>1.2.1.RELEASE</version>
+                        <version>${spring-restdoc-version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
