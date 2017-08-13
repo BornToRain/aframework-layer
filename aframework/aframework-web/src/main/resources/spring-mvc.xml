@@ -16,12 +16,6 @@
 	<mvc:default-servlet-handler />
 	<tx:annotation-driven />
 
-<!--	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/"></property>
-		<property name="suffix" value=".jsp"></property>
-	</bean>-->
-
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
