@@ -1,0 +1,2 @@
+<#assign ctx=request.getContextPath()>
+
