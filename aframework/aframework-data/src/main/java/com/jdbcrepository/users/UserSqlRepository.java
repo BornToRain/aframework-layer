@@ -41,6 +41,8 @@ import org.springframework.stereotype.Repository;
 
 import com.domain.users.User;
 
+import javax.annotation.Resource;
+
 /** 
 * @author 
 * @version 创建时间：Jul 18, 2017 4:00:18 PM 
@@ -57,6 +59,7 @@ import com.domain.users.User;
 public class UserSqlRepository implements IUserSqlRepository {
 
 
+    /*@Resource(name="jdbcTemplate")*/
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -109,9 +112,9 @@ public class UserSqlRepository implements IUserSqlRepository {
      * @see com.repository.IUserSqlRepository#insertUser(com.domain.User)
      */
     @Override
-    public void insertUser(User User) {
+    public void insertUser(User user) {
         String sql = "insert into user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
-        Object[] parameters = new Object[] {User.getName(), User.getAge(), User.getLastActiveTime() };
+        Object[] parameters = new Object[] {user.getName(), user.getAge(), user.getLastActiveTime() };
         jdbcTemplate.update(sql, parameters);
     }
 
@@ -120,10 +123,10 @@ public class UserSqlRepository implements IUserSqlRepository {
      * @see com.repository.IUserSqlRepository#insertUsers(java.util.List)
      */
     @Override
-    public void insertUsers(List<User> Users) {
+    public void insertUsers(List<User> users) {
         String sql = "insert into user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
         List<Object[]> batchArgs = new ArrayList<Object[]>();
-        for (User User : Users) {
+        for (User User : users) {
             batchArgs.add(new Object[] {User.getName(), User.getAge(), User.getLastActiveTime() });
         }
         jdbcTemplate.batchUpdate(sql, batchArgs);
@@ -134,10 +137,10 @@ public class UserSqlRepository implements IUserSqlRepository {
      * @see com.repository.IUserSqlRepository#updateUser(com.domain.User)
      */
     @Override
-    public void updateUser(User User) {
+    public void updateUser(User user) {
         String sql = "update user set name=?,age=?,last_active_time=? where id=?";
-        Object[] parameter = new Object[] {User.getName(), User.getAge(), User.getLastActiveTime(),
-                User.getId() };
+        Object[] parameter = new Object[] {user.getName(), user.getAge(), user.getLastActiveTime(),
+                user.getId() };
         jdbcTemplate.update(sql, parameter);
     }
 

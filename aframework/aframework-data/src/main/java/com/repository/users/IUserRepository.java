@@ -64,16 +64,16 @@ public interface IUserRepository {
 
     Integer userPageCount(Map<String, Object> map);
 
-    void insertUser(User User);
+    void insertUser(User user);
 
-    void insertUsers(List<User> Users);
+    void insertUsers(List<User> users);
 
-    void updateUser(User User);
+    void updateUser(User user);
 
     void updateUsersAge(Map<String, Object> map);
 
     void deleteUsersByIds(List<Integer> ids);
 
-    void insertUserSql(User User);
+    void insertUserSql(User user);
 
 }

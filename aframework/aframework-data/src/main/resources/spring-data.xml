@@ -14,5 +14,6 @@
 	<context:component-scan base-package="com.jdbcrepository"></context:component-scan>
 
 	<import resource="classpath:spring-jdbc.xml" />
-	
+	<import resource="classpath:spring-jdbc-order.xml" />
+
 </beans>
