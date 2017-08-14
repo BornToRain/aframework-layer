@@ -4,3 +4,4 @@
 /aframework/aframework-data/target
 /aframework/aframework-service/target
 /aframework/aframework-web/target
+*.iml
