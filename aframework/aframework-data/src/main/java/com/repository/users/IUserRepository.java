@@ -36,11 +36,6 @@ import org.springframework.stereotype.Repository;
 
 import com.domain.users.User;
 
-/**
- * @author
- * @version 创建时间：Jul 18, 2017 3:44:31 PM
- * 类说明
- */
 
 /**
  * @ClassName IUserRepository

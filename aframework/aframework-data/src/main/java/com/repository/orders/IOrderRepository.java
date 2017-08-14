@@ -36,12 +36,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author
- * @version 创建时间：Jul 18, 2017 3:44:31 PM
- * 类说明
- */
-
-/**
  * @ClassName IOrderRepository
  * @Description IOrderRepository
  * @author Alvis

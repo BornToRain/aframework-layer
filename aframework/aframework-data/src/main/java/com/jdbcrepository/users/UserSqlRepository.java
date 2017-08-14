@@ -43,11 +43,6 @@ import com.domain.users.User;
 
 import javax.annotation.Resource;
 
-/** 
-* @author 
-* @version 创建时间：Jul 18, 2017 4:00:18 PM 
-* 类说明 
-*/
 /**
  * @ClassName UserSqlRepository
  * @Description UserSqlRepository

@@ -34,11 +34,6 @@ import java.util.Map;
 
 import com.domain.users.User;
 
-/**
- * @author
- * @version 创建时间：Jul 18, 2017 3:59:53 PM
- * 类说明
- */
 
 /**
  * @ClassName IUserSqlRepository
