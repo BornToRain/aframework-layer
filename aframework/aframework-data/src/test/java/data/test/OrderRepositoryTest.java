@@ -34,7 +34,7 @@ public class OrderRepositoryTest extends BaseTestCase {
         Order order = new Order();
         order.setUser_id(1);
         order.setUuid(UUID.randomUUID().toString());
-        order.setUnit_price(BigDecimal.valueOf(1.2));
+        order.setUnit_price(BigDecimal.valueOf(1.3));
         orderRepository.insertOrder(order);
     }
 
