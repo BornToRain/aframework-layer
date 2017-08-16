@@ -62,12 +62,12 @@ public class RedisTestCase extends BaseTestCase {
 
     @Test
     public void RedisTest() {
-        /*
-         * User user = userService.getUserById(91); String key = "user"; cacheManager.Set(key,
-         * user); User user2 = cacheManager.Get(key); cacheManager.Remove(key); user2 =
-         * cacheManager.Get(key); Assert.assertNotNull(user2);
-         */
-        
+        /* User user = userService.getUserById(91);
+         String key = "user"; cacheManager.Set(key, user);
+         User user2 = cacheManager.Get(key);
+         cacheManager.Remove(key);
+         user2 = cacheManager.Get(key); Assert.assertNotNull(user2);*/
+
         User user = userService.getUserById(91);
         //cacheManager.Set(user.getName(), user.getName());
         String cname = cacheManager.Get(user.getName());
