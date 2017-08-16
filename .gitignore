@@ -1,7 +1,9 @@
 /aframework/.idea
+/aframework/aframework-domain/target
 /aframework/aframework-api/target
 /aframework/aframework-core/target
 /aframework/aframework-data/target
 /aframework/aframework-service/target
 /aframework/aframework-web/target
 *.iml
+/Plugs/mybatis-generator/lib/com
