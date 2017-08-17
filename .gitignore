@@ -8,3 +8,4 @@
 *.iml
 /Plugs/mybatis-generator/lib/com
 /Plugs/apache-jmeter-3.2/backups
+/Plugs/apache-jmeter-3.2/bin/jmeter.log
