@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+    http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+    <bean id="stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+        <property name="slowSqlMillis" value="1000"/>
+        <property name="logSlowSql" value="true"/>
+        <property name="mergeSql" value="true"/>
+    </bean>
+
+
+    <bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${jdbc.master.url}"/>
+        <property name="username" value="${jdbc.master.username}"/>
+        <property name="password" value="${jdbc.master.password}"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="30"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="masterOrderDataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${jdbc.master.order.url}"/>
+        <property name="username" value="${jdbc.master.order.username}"/>
+        <property name="password" value="${jdbc.master.order.password}"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="30"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="salve1DataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${jdbc.slave1.url}"/>
+        <property name="username" value="${jdbc.slave1.username}"/>
+        <property name="password" value="${jdbc.slave1.password}"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="30"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="salve1OrderDataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${jdbc.slave1.order.url}"/>
+        <property name="username" value="${jdbc.slave1.order.username}"/>
+        <property name="password" value="${jdbc.slave1.order.password}"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="30"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

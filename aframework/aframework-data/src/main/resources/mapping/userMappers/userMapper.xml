@@ -5,29 +5,29 @@
 <mapper namespace="com.repository.users.IUserRepository">
 
     <select id="getAllUser" resultType="com.domain.users.User">
-		select * from user
+		select * from `t_user`
 	</select>
 
     <select id="getUserById" resultType="com.domain.users.User">
-		select * from user
+		select * from `t_user`
 		where id=#{value}
 	</select>
 
     <select id="getUserByUserName" resultType="com.domain.users.User">
 		select * from
-		user
+		`t_user`
 		where user_name=#{value}
 	</select>
 
     <select id="getUserByUuid" resultType="com.domain.users.User">
         select * from
-        user
+        `t_user`
         where user_uuid=#{value}
     </select>
 
 
     <select id="userPageList" resultType="com.domain.users.User">
-        select * from user
+        select * from `t_user`
         <where>
             <if test="name != null and name != ''">
                 name like concat('%', #{name}, '%')
@@ -39,7 +39,7 @@
     </select>
 
     <select id="userPageCount" resultType="java.lang.Integer">
-        select count(*) from user
+        select count(*) from `t_user`
         <where>
             <if test="name != null and name != ''">
                 name like concat('%', #{name}, '%')
@@ -50,7 +50,7 @@
 
     <insert id="insertUser" parameterType="com.domain.users.User"
             useGeneratedKeys="true" keyProperty="id">
-		insert into user
+		insert into `t_user`
 		(`user_uuid`,`user_name`,`password`,`name`,`age`, `last_active_time`)
 		values
 		(#{uuid},#{user_name},#{password},#{name},#{age},#{lastActiveTime})
@@ -58,7 +58,7 @@
 
     <insert id="insertUsers" parameterType="java.util.List"
             useGeneratedKeys="true" keyProperty="id">
-        insert into user
+        insert into `t_user`
         (`user_uuid`,`user_name`,`password`,`name`,`age`,`last_active_time`)
         values
         <foreach collection="list" item="item" index="index"
@@ -70,7 +70,7 @@
 
 
     <update id="updateUser" parameterType="com.domain.users.User">
-        update user
+        update `t_user`
         <set>
             <if test="name != null">`name` = #{name},</if>
             <if test="age != null">`age` = #{age},</if>
@@ -81,7 +81,7 @@
 
 
     <update id="updateUsersAge">
-        update user set age = #{age} where id in
+        update `t_user` set age = #{age} where id in
         <foreach item="id" collection="idslist" open="(" separator=","
                  close=")">
             #{id}
@@ -90,7 +90,7 @@
 
 
     <delete id="deleteUserByIds">
-        delete from user where id in
+        delete from `t_user` where id in
         <foreach item="id" collection="list" open="(" separator=","
                  close=")">
             #{id}

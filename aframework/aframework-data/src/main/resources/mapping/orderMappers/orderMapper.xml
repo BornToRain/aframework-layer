@@ -5,35 +5,35 @@
 <mapper namespace="com.repository.orders.IOrderRepository">
 
     <select id="getAllOrder" resultType="com.domain.orders.Order">
-		select * from `order`
+		select * from `t_order`
 	</select>
 
     <select id="getOrderById" resultType="com.domain.orders.Order">
-		select * from `order`
+		select * from `t_order`
 		where id=#{value}
 	</select>
 
     <select id="getOrderByUuid" resultType="com.domain.orders.Order">
-        select * from `order`
+        select * from `t_order`
         where uuid=#{value}
     </select>
 
 
     <select id="orderPageList" resultType="com.domain.orders.Order">
-        select * from `order`
+        select * from `t_order`
         <if test="offset != null and limit != null ">
             limit #{offset}, #{limit}
         </if>
     </select>
 
     <select id="orderPageCount" resultType="java.lang.Integer">
-        select count(*) from `order`
+        select count(*) from `t_order`
     </select>
 
 
     <insert id="insertOrder" parameterType="com.domain.orders.Order"
             useGeneratedKeys="true" keyProperty="id">
-            insert into `order`
+            insert into `t_order`
              (`uuid`,`user_id`,`unit_price`)
             values
             (#{uuid}, #{user_id}, #{unit_price});
