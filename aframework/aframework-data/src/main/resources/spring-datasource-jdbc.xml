@@ -78,4 +78,36 @@
     </bean>
 
 
+    <bean id="salve2DataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${jdbc.slave1.url}"/>
+        <property name="username" value="${jdbc.slave2.username}"/>
+        <property name="password" value="${jdbc.slave2.password}"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="4000"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="salve2OrderDataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${jdbc.slave1.order.url}"/>
+        <property name="username" value="${jdbc.slave2.order.username}"/>
+        <property name="password" value="${jdbc.slave2.order.password}"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="4000"/>
+        <property name="proxyFilters">
+            <list>
+                <ref bean="stat-filter"/>
+            </list>
+        </property>
+    </bean>
+
+
 </beans>

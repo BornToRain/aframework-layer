@@ -13,10 +13,10 @@
 
     <!-- 定义读写分离数据源, 读写分离数据源实现了DataSource接口, 可直接当做数据源处理 -->
     <rdb:master-slave-data-source id="dbtbl" master-data-source-ref="masterDataSource"
-                                  slave-data-sources-ref="salve1DataSource"/>
+                                  slave-data-sources-ref="salve1DataSource,salve2DataSource"/>
 
     <rdb:master-slave-data-source id="dbtbl_order" master-data-source-ref="masterOrderDataSource"
-                                  slave-data-sources-ref="salve1OrderDataSource"/>
+                                  slave-data-sources-ref="salve1OrderDataSource,salve2OrderDataSource"/>
 
 
     <!-- 定义读写分离数据源, 读写分离数据源实现了DataSource接口, 可直接当做数据源处理 -->
