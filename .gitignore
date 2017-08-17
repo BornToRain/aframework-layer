@@ -7,3 +7,4 @@
 /aframework/aframework-web/target
 *.iml
 /Plugs/mybatis-generator/lib/com
+/Plugs/apache-jmeter-3.2/backups

@@ -69,6 +69,12 @@ public class UserTestCase extends BaseTestCase {
     }
 
     @Test
+    public void UserByUserNameTest() {
+        User user = userService.getUserByUserName("XNCE10001");
+        Assert.assertNotNull(user);
+    }
+
+    @Test
     public void UpdateUserTest() {
         User user = userService.getUserById(79);
         user.setAge(99);
