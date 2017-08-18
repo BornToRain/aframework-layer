@@ -10,7 +10,7 @@
 package data.test;
 
 import com.domain.users.Role;
-import com.repository.users.IRoleRepository;
+import com.repository.mybatis.users.IRoleRepository;
 import data.testbase.BaseTestCase;
 import org.junit.Assert;
 import org.junit.Test;

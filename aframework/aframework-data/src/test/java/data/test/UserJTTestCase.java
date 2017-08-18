@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.domain.users.User;
-import com.jdbcrepository.users.IUserSqlRepository;
+import com.repository.jdbctemplate.users.IUserJTRepository;
 
 import data.testbase.BaseTestCase;
 
@@ -17,29 +17,29 @@ import data.testbase.BaseTestCase;
 /**
  * @author Alvis
  * @version 1.0.0
- * @ClassName UserSqlTestCase
+ * @ClassName UserTestCase
  * @Description User sql Test Classs
  * @Date Jul 7, 2017 9:37:55 PM
  */
-public class UserSqlTestCase extends BaseTestCase {
+public class UserJTTestCase extends BaseTestCase {
 
     @Autowired
-    private IUserSqlRepository UserRepository;
+    private IUserJTRepository userJTRepository;
 
     @Test
-    public void InsertUserSqlTest() {
+    public void InsertUserTest() {
 
         int i = 0;
         User custoemr = new User();
         custoemr.setName("alvis" + i);
         custoemr.setAge(10 + i);
         custoemr.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-        UserRepository.insertUser(custoemr);
+        userJTRepository.insertUser(custoemr);
 
     }
 
     @Test
-    public void InsertUsersSqlTest() {
+    public void InsertUsersTest() {
 
         List<User> insertUsers = new ArrayList<User>(2);
 
@@ -50,40 +50,40 @@ public class UserSqlTestCase extends BaseTestCase {
             custoemr.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
             insertUsers.add(custoemr);
         }
-        UserRepository.insertUsers(insertUsers);
+        userJTRepository.insertUsers(insertUsers);
 
     }
 
     @Test
     public void getAllUserTest() {
-        List<User> Users = UserRepository.getAllUser();
+        List<User> Users = userJTRepository.getAllUser();
         Assert.assertNotNull(Users);
     }
 
     @Test
     public void getUserTest() {
-        User User = UserRepository.getUserById(79);
+        User User = userJTRepository.getUserById(79);
         Assert.assertNotNull(User);
     }
 
     @Test
     public void getAllUserCountTest() {
-        Integer count = UserRepository.getAllUserCount();
+        Integer count = userJTRepository.getAllUserCount();
         Assert.assertNotNull(count);
     }
 
     @Test
     public void updateUserTest() {
-        User User = UserRepository.getUserById(79);
+        User User = userJTRepository.getUserById(79);
         User.setName("hello");
         User.setAge(87);
         User.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-        UserRepository.updateUser(User);
+        userJTRepository.updateUser(User);
     }
 
     @Test
     public void deleteCutomerByIdTest() {
-        UserRepository.deleteUserById(79);
+        userJTRepository.deleteUserById(79);
     }
 
 }

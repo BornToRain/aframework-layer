@@ -27,12 +27,13 @@
  *        - first revision
  *
  *****************************************************************/
-package com.jdbcrepository.users;
-
-import java.util.List;
-import java.util.Map;
+package com.repository.datasource.users;
 
 import com.domain.users.User;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -42,7 +43,7 @@ import com.domain.users.User;
  * @Date Jul 18, 2017 3:59:53 PM
  * @version 1.0.0
  */
-public interface IUserSqlRepository {
+public interface IUserDSRepository {
 
     List<User> getAllUser();
 
@@ -54,7 +55,7 @@ public interface IUserSqlRepository {
 
     void insertUser(User user);
 
-    void insertUsers(List<User> users);
+    void insertUsers(List<User> users) throws SQLException;
 
     void updateUser(User user);
 

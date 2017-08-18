@@ -38,7 +38,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.domain.users.User;
-import com.repository.users.IUserRepository;
+import com.repository.mybatis.users.IUserRepository;
 
 /**
  * @author

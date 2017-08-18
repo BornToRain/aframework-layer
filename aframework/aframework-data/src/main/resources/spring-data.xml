@@ -11,11 +11,12 @@
        					   http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 
-    <context:component-scan base-package="com.jdbcrepository"></context:component-scan>
+    <context:component-scan base-package="com.repository.datasource"></context:component-scan>
+    <context:component-scan base-package="com.repository.jdbctemplate"></context:component-scan>
 
     <import resource="classpath:spring-datasource-jdbc.xml"/>
     <import resource="classpath:spring-sharding-jdbc.xml"/>
-    <import resource="classpath:spring-jdbc.xml"/>
+    <import resource="classpath:spring-jdbc-user.xml"/>
     <import resource="classpath:spring-jdbc-order.xml"/>
 
 </beans>

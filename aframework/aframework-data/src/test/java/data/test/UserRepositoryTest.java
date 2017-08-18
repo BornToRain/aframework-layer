@@ -1,17 +1,15 @@
 package data.test;
 
-import com.domain.orders.Order;
 import com.domain.users.User;
-import com.repository.orders.IOrderRepository;
-import com.repository.users.IUserRepository;
+
+import com.repository.mybatis.users.IUserRepository;
 import data.testbase.BaseTestCase;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.UUID;
+
+import java.sql.Timestamp;
 
 
 /**
@@ -26,10 +24,24 @@ public class UserRepositoryTest extends BaseTestCase {
     @Autowired
     private IUserRepository userRepository;
 
+
     @Test
     public void UserByUserNameTest() {
         User user = userRepository.getUserByUserName("XNCE10001");
         Assert.assertNotNull(user);
+    }
+
+
+    @Test
+    public void InsertUserTest() {
+
+        int i = 0;
+        User custoemr = new User();
+        custoemr.setName("alvis" + i);
+        custoemr.setAge(10 + i);
+        custoemr.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
+        userRepository.insertUser(custoemr);
+
     }
 
 

@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.jdbcrepository.users;
+package com.repository.jdbctemplate.users;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +41,6 @@ import org.springframework.stereotype.Repository;
 
 import com.domain.users.User;
 
-import javax.annotation.Resource;
-
 /**
  * @ClassName UserSqlRepository
  * @Description UserSqlRepository
@@ -50,8 +48,8 @@ import javax.annotation.Resource;
  * @Date Jul 18, 2017 4:00:18 PM
  * @version 1.0.0
  */
-@Repository("IUserSqlRepository")
-public class UserSqlRepository implements IUserSqlRepository {
+@Repository("IUserJTRepository")
+public class UserJTRepository implements IUserJTRepository {
 
 
     /*@Resource(name="jdbcTemplate")*/
@@ -64,7 +62,7 @@ public class UserSqlRepository implements IUserSqlRepository {
      */
     @Override
     public List<User> getAllUser() {
-        String sql = "select id,name,age,last_active_time from user";
+        String sql = "select id,name,age,last_active_time from t_user";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
         return jdbcTemplate.query(sql, rowMapper);
     }
@@ -75,7 +73,7 @@ public class UserSqlRepository implements IUserSqlRepository {
      */
     @Override
     public Integer getAllUserCount() {
-        String sql = "select count(*) from user";
+        String sql = "select count(*) from t_user";
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
         return count;
     }
@@ -86,7 +84,7 @@ public class UserSqlRepository implements IUserSqlRepository {
      */
     @Override
     public User getUserById(Integer id) {
-        String sql = "select id,name,age,last_active_time from user where id=?";
+        String sql = "select id,name,age,last_active_time from t_user where id=?";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
         User User = jdbcTemplate.queryForObject(sql, rowMapper, id);
         return User;
@@ -108,7 +106,7 @@ public class UserSqlRepository implements IUserSqlRepository {
      */
     @Override
     public void insertUser(User user) {
-        String sql = "insert into user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
+        String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
         Object[] parameters = new Object[] {user.getName(), user.getAge(), user.getLastActiveTime() };
         jdbcTemplate.update(sql, parameters);
     }
@@ -119,7 +117,7 @@ public class UserSqlRepository implements IUserSqlRepository {
      */
     @Override
     public void insertUsers(List<User> users) {
-        String sql = "insert into user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
+        String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
         List<Object[]> batchArgs = new ArrayList<Object[]>();
         for (User User : users) {
             batchArgs.add(new Object[] {User.getName(), User.getAge(), User.getLastActiveTime() });
@@ -133,7 +131,7 @@ public class UserSqlRepository implements IUserSqlRepository {
      */
     @Override
     public void updateUser(User user) {
-        String sql = "update user set name=?,age=?,last_active_time=? where id=?";
+        String sql = "update t_user set name=?,age=?,last_active_time=? where id=?";
         Object[] parameter = new Object[] {user.getName(), user.getAge(), user.getLastActiveTime(),
                 user.getId() };
         jdbcTemplate.update(sql, parameter);
@@ -145,7 +143,7 @@ public class UserSqlRepository implements IUserSqlRepository {
      */
     @Override
     public void deleteUserById(Integer id) {
-        String sql = "delete from user where id=?";
+        String sql = "delete from t_user where id=?";
         jdbcTemplate.update(sql, id);
     }
 

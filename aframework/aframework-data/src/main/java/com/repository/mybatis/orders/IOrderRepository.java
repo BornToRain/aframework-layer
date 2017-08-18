@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.repository.orders;
+package com.repository.mybatis.orders;
 
 import com.domain.orders.Order;
 import org.springframework.stereotype.Repository;

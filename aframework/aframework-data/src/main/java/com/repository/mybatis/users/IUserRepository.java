@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package com.repository.users;
+package com.repository.mybatis.users;
 
 import java.util.List;
 import java.util.Map;

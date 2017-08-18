@@ -2,15 +2,12 @@ package data.test;
 
 import com.domain.orders.Order;
 
-import com.repository.orders.IOrderRepository;
+import com.repository.mybatis.orders.IOrderRepository;
 import data.testbase.BaseTestCase;
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
