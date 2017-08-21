@@ -4,30 +4,51 @@
 
 <mapper namespace="com.repository.mybatis.users.IUserRepository">
 
-    <select id="getAllUser" resultType="com.domain.users.User">
-		select * from `t_user`
-	</select>
+    <resultMap id="BaseResultMap" type="com.domain.users.User">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_uuid" jdbcType="CHAR" property="user_uuid" />
+        <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, user_uuid, user_name, password, name, age, last_active_time
+  </sql>
 
-    <select id="getUserById" resultType="com.domain.users.User">
-		select * from `t_user`
-		where id=#{value}
-	</select>
+    <select id="getAllUser" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `t_user`
+    </select>
 
-    <select id="getUserByUserName" resultType="com.domain.users.User">
-		select * from
-		`t_user`
-		where user_name=#{value}
-	</select>
+    <select id="getUserById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `t_user`
+        where id=#{value}
+    </select>
 
-    <select id="getUserByUuid" resultType="com.domain.users.User">
-        select * from
-        `t_user`
+    <select id="getUserByUserName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `t_user`
+        where user_name=#{value}
+    </select>
+
+    <select id="getUserByUuid" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `t_user`
         where user_uuid=#{value}
     </select>
 
 
-    <select id="userPageList" resultType="com.domain.users.User">
-        select * from `t_user`
+    <select id="userPageList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `t_user`
         <where>
             <if test="name != null and name != ''">
                 name like concat('%', #{name}, '%')
@@ -95,7 +116,6 @@
                  close=")">
             #{id}
         </foreach>
-
     </delete>
 
 

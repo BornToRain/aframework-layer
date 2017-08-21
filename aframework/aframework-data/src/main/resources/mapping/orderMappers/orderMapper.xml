@@ -4,22 +4,36 @@
 
 <mapper namespace="com.repository.mybatis.orders.IOrderRepository">
 
-    <select id="getAllOrder" resultType="com.domain.orders.Order">
-		select * from `t_order`
-	</select>
+    <resultMap id="BaseResultMap" type="com.domain.orders.Order">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="uuid" jdbcType="CHAR" property="uuid"/>
+        <result column="user_id" jdbcType="INTEGER" property="user_id"/>
+        <result column="unit_price" jdbcType="DECIMAL" property="unit_price"/>
+    </resultMap>
 
-    <select id="getOrderById" resultType="com.domain.orders.Order">
+    <sql id="Base_Column_List">
+        id, uuid, user_id, unit_price
+    </sql>
+
+    <select id="getAllOrder"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_order
+    </select>
+
+
+    <select id="getOrderById" resultMap="BaseResultMap">
 		select * from `t_order`
 		where id=#{value}
 	</select>
 
-    <select id="getOrderByUuid" resultType="com.domain.orders.Order">
+    <select id="getOrderByUuid" resultMap="BaseResultMap">
         select * from `t_order`
         where uuid=#{value}
     </select>
 
 
-    <select id="orderPageList" resultType="com.domain.orders.Order">
+    <select id="orderPageList" resultMap="BaseResultMap">
         select * from `t_order`
         <if test="offset != null and limit != null ">
             limit #{offset}, #{limit}
@@ -39,5 +53,9 @@
             (#{uuid}, #{user_id}, #{unit_price});
 	</insert>
 
+
+    <select id="selectOrders" parameterType="java.lang.String" resultMap="BaseResultMap">
+      ${value}
+    </select>
 
 </mapper>

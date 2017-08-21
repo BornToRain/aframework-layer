@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Jul 18, 2017 3:24:08 PM
  *
@@ -34,14 +34,12 @@ import java.sql.Timestamp;
 import com.domain.base.BaseEntity;
 
 
+/**
+ * @author
+ * @version 创建时间：Jul 18, 2017 3:24:08 PM
+ * 类说明
+ */
 
-
-
-/** 
-* @author 
-* @version 创建时间：Jul 18, 2017 3:24:08 PM 
-* 类说明 
-*/
 /**
  * @ClassName user
  * @Description user
@@ -52,7 +50,19 @@ import com.domain.base.BaseEntity;
 public class User extends BaseEntity {
 
     private Integer id;
- 
+
+    private String user_uuid;
+
+    private String user_name;
+
+    private String password;
+
+    private String name;
+
+    private Integer age;
+
+    private Timestamp lastActiveTime;
+
     public Integer getId() {
         return id;
     }
@@ -61,7 +71,37 @@ public class User extends BaseEntity {
         this.id = id;
     }
 
-    private String name;
+    public String getUser_uuid() {
+        return user_uuid;
+    }
+
+    public void setUser_uuid(String user_uuid) {
+        this.user_uuid = user_uuid == null ? null : user_uuid.trim();
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name == null ? null : user_name.trim();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
 
     public Integer getAge() {
         return age;
@@ -77,59 +117,5 @@ public class User extends BaseEntity {
 
     public void setLastActiveTime(Timestamp lastActiveTime) {
         this.lastActiveTime = lastActiveTime;
-    }
-
-    private Integer age;
-
-    private Timestamp lastActiveTime;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    /**
-     * @return the user_name
-     */
-    public String getUser_name() {
-        return user_name;
-    }
-
-    /**
-     * @param user_name the user_name to set
-     */
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
-
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String user_name;
-    
-    private String password;
-    
-    private String uuid;
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 }

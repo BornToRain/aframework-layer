@@ -7,23 +7,28 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="system_code" jdbcType="VARCHAR" property="systemCode"/>
     </resultMap>
+
     <sql id="Base_Column_List">
         id, name, system_code
     </sql>
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from `t_role`
         where id = #{id,jdbcType=INTEGER}
     </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from `t_role`
         where id = #{id,jdbcType=INTEGER}
     </delete>
+
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.domain.users.Role" useGeneratedKeys="true">
         insert into `t_role` (name, system_code)
         values (#{name,jdbcType=VARCHAR}, #{systemCode,jdbcType=VARCHAR})
     </insert>
+
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.domain.users.Role"
             useGeneratedKeys="true">
         insert into `t_role`
@@ -44,6 +49,7 @@
             </if>
         </trim>
     </insert>
+
     <update id="updateByPrimaryKeySelective" parameterType="com.domain.users.Role">
         update `t_role`
         <set>
@@ -56,6 +62,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+
     <update id="updateByPrimaryKey" parameterType="com.domain.users.Role">
     update `t_role`
     set name = #{name,jdbcType=VARCHAR},

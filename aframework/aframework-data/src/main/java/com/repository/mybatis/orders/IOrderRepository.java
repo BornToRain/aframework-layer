@@ -59,5 +59,5 @@ public interface IOrderRepository {
 
     void insertOrder(Order order);
 
-
+    List<Order> selectOrders(String sql);
 }

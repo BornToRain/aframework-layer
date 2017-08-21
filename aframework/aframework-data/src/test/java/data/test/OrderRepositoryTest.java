@@ -8,9 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 
 /**
@@ -32,7 +30,6 @@ public class OrderRepositoryTest extends BaseTestCase {
         for (int j = 0; j < 1000; j++) {
             Random rand = new Random(1);
             Order order = new Order();
-            order.setId(j);
             order.setUser_id(j + rand.nextInt(j + 5));
             order.setUuid(UUID.randomUUID().toString());
             order.setUnit_price(BigDecimal.valueOf(j));
@@ -42,10 +39,11 @@ public class OrderRepositoryTest extends BaseTestCase {
 
 
     @Test
-    public void orderPageCountTest() {
+    public void selectOrdersTest() {
+        String ordersSql = " select id,uuid,user_id,unit_price from t_order where  unit_price>899 ";
+        List<Order> orderIList = orderRepository.selectOrders(ordersSql);
+        List<Order> orderIList2 = orderRepository.getAllOrder();
 
-
-        List<Order> orderIList = orderRepository.getAllOrder();
     }
 
 

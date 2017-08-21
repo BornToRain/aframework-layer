@@ -21,28 +21,35 @@ import java.util.UUID;
  */
 public class Order extends BaseEntity {
 
-    private long id;
+    private Long id;
 
     private String uuid;
 
-    private int user_id;
+    private Integer user_id;
 
     private BigDecimal unit_price;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    public String getUuid() {
+        return uuid;
+    }
 
-    public int getUser_id() {
+    public void setUuid(String uuid) {
+        this.uuid = uuid == null ? null : uuid.trim();
+    }
+
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
@@ -52,13 +59,5 @@ public class Order extends BaseEntity {
 
     public void setUnit_price(BigDecimal unit_price) {
         this.unit_price = unit_price;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 }
