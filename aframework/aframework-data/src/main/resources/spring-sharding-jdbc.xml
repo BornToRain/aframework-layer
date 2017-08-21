@@ -20,9 +20,18 @@
 
 
     <!-- 定义读写分离数据源, 读写分离数据源实现了DataSource接口, 可直接当做数据源处理 -->
-
     <rdb:strategy id="databaseNoneShardingStrategy" sharding-columns="none"
                   algorithm-class="com.dangdang.ddframe.rdb.sharding.api.strategy.database.NoneDatabaseShardingAlgorithm"/>
+    <rdb:strategy id="tableNoneShardingStrategy" sharding-columns="none"
+                  algorithm-class="com.dangdang.ddframe.rdb.sharding.api.strategy.table.NoneTableShardingAlgorithm"/>
+
+    <rdb:strategy id="databaseShardingStrategy" sharding-columns="user_id"
+                  algorithm-class="com.repository.sharding.algorithm.SingleKeyModuloDatabaseShardingAlgorithm"/>
+    <rdb:strategy id="tableShardingStrategy" sharding-columns="order_id"
+                  algorithm-class="com.repository.sharding.algorithm.SingleKeyModuloTableShardingAlgorithm"/>
+
+    <!--    <rdb:strategy id="databaseStrategy" sharding-columns="user_id" algorithm-expression="dbtbl_${user_id.longValue() % 2}"/>
+        <rdb:strategy id="orderTableStrategy" sharding-columns="order_id" algorithm-expression="t_order_${order_id.longValue() % 4}"/>-->
 
     <rdb:data-source id="shardingDataSource">
         <rdb:sharding-rule data-sources="dbtbl">
