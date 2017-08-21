@@ -1,11 +1,39 @@
-/aframework/.idea
-/aframework/aframework-domain/target
-/aframework/aframework-api/target
-/aframework/aframework-core/target
-/aframework/aframework-data/target
-/aframework/aframework-service/target
-/aframework/aframework-web/target
+# maven ignore
+target/
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+
+# eclipse ignore
+.settings/
+.project 
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
 *.iml
+*.iws
+
+# temp ignore
+logs/
+*.doc
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+*.class
+
+
+#plugs
 /Plugs/mybatis-generator/lib/com
 /Plugs/apache-jmeter-3.2/backups
 /Plugs/apache-jmeter-3.2/bin/jmeter.log
