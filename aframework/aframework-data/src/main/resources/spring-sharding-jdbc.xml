@@ -27,11 +27,11 @@
 
     <rdb:strategy id="databaseShardingStrategy" sharding-columns="user_id"
                   algorithm-class="com.repository.sharding.algorithm.SingleKeyModuloDatabaseShardingAlgorithm"/>
-    <rdb:strategy id="tableShardingStrategy" sharding-columns="order_id"
+    <rdb:strategy id="tableShardingStrategy" sharding-columns="id"
                   algorithm-class="com.repository.sharding.algorithm.SingleKeyModuloTableShardingAlgorithm"/>
 
-    <!--    <rdb:strategy id="databaseStrategy" sharding-columns="user_id" algorithm-expression="dbtbl_${user_id.longValue() % 2}"/>
-        <rdb:strategy id="orderTableStrategy" sharding-columns="order_id" algorithm-expression="t_order_${order_id.longValue() % 4}"/>-->
+    <!--    <rdb:strategy id="databaseStrategy" sharding-columns="user_id" algorithm-expression="dbtbl_${id.longValue() % 2}"/>
+            <rdb:strategy id="orderTableStrategy" sharding-columns="id" algorithm-expression="t_order_${id.longValue() % 3}"/>-->
 
     <rdb:data-source id="shardingDataSource">
         <rdb:sharding-rule data-sources="dbtbl">
@@ -46,8 +46,10 @@
     <rdb:data-source id="orderShardingDataSource">
         <rdb:sharding-rule data-sources="dbtbl_order">
             <rdb:table-rules>
-                <rdb:table-rule logic-table="t_order" actual-tables="t_order"
-                                database-strategy="databaseNoneShardingStrategy"/>
+                <rdb:table-rule logic-table="t_order" actual-tables="t_order_${0..2}"
+                                database-strategy="databaseNoneShardingStrategy" table-strategy="tableShardingStrategy">
+                    <rdb:generate-key-column column-name="id"/>
+                </rdb:table-rule>
             </rdb:table-rules>
         </rdb:sharding-rule>
     </rdb:data-source>

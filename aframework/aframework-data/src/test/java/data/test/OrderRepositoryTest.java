@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 
@@ -25,15 +26,18 @@ public class OrderRepositoryTest extends BaseTestCase {
     private IOrderRepository orderRepository;
 
     @Test
-    public void InsertOrderSqlTest() {
+    public void InsertOrderSqlTest() throws InterruptedException {
 
         int i = 0;
-
-        Order order = new Order();
-        order.setUser_id(1);
-        order.setUuid(UUID.randomUUID().toString());
-        order.setUnit_price(BigDecimal.valueOf(1.3));
-        orderRepository.insertOrder(order);
+        for (int j = 0; j < 1000; j++) {
+            Random rand = new Random(1);
+            Order order = new Order();
+            order.setId(j);
+            order.setUser_id(j + rand.nextInt(j + 5));
+            order.setUuid(UUID.randomUUID().toString());
+            order.setUnit_price(BigDecimal.valueOf(j));
+            orderRepository.insertOrder(order);
+        }
     }
 
 
@@ -41,7 +45,7 @@ public class OrderRepositoryTest extends BaseTestCase {
     public void orderPageCountTest() {
 
 
-       List<Order> orderIList= orderRepository.getAllOrder();
+        List<Order> orderIList = orderRepository.getAllOrder();
     }
 
 

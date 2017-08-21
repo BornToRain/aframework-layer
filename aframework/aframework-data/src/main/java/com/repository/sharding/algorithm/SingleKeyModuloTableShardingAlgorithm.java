@@ -29,7 +29,7 @@ public final class SingleKeyModuloTableShardingAlgorithm implements SingleKeyTab
     @Override
     public String doEqualSharding(final Collection<String> availableTargetNames, final ShardingValue<Long> shardingValue) {
         for (String each : availableTargetNames) {
-            if (each.endsWith(shardingValue.getValue() % 2 + "")) {
+            if (each.endsWith(shardingValue.getValue() % 3 + "")) {
                 return each;
             }
         }
@@ -42,7 +42,7 @@ public final class SingleKeyModuloTableShardingAlgorithm implements SingleKeyTab
         Collection<Long> values = shardingValue.getValues();
         for (Long value : values) {
             for (String each : availableTargetNames) {
-                if (each.endsWith(value % 2 + "")) {
+                if (each.endsWith(value % 3 + "")) {
                     result.add(each);
                 }
             }
@@ -56,7 +56,7 @@ public final class SingleKeyModuloTableShardingAlgorithm implements SingleKeyTab
         Range<Long> range = shardingValue.getValueRange();
         for (Long i = range.lowerEndpoint(); i <= range.upperEndpoint(); i++) {
             for (String each : availableTargetNames) {
-                if (each.endsWith(i % 2 + "")) {
+                if (each.endsWith(i % 3 + "")) {
                     result.add(each);
                 }
             }
