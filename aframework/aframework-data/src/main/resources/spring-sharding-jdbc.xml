@@ -43,9 +43,9 @@
     <rdb:strategy id="tableNoneShardingStrategy" sharding-columns="none"
                   algorithm-class="com.dangdang.ddframe.rdb.sharding.api.strategy.table.NoneTableShardingAlgorithm"/>
 
-    <rdb:strategy id="timeDatabaseShardingAlgorithm" sharding-columns="none"
+    <rdb:strategy id="timeDatabaseShardingAlgorithm" sharding-columns="id"
                   algorithm-class="com.repository.sharding.algorithm.TimeDatabaseShardingAlgorithm"/>
-    <rdb:strategy id="timeTableStrategy" sharding-columns="id"
+    <rdb:strategy id="timeTableShardingAlgorithm" sharding-columns="id"
                   algorithm-class="com.repository.sharding.algorithm.TimeTableShardingAlgorithm"/>
 
     <rdb:data-source id="shardingDataSource">
@@ -63,7 +63,8 @@
         <rdb:sharding-rule data-sources="dbtbl_order_2017,dbtbl_order_2018">
             <rdb:table-rules>
                 <rdb:table-rule logic-table="t_order" actual-tables="t_order_${1..12}_${0..2}"
-                                database-strategy="timeDatabaseShardingAlgorithm" table-strategy="timeTableStrategy">
+                                database-strategy="timeDatabaseShardingAlgorithm"
+                                table-strategy="timeTableShardingAlgorithm">
                     <rdb:generate-key-column column-name="id"/>
                 </rdb:table-rule>
             </rdb:table-rules>

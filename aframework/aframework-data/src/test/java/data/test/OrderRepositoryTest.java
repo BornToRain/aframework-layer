@@ -27,7 +27,7 @@ public class OrderRepositoryTest extends BaseTestCase {
     public void InsertOrderSqlTest() throws InterruptedException {
 
         int i = 0;
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 1000; j++) {
             Random rand = new Random(1);
             Order order = new Order();
             order.setUser_id(j + rand.nextInt(j + 5));
