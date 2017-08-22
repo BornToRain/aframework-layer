@@ -38,11 +38,11 @@ import com.domain.users.User;
 
 
 /**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName IUserRepository
  * @Description IUserRepository
- * @author Alvis
  * @Date Jul 18, 2017 3:44:31 PM
- * @version 1.0.0
  */
 @Repository
 public interface IUserRepository {
