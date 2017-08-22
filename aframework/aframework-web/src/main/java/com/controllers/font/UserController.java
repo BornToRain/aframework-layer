@@ -78,7 +78,7 @@ public class UserController extends BaseFontController {
 
         User user = new User();
         UUID uuid = UUID.randomUUID();
-        user.setUuid(uuid.toString());
+        user.setUser_uuid(uuid.toString());
         String encodePwd = authenticationService.pwdEncode(password);
         user.setPassword(encodePwd);
         user.setUser_name(username);

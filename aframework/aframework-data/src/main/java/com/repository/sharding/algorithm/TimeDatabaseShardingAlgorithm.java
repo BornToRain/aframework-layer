@@ -25,7 +25,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 
-public final class TimeDatabaseShardingAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Integer> {
+public final class TimeDatabaseShardingAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Long> {
 
     private String getTableEnd(long value) {
         Calendar now = Calendar.getInstance();
@@ -34,7 +34,7 @@ public final class TimeDatabaseShardingAlgorithm implements SingleKeyDatabaseSha
     }
 
     @Override
-    public String doEqualSharding(final Collection<String> availableTargetNames, final ShardingValue<Integer> shardingValue) {
+    public String doEqualSharding(final Collection<String> availableTargetNames, final ShardingValue<Long> shardingValue) {
         String tableEnd = getTableEnd(shardingValue.getValue());
         for (String each : availableTargetNames) {
             if (each.endsWith(tableEnd)) {
@@ -45,10 +45,10 @@ public final class TimeDatabaseShardingAlgorithm implements SingleKeyDatabaseSha
     }
 
     @Override
-    public Collection<String> doInSharding(final Collection<String> availableTargetNames, final ShardingValue<Integer> shardingValue) {
+    public Collection<String> doInSharding(final Collection<String> availableTargetNames, final ShardingValue<Long> shardingValue) {
         Collection<String> result = new LinkedHashSet<>(availableTargetNames.size());
-        Collection<Integer> values = shardingValue.getValues();
-        for (Integer value : values) {
+        Collection<Long> values = shardingValue.getValues();
+        for (Long value : values) {
             String tableEnd = getTableEnd(value);
             for (String each : availableTargetNames) {
                 if (each.endsWith(tableEnd)) {
@@ -60,10 +60,10 @@ public final class TimeDatabaseShardingAlgorithm implements SingleKeyDatabaseSha
     }
 
     @Override
-    public Collection<String> doBetweenSharding(final Collection<String> availableTargetNames, final ShardingValue<Integer> shardingValue) {
+    public Collection<String> doBetweenSharding(final Collection<String> availableTargetNames, final ShardingValue<Long> shardingValue) {
         Collection<String> result = new LinkedHashSet<>(availableTargetNames.size());
-        Range<Integer> range = shardingValue.getValueRange();
-        for (Integer value = range.lowerEndpoint(); value <= range.upperEndpoint(); value++) {
+        Range<Long> range = shardingValue.getValueRange();
+        for (Long value = range.lowerEndpoint(); value <= range.upperEndpoint(); value++) {
             String tableEnd = getTableEnd(value);
             for (String each : availableTargetNames) {
                 if (each.endsWith(tableEnd)) {

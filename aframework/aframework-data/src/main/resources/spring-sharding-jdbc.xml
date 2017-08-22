@@ -15,9 +15,11 @@
     <rdb:master-slave-data-source id="dbtbl" master-data-source-ref="masterDataSource"
                                   slave-data-sources-ref="salve1DataSource,salve2DataSource"/>
 
-    <rdb:master-slave-data-source id="dbtbl_order" master-data-source-ref="masterOrderDataSource"
-                                  slave-data-sources-ref="salve1OrderDataSource,salve2OrderDataSource"/>
+    <rdb:master-slave-data-source id="dbtbl_order_2017" master-data-source-ref="masterOrder2017DataSource"
+                                  slave-data-sources-ref="salve1Order2017DataSource,salve2Order2017DataSource"/>
 
+    <rdb:master-slave-data-source id="dbtbl_order_2018" master-data-source-ref="masterOrder2018DataSource"
+                                  slave-data-sources-ref="salve1Order2018DataSource,salve2Order2018DataSource"/>
 
     <!-- 定义读写分离数据源, 读写分离数据源实现了DataSource接口, 可直接当做数据源处理 , 最好设置为3的倍数 -->
     <!--
@@ -36,9 +38,13 @@
         <rdb:strategy id="orderTableStrategy" sharding-columns="id" algorithm-expression="t_order_${id.longValue() % 3}"/>
      -->
 
-    <rdb:strategy id="TimeDatabaseShardingAlgorithm" sharding-columns="none"
-                  algorithm-class="com.repository.sharding.algorithm.TimeDatabaseShardingAlgorithm"/>
+    <rdb:strategy id="databaseNoneShardingStrategy" sharding-columns="none"
+                  algorithm-class="com.dangdang.ddframe.rdb.sharding.api.strategy.database.NoneDatabaseShardingAlgorithm"/>
+    <rdb:strategy id="tableNoneShardingStrategy" sharding-columns="none"
+                  algorithm-class="com.dangdang.ddframe.rdb.sharding.api.strategy.table.NoneTableShardingAlgorithm"/>
 
+    <rdb:strategy id="timeDatabaseShardingAlgorithm" sharding-columns="none"
+                  algorithm-class="com.repository.sharding.algorithm.TimeDatabaseShardingAlgorithm"/>
     <rdb:strategy id="timeTableStrategy" sharding-columns="id"
                   algorithm-class="com.repository.sharding.algorithm.TimeTableShardingAlgorithm"/>
 
@@ -46,17 +52,18 @@
         <rdb:sharding-rule data-sources="dbtbl">
             <rdb:table-rules>
                 <rdb:table-rule logic-table="t_user" actual-tables="t_user"
-                                database-strategy="TimeDatabaseShardingAlgorithm"/>
+                                database-strategy="databaseNoneShardingStrategy"
+                                table-strategy="tableNoneShardingStrategy"/>
             </rdb:table-rules>
         </rdb:sharding-rule>
     </rdb:data-source>
 
 
     <rdb:data-source id="orderShardingDataSource">
-        <rdb:sharding-rule data-sources="dbtbl_order">
+        <rdb:sharding-rule data-sources="dbtbl_order_2017,dbtbl_order_2018">
             <rdb:table-rules>
                 <rdb:table-rule logic-table="t_order" actual-tables="t_order_${1..12}_${0..2}"
-                                database-strategy="databaseNoneShardingStrategy" table-strategy="timeTableStrategy">
+                                database-strategy="timeDatabaseShardingAlgorithm" table-strategy="timeTableStrategy">
                     <rdb:generate-key-column column-name="id"/>
                 </rdb:table-rule>
             </rdb:table-rules>

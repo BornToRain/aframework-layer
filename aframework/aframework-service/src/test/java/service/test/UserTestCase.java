@@ -43,7 +43,7 @@ public class UserTestCase extends BaseTestCase {
         for (int i = 0; i < 2; i++) {
             User user = new User();
             UUID uuid = UUID.randomUUID();
-            user.setUuid(uuid.toString());
+            user.setUser_uuid(uuid.toString());
             user.setName("alvis" + i);
             user.setAge(10 + i);
             user.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
