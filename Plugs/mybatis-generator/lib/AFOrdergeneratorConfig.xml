@@ -37,7 +37,7 @@
     </javaClientGenerator>
 
     <table schema="AFOrder" tableName="t_order" domainObjectName="Order"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"  enableSelectByExample="false"  selectByExampleQueryId="false" >
-      <property name="useActualColumnNames" value="true"/>
+      <!--<property name="useActualColumnNames" value="true"/>-->
       <generatedKey column="id" sqlStatement="JDBC" identity="true" />
     </table>
 	

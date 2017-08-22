@@ -5,10 +5,10 @@
 <mapper namespace="com.repository.mybatis.orders.IOrderRepository">
 
     <resultMap id="BaseResultMap" type="com.domain.orders.Order">
-        <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="uuid" jdbcType="CHAR" property="uuid"/>
-        <result column="user_id" jdbcType="INTEGER" property="user_id"/>
-        <result column="unit_price" jdbcType="DECIMAL" property="unit_price"/>
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="uuid" jdbcType="CHAR" property="uuid" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="unit_price" jdbcType="DECIMAL" property="unitPrice" />
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -54,8 +54,12 @@
 	</insert>
 
 
-    <select id="selectOrders" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectOrders" parameterType="java.lang.String" resultType="com.domain.orders.Order">
       ${value}
     </select>
+
+<!--    <select id="selectOrders" parameterType="java.lang.String" resultMap="BaseResultMap">
+        ${value}
+    </select>-->
 
 </mapper>

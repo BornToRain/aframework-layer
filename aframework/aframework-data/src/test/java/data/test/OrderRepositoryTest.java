@@ -30,9 +30,9 @@ public class OrderRepositoryTest extends BaseTestCase {
         for (int j = 0; j < 1000; j++) {
             Random rand = new Random(1);
             Order order = new Order();
-            order.setUser_id(j + rand.nextInt(j + 5));
+            order.setUserId(j + rand.nextInt(j + 5));
             order.setUuid(UUID.randomUUID().toString());
-            order.setUnit_price(BigDecimal.valueOf(j));
+            order.setUnitPrice(BigDecimal.valueOf(j));
             orderRepository.insertOrder(order);
         }
     }

@@ -37,13 +37,14 @@
     </javaClientGenerator>
 
     <table schema="AFData" tableName="t_user" domainObjectName="User"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"  enableSelectByExample="false"  selectByExampleQueryId="false" >
-      <property name="useActualColumnNames" value="true"/>
+      <!--  使用数据库原始字段名字 ，默认是驼峰命名方式  -->
+	  <!--<property name="useActualColumnNames" value="true"/> -->
       <generatedKey column="id" sqlStatement="JDBC" identity="true" />
 	  <columnOverride column="last_active_time" property="lastActiveTime" javaType="Timestamp" />
     </table>
 	
 	<table schema="AFData" tableName="t_role" domainObjectName="Role"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"  enableSelectByExample="false"  selectByExampleQueryId="false" >
-      <property name="useActualColumnNames" value="true"/>
+      <!-- <property name="useActualColumnNames" value="true"/> -->
       <generatedKey column="id" sqlStatement="JDBC" identity="true" />
 	  <columnOverride column="system_code" property="systemCode"  />
     </table>

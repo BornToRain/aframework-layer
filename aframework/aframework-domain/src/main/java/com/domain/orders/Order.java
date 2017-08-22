@@ -25,9 +25,9 @@ public class Order extends BaseEntity {
 
     private String uuid;
 
-    private Integer user_id;
+    private Integer userId;
 
-    private BigDecimal unit_price;
+    private BigDecimal unitPrice;
 
     public Long getId() {
         return id;
@@ -45,19 +45,19 @@ public class Order extends BaseEntity {
         this.uuid = uuid == null ? null : uuid.trim();
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public BigDecimal getUnit_price() {
-        return unit_price;
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setUnit_price(BigDecimal unit_price) {
-        this.unit_price = unit_price;
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
     }
 }

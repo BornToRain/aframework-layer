@@ -41,19 +41,19 @@ import com.domain.base.BaseEntity;
  */
 
 /**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName user
  * @Description user
- * @author Alvis
  * @Date Jul 18, 2017 3:24:08 PM
- * @version 1.0.0
  */
 public class User extends BaseEntity {
 
     private Integer id;
 
-    private String user_uuid;
+    private String userUuid;
 
-    private String user_name;
+    private String userName;
 
     private String password;
 
@@ -71,20 +71,20 @@ public class User extends BaseEntity {
         this.id = id;
     }
 
-    public String getUser_uuid() {
-        return user_uuid;
+    public String getUserUuid() {
+        return userUuid;
     }
 
-    public void setUser_uuid(String user_uuid) {
-        this.user_uuid = user_uuid == null ? null : user_uuid.trim();
+    public void setUserUuid(String userUuid) {
+        this.userUuid = userUuid == null ? null : userUuid.trim();
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name == null ? null : user_name.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public String getPassword() {

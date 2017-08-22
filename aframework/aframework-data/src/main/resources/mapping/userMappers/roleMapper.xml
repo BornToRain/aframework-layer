@@ -3,9 +3,9 @@
 <mapper namespace="com.repository.mybatis.users.IRoleRepository">
 
     <resultMap id="BaseResultMap" type="com.domain.users.Role">
-        <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="system_code" jdbcType="VARCHAR" property="systemCode"/>
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="system_code" jdbcType="VARCHAR" property="systemCode" />
     </resultMap>
 
     <sql id="Base_Column_List">

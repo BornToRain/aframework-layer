@@ -87,8 +87,8 @@ public class UserDSRepository implements IUserDSRepository {
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
 
         for (User item : users) {
-            preparedStatement.setString(1, item.getUser_uuid());
-            preparedStatement.setString(2, item.getUser_name());
+            preparedStatement.setString(1, item.getUserUuid());
+            preparedStatement.setString(2, item.getUserName());
             preparedStatement.setString(3, item.getPassword());
             preparedStatement.setString(4, item.getName());
             preparedStatement.setInt(5, item.getAge());

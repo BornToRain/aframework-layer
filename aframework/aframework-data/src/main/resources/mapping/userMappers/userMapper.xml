@@ -6,13 +6,14 @@
 
     <resultMap id="BaseResultMap" type="com.domain.users.User">
         <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="user_uuid" jdbcType="CHAR" property="user_uuid" />
-        <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+        <result column="user_uuid" jdbcType="CHAR" property="userUuid" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
         <result column="password" jdbcType="VARCHAR" property="password" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="age" jdbcType="INTEGER" property="age" />
         <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime" />
     </resultMap>
+
     <sql id="Base_Column_List">
     id, user_uuid, user_name, password, name, age, last_active_time
   </sql>

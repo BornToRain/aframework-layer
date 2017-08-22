@@ -78,10 +78,10 @@ public class UserController extends BaseFontController {
 
         User user = new User();
         UUID uuid = UUID.randomUUID();
-        user.setUser_uuid(uuid.toString());
+        user.setUserUuid(uuid.toString());
         String encodePwd = authenticationService.pwdEncode(password);
         user.setPassword(encodePwd);
-        user.setUser_name(username);
+        user.setUserName(username);
         user.setName(username);
         user.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
         userService.insertUser(user);
