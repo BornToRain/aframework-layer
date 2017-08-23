@@ -62,7 +62,7 @@ public class UserJTRepository implements IUserJTRepository {
      */
     @Override
     public List<User> getAllUser() {
-        String sql = "select id,name,age,last_active_time from t_user";
+        String sql = "select id, user_uuid, user_name, password, name, age, last_active_time from t_user";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
         return jdbcTemplate.query(sql, rowMapper);
     }
@@ -84,7 +84,7 @@ public class UserJTRepository implements IUserJTRepository {
      */
     @Override
     public User getUserById(Integer id) {
-        String sql = "select id,name,age,last_active_time from t_user where id=?";
+        String sql = "select   id, user_uuid, user_name, password, name, age, last_active_time from t_user where id=?";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
         User User = jdbcTemplate.queryForObject(sql, rowMapper, id);
         return User;
