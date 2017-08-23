@@ -50,7 +50,7 @@ import java.util.Map;
 @Repository("IUserDSRepository")
 public class UserDSRepository implements IUserDSRepository {
 
-    @Resource(name = "masterDataSource")
+    @Resource(name = "msds")
     private DataSource dataSource;
 
 

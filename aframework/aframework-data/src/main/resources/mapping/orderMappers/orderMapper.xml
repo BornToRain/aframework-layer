@@ -5,19 +5,19 @@
 <mapper namespace="com.repository.mybatis.orders.IOrderRepository">
 
     <resultMap id="BaseResultMap" type="com.domain.orders.Order">
-        <id column="id" jdbcType="BIGINT" property="id" />
-        <result column="uuid" jdbcType="CHAR" property="uuid" />
-        <result column="user_id" jdbcType="INTEGER" property="userId" />
-        <result column="unit_price" jdbcType="DECIMAL" property="unitPrice" />
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="uuid" jdbcType="CHAR" property="uuid"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="unit_price" jdbcType="DECIMAL" property="unitPrice"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id, uuid, user_id, unit_price
     </sql>
 
-    <select id="getAllOrder"  resultMap="BaseResultMap">
+    <select id="getAllOrder" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         from t_order
     </select>
 
@@ -45,21 +45,40 @@
     </select>
 
 
-    <insert id="insertOrder" parameterType="com.domain.orders.Order"
-            useGeneratedKeys="true" keyProperty="id">
-            insert into `t_order`
-             (`uuid`,`user_id`,`unit_price`)
-            values
-            (#{uuid}, #{user_id}, #{unit_price});
-	</insert>
+    <insert id="insertOrder" keyColumn="id" keyProperty="id" parameterType="com.domain.orders.Order"
+            useGeneratedKeys="true">
+        insert into t_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                uuid,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="unitPrice != null">
+                unit_price,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                #{uuid,jdbcType=CHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="unitPrice != null">
+                #{unitPrice,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
 
 
     <select id="selectOrders" parameterType="java.lang.String" resultType="com.domain.orders.Order">
       ${value}
     </select>
 
-<!--    <select id="selectOrders" parameterType="java.lang.String" resultMap="BaseResultMap">
-        ${value}
-    </select>-->
+    <!--    <select id="selectOrders" parameterType="java.lang.String" resultMap="BaseResultMap">
+            ${value}
+        </select>-->
 
 </mapper>

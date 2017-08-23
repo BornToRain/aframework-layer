@@ -36,18 +36,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName IOrderRepository
  * @Description IOrderRepository
- * @author Alvis
  * @Date Jul 18, 2017 3:44:31 PM
- * @version 1.0.0
  */
 @Repository
 public interface IOrderRepository {
 
     List<Order> getAllOrder();
 
-    Order getOrderById(Integer id);
+    Order getOrderById(Long id);
 
     Order getOrderByOrderName(String ordername);
 
