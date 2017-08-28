@@ -14,7 +14,7 @@ JAFrameWorkLayer is a website framework , provides distributed features such as 
 ## 2. Freemaker
 * html static so easy
 
-## 3. spring
+## 3. spring 
 * Ioc、mvc、api doc ,build website to quikc
 
 ## 4. Junit
