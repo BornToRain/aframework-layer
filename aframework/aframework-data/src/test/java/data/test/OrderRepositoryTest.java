@@ -43,7 +43,7 @@ public class OrderRepositoryTest extends BaseTestCase {
         String ordersSql = " select id,uuid,user_id,unit_price from t_order where user_id= 10 ";
         List<Order> orderIList = orderRepository.selectOrders(ordersSql);
 
-        //Order order= orderRepository.getOrderById(1l);
+        Order order= orderRepository.getOrderById(1l);
 
 
     }
