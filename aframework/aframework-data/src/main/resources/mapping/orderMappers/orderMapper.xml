@@ -9,11 +9,12 @@
         <result column="uuid" jdbcType="CHAR" property="uuid"/>
         <result column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="unit_price" jdbcType="DECIMAL" property="unitPrice"/>
+        <result column="sharding_sign" jdbcType="INTEGER" property="shardingSign" />
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, uuid, user_id, unit_price
-    </sql>
+    id, uuid, user_id, unit_price, sharding_sign
+  </sql>
 
     <select id="getAllOrder" resultMap="BaseResultMap">
         select
@@ -23,8 +24,7 @@
 
 
     <select id="getOrderById" resultMap="BaseResultMap">
-		select * from `t_order`
-		where id=#{value}
+		select * from `t_order` where id=#{value}
 	</select>
 
     <select id="getOrderByUuid" resultMap="BaseResultMap">
@@ -45,8 +45,7 @@
     </select>
 
 
-    <insert id="insertOrder" keyColumn="id" keyProperty="id" parameterType="com.domain.orders.Order"
-            useGeneratedKeys="true">
+    <insert id="insertOrder" keyColumn="id" keyProperty="id" parameterType="com.domain.orders.Order" useGeneratedKeys="true">
         insert into t_order
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="uuid != null">
@@ -58,6 +57,9 @@
             <if test="unitPrice != null">
                 unit_price,
             </if>
+            <if test="shardingSign != null">
+                sharding_sign,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="uuid != null">
@@ -68,6 +70,9 @@
             </if>
             <if test="unitPrice != null">
                 #{unitPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="shardingSign != null">
+                #{shardingSign,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>

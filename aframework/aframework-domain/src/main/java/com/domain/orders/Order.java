@@ -29,6 +29,8 @@ public class Order extends BaseEntity {
 
     private BigDecimal unitPrice;
 
+    private Integer shardingSign;
+
     public Long getId() {
         return id;
     }
@@ -59,5 +61,13 @@ public class Order extends BaseEntity {
 
     public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public Integer getShardingSign() {
+        return shardingSign;
+    }
+
+    public void setShardingSign(Integer shardingSign) {
+        this.shardingSign = shardingSign;
     }
 }

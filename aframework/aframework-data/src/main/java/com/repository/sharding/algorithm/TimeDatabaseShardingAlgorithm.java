@@ -25,13 +25,19 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 
-public final class SingleKeyModuloDatabaseShardingAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Long> {
-    private static final int split = 3;
+public final class TimeDatabaseShardingAlgorithm implements SingleKeyDatabaseShardingAlgorithm<Integer> {
+
+    private String getTableEnd(long value) {
+        Calendar now = Calendar.getInstance();
+        String tableEnd = "_" + now.get(Calendar.YEAR) + "";
+        return tableEnd;
+    }
 
     @Override
-    public String doEqualSharding(final Collection<String> availableTargetNames, final ShardingValue<Long> shardingValue) {
+    public String doEqualSharding(final Collection<String> availableTargetNames, final ShardingValue<Integer> shardingValue) {
+        String tableEnd = getTableEnd(shardingValue.getValue());
         for (String each : availableTargetNames) {
-            if (each.endsWith(shardingValue.getValue() % split + "")) {
+            if (each.endsWith(tableEnd)) {
                 return each;
             }
         }
@@ -39,12 +45,13 @@ public final class SingleKeyModuloDatabaseShardingAlgorithm implements SingleKey
     }
 
     @Override
-    public Collection<String> doInSharding(final Collection<String> availableTargetNames, final ShardingValue<Long> shardingValue) {
+    public Collection<String> doInSharding(final Collection<String> availableTargetNames, final ShardingValue<Integer> shardingValue) {
         Collection<String> result = new LinkedHashSet<>(availableTargetNames.size());
-        Collection<Long> values = shardingValue.getValues();
-        for (Long value : values) {
+        Collection<Integer> values = shardingValue.getValues();
+        for (Integer value : values) {
+            String tableEnd = getTableEnd(value);
             for (String each : availableTargetNames) {
-                if (each.endsWith(value % split + "")) {
+                if (each.endsWith(tableEnd)) {
                     result.add(each);
                 }
             }
@@ -53,12 +60,13 @@ public final class SingleKeyModuloDatabaseShardingAlgorithm implements SingleKey
     }
 
     @Override
-    public Collection<String> doBetweenSharding(final Collection<String> availableTargetNames, final ShardingValue<Long> shardingValue) {
+    public Collection<String> doBetweenSharding(final Collection<String> availableTargetNames, final ShardingValue<Integer> shardingValue) {
         Collection<String> result = new LinkedHashSet<>(availableTargetNames.size());
-        Range<Long> range = shardingValue.getValueRange();
-        for (Long value = range.lowerEndpoint(); value <= range.upperEndpoint(); value++) {
+        Range<Integer> range = shardingValue.getValueRange();
+        for (Integer value = range.lowerEndpoint(); value <= range.upperEndpoint(); value++) {
+            String tableEnd = getTableEnd(value);
             for (String each : availableTargetNames) {
-                if (each.endsWith(value % split + "")) {
+                if (each.endsWith(tableEnd)) {
                     result.add(each);
                 }
             }

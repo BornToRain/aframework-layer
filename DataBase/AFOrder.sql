@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50636
 File Encoding         : 65001
 
-Date: 2017-08-21 15:19:18
+Date: 2017-08-29 10:54:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for t_order_0
+-- Table structure for t_order
 -- ----------------------------
 DROP TABLE IF EXISTS `t_order`;
 CREATE TABLE `t_order` (
@@ -24,6 +24,10 @@ CREATE TABLE `t_order` (
   `uuid` char(36) NOT NULL,
   `user_id` int(11) NOT NULL,
   `unit_price` decimal(10,2) NOT NULL,
+  `sharding_sign` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=106409386183753729 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of t_order
+-- ----------------------------

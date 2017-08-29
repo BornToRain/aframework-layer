@@ -27,12 +27,13 @@ public class OrderRepositoryTest extends BaseTestCase {
     public void InsertOrderSqlTest() throws InterruptedException {
 
         int i = 0;
-        for (int j = 0; j < 100; j++) {
+        for (int j = 0; j < 12; j++) {
             Random rand = new Random(1);
             Order order = new Order();
             order.setUserId(j + rand.nextInt(j + 5));
             order.setUuid(UUID.randomUUID().toString());
             order.setUnitPrice(BigDecimal.valueOf(j));
+            order.setShardingSign(j);
             orderRepository.insertOrder(order);
         }
     }
@@ -40,10 +41,10 @@ public class OrderRepositoryTest extends BaseTestCase {
 
     @Test
     public void selectOrdersTest() {
-        String ordersSql = " select id,uuid,user_id,unit_price from t_order where user_id= 10 ";
+        String ordersSql = " select id,uuid,user_id,unit_price from t_order where user_id= 0 ";
         List<Order> orderIList = orderRepository.selectOrders(ordersSql);
 
-        //Order order= orderRepository.getOrderById(1l);
+        //Order order= orderRepository.getOrderById(296232467516358656l);
 
 
     }
