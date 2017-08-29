@@ -25,5 +25,13 @@ JAFrameWorkLayer is a website framework , provides distributed features such as 
 * UsePower more easy
 
 
-# Branch : Sharding_Time
+# Branch
+
+## 1. SpringRestdocs
+*user springrest build api docs
+
+## 2. Realse_V_1.0
+*database、table sharding by three  
+
+## 3. Sharding_Time
 *database、table sharding by time ,  data insert colum 'sharding_sign' must not null , and select will search all table
