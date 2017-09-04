@@ -32,8 +32,9 @@ Thumbs.db
 
 *.class
 
-# web ignore
-/aframework/aframework-web/src/docs
+# web api document build ignore
+docs/
+
 
 # plugs ignore
 /Plugs/mybatis-generator/lib/com
