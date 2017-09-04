@@ -33,7 +33,7 @@ Thumbs.db
 *.class
 
 # web api document build ignore
-docs/
+docs/*
 
 
 # plugs ignore
