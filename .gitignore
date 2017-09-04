@@ -33,7 +33,7 @@ Thumbs.db
 *.class
 
 # web ignore
-docs/
+/aframework/aframework-web/src/docs
 
 # plugs ignore
 /Plugs/mybatis-generator/lib/com
