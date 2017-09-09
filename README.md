@@ -1,4 +1,4 @@
-# JAFrameWorkLayer - Alvis Yu Web FrameWork
+# Java Alvis FrameWork Web Service
 
 # [博客](http://blog.csdn.net/a87922072/article/details/75646289)
 
