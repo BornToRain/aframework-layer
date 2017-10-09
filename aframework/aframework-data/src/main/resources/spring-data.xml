@@ -15,7 +15,6 @@
     <context:component-scan base-package="com.repository.jdbctemplate"></context:component-scan>
 
     <import resource="classpath:spring-datasource-jdbc.xml"/>
-    <import resource="classpath:spring-sharding-jdbc.xml"/>
     <import resource="classpath:spring-jdbc-user.xml"/>
     <import resource="classpath:spring-jdbc-order.xml"/>
 

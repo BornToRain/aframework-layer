@@ -135,17 +135,6 @@
             <version>${druid.version}</version>
         </dependency>
 
-        <!-- 引入sharding-jdbc核心模块 -->
-        <dependency>
-            <groupId>com.dangdang</groupId>
-            <artifactId>sharding-jdbc-core</artifactId>
-            <version>${sharding-jdbc.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dangdang</groupId>
-            <artifactId>sharding-jdbc-config-spring</artifactId>
-            <version>${sharding-jdbc.version}</version>
-        </dependency>
         <!-- repository end -->
 
 

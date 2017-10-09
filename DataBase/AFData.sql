@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50636
 File Encoding         : 65001
 
-Date: 2017-08-17 17:24:33
+Date: 2017-10-09 16:44:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,13 +24,39 @@ CREATE TABLE `t_role` (
   `name` varchar(255) DEFAULT NULL,
   `system_code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_role
 -- ----------------------------
 INSERT INTO `t_role` VALUES ('9', '管理员', 'admin');
 INSERT INTO `t_role` VALUES ('11', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('12', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('13', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('14', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('15', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('16', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('17', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('18', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('19', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('20', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('21', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('22', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('23', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('24', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('25', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('26', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('27', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('28', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('29', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('30', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('31', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('32', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('33', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('34', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('35', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('36', '管理员', 'admin');
+INSERT INTO `t_role` VALUES ('37', '管理员', 'admin');
 
 -- ----------------------------
 -- Table structure for t_user
@@ -44,8 +70,9 @@ CREATE TABLE `t_user` (
   `name` varchar(255) DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   `last_active_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1203 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  KEY `user_name_index` (`user_name`) USING HASH
+) ENGINE=InnoDB AUTO_INCREMENT=1209 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user
@@ -1050,3 +1077,9 @@ INSERT INTO `t_user` VALUES ('1199', '95993927-7630-428b-a83c-90f54c54addf', 'XN
 INSERT INTO `t_user` VALUES ('1200', '2e1a9114-9385-4a3c-9956-c306a9e47bcf', 'XNCE10985', 'G6sJq0KNTvNDLCR9y4a5J3SrpusphUkI6SyFAqYYlQXXhkOjx5dhuS1yQa0cGQ9xYNaRSOgaLR9WunD2RCqH7iT3GPAbnPxALs0i3PfGoL3IPSYyft4b9MdsFSNgBrdGhOmBJ9EG/m/dhIxvwOH8+uSLrcUQFCDaOAhBgE1RFxM=', 'XNCE10985', null, '2017-08-17 17:05:10');
 INSERT INTO `t_user` VALUES ('1201', '8d9cec9d-61b4-426d-8197-c544402dd6bd', 'XNCE10488', 'TXKHDbRfG7psEZW7TuEwCioabZrtNOck359wHkAzuvN22JDKewSL0GvnNa6xbekDBds7MgxHuF5vnsYp7uh2t2mIVMlMo6dS+STznNMNnxUTp6werUKdGmQr2EaJDqxHn011TvznB7OsyDgL5nbgpyK5KKZAx3Fk6N7++NfhxdQ=', 'XNCE10488', null, '2017-08-17 17:05:10');
 INSERT INTO `t_user` VALUES ('1202', 'c5f2d360-ed86-4eb5-9b4d-c5c914b072ad', 'XNCE10487', 's2/6XNtCr1/JQLWLPq0YnwNxiO0GeZXzPxirqGpbytOA7vnz5LQP+VjsGeV5/Vpw9UvL6mNznUW/wfXhYW6mqtIhftee8/npr2e0Dk4cwQWGWmgHiRvXFm1YwydUyKWG3HsoS4HOH8OZY9NQJa0JZsZTN3bhTuE/fHedKjUgy2s=', 'XNCE10487', null, '2017-08-17 17:05:10');
+INSERT INTO `t_user` VALUES ('1203', null, null, null, 'alvis0', '10', '2017-10-09 16:28:02');
+INSERT INTO `t_user` VALUES ('1204', null, null, null, 'alvis1', '11', '2017-10-09 16:28:02');
+INSERT INTO `t_user` VALUES ('1205', null, null, null, 'alvis0', '10', '2017-10-09 16:28:09');
+INSERT INTO `t_user` VALUES ('1206', null, null, null, 'alvis0', '10', '2017-10-09 16:43:06');
+INSERT INTO `t_user` VALUES ('1207', null, null, null, 'alvis0', '10', '2017-10-09 16:43:13');
+INSERT INTO `t_user` VALUES ('1208', '759c3504-03fd-4240-a0ec-03c94190e02e', '123', 'JgI1VfPNWX01jx3ZwX9r+bDN8gUPWSugW5SjUiZTYyHvQjm9df8as5m16EECfCQqPCWG6idrilDRku/U2W01VuiY/q6K3c8bYveniaPeV1dudHePssgCpoFpUm5or2oxSnk7D+0uiID87jTHn6H13Ni536x1dKWNEYTKIpNlSh0=', '123', null, '2017-10-09 16:44:01');

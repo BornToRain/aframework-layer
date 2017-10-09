@@ -16,44 +16,12 @@
     <bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4jFilter"></bean>
 
     <!--    AFData   master-slave  -->
-    <bean id="master_ds" class="com.alibaba.druid.pool.DruidDataSource"
+    <bean id="master_ds_afdata" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.master.url}"/>
-        <property name="username" value="${jdbc.master.username}"/>
-        <property name="password" value="${jdbc.master.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="slave1_ds" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.slave1.url}"/>
-        <property name="username" value="${jdbc.slave1.username}"/>
-        <property name="password" value="${jdbc.slave1.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="slave2_ds" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.slave2.url}"/>
-        <property name="username" value="${jdbc.slave2.username}"/>
-        <property name="password" value="${jdbc.slave2.password}"/>
+        <property name="url" value="${jdbc.master.afdata.url}"/>
+        <property name="username" value="${jdbc.master.afdata.username}"/>
+        <property name="password" value="${jdbc.master.afdata.password}"/>
         <property name="initialSize" value="5"/>
         <property name="maxActive" value="4000"/>
         <property name="proxyFilters">
@@ -65,13 +33,14 @@
     </bean>
 
 
-    <!--    order_0  master-salve  -->
-    <bean id="master_order_ds_0" class="com.alibaba.druid.pool.DruidDataSource"
+
+    <!--    AFOrder   master-slave  -->
+    <bean id="master_ds_aforder" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.master.order_0.url}"/>
-        <property name="username" value="${jdbc.master.order_0.username}"/>
-        <property name="password" value="${jdbc.master.order_0.password}"/>
+        <property name="url" value="${jdbc.master.aforder.url}"/>
+        <property name="username" value="${jdbc.master.aforder.username}"/>
+        <property name="password" value="${jdbc.master.aforder.password}"/>
         <property name="initialSize" value="5"/>
         <property name="maxActive" value="4000"/>
         <property name="proxyFilters">
@@ -82,133 +51,4 @@
         </property>
     </bean>
 
-    <bean id="slave1_order_ds_0" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.slave1.order_0.url}"/>
-        <property name="username" value="${jdbc.slave1.order_0.username}"/>
-        <property name="password" value="${jdbc.slave1.order_0.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="slave2_order_ds_1" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.slave2.order_0.url}"/>
-        <property name="username" value="${jdbc.slave2.order_0.username}"/>
-        <property name="password" value="${jdbc.slave2.order_0.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <!--    order_1  master-salve  -->
-    <bean id="master_order1_ds_0" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.master.order_1.url}"/>
-        <property name="username" value="${jdbc.master.order_1.username}"/>
-        <property name="password" value="${jdbc.master.order_1.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="slave1_order1_ds_0" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.slave1.order_1.url}"/>
-        <property name="username" value="${jdbc.slave1.order_1.username}"/>
-        <property name="password" value="${jdbc.slave1.order_1.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="slave2_order1_ds_1" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.slave2.order_1.url}"/>
-        <property name="username" value="${jdbc.slave2.order_1.username}"/>
-        <property name="password" value="${jdbc.slave2.order_1.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <!--    order_2  master-salve  -->
-    <bean id="master_order2_ds_0" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.master.order_2.url}"/>
-        <property name="username" value="${jdbc.master.order_2.username}"/>
-        <property name="password" value="${jdbc.master.order_2.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="slave1_order2_ds_0" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.slave1.order_2.url}"/>
-        <property name="username" value="${jdbc.slave1.order_2.username}"/>
-        <property name="password" value="${jdbc.slave1.order_2.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="slave2_order2_ds_1" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.slave2.order_2.url}"/>
-        <property name="username" value="${jdbc.slave2.order_2.username}"/>
-        <property name="password" value="${jdbc.slave2.order_2.password}"/>
-        <property name="initialSize" value="5"/>
-        <property name="maxActive" value="4000"/>
-        <property name="proxyFilters">
-            <list>
-                <ref bean="stat-filter"/>
-                <ref bean="log-filter"/>
-            </list>
-        </property>
-    </bean>
 </beans>
