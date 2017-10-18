@@ -1,6 +1,6 @@
 package data.testbase;
 
-import com.dangdang.ddframe.rdb.sharding.api.HintManager;
+
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,8 +21,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 public class BaseTestCase {
     @Before
     public void SetUp() {
-        HintManager hintManager = HintManager.getInstance();
-        hintManager.setMasterRouteOnly();
+
     }
 }
  
