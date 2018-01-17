@@ -1,34 +1,44 @@
 <?xml version="1.0"?>
 <project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.aframework</groupId>
-		<artifactId>aframework</artifactId>
-		<version>1.0.0</version>
-	</parent>
-	<groupId>org.aframework.service</groupId>
-	<artifactId>aframework-service</artifactId>
-	<name>Archetype - aframework-service</name>
-	<packaging>jar</packaging>
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.aframework</groupId>
+        <artifactId>aframework</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <groupId>org.aframework.service</groupId>
+    <artifactId>aframework-service</artifactId>
+    <name>Archetype - aframework-service</name>
+    <packaging>jar</packaging>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.aframework.core</groupId>
-			<artifactId>aframework-core</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aframework.domain</groupId>
-			<artifactId>aframework-domain</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aframework.data</groupId>
-			<artifactId>aframework-data</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+
+        <!--aframework-->
+        <dependency>
+            <groupId>org.aframework.core</groupId>
+            <artifactId>aframework-core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aframework.domain</groupId>
+            <artifactId>aframework-domain</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aframework.data</groupId>
+            <artifactId>aframework-data</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!--other-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 
 </project>

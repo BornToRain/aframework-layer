@@ -1,22 +1,55 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.aframework</groupId>
-    <artifactId>aframework</artifactId>
-    <version>1.0.0</version>
-  </parent>
-  <groupId>org.aframework.core</groupId>
-  <artifactId>aframework-core</artifactId>
-  <name>Archetype - aframework-core</name>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.aframework</groupId>
+        <artifactId>aframework</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <groupId>org.aframework.core</groupId>
+    <artifactId>aframework-core</artifactId>
+    <name>Archetype - aframework-core</name>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.aframework.domain</groupId>
-      <artifactId>aframework-domain</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-  </dependencies>
+    <dependencies>
+
+        <!--aframework-->
+        <dependency>
+            <groupId>org.aframework.domain</groupId>
+            <artifactId>aframework-domain</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!--other-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

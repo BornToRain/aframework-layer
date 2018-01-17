@@ -17,41 +17,41 @@
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\request-headers.adoc[]
 
-==== http-request 
+==== http-request
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\http-request.adoc[]
 
-==== request-parameters类型说明 
+==== request-parameters类型说明
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\request-parameters.adoc[]
 
-==== request-body类型说明 
+==== request-body类型说明
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\request-body.adoc[]
 
-==== http-response 
+==== http-response
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\http-response.adoc[]
 
-==== response-fields 类型说明 
+==== response-fields 类型说明
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.1 获取所有用户接口\response-fields.adoc[]
 
 === 1.2 测试接口
 
-==== request-headers 类型说明 
+==== request-headers 类型说明
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.2 测试接口\request-headers.adoc[]
 
-==== http-request 
+==== http-request
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.2 测试接口\http-request.adoc[]
 
-==== request-body类型说明 
+==== request-body类型说明
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.2 测试接口\request-body.adoc[]
 
-==== http-response 
+==== http-response
 
 include::F:\Java\JAFrameWorkLayer-Idea\JAFrameWorkLayer\aframework\aframework-web\target\generated-snippets\1.2 测试接口\http-response.adoc[]
 
