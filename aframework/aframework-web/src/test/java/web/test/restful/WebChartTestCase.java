@@ -1,9 +1,28 @@
 package web.test.restful;
 
 
+import com.domain.users.User;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.payload.JsonFieldType;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 import web.testbase.BaseRestfulTest;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
@@ -39,7 +58,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                 .perform(
                         post("/api/webchart/list")
                                 .header("access_token", "2E14D92B-1FB1-4D04-8EA3-486DA78914BA")
-                                .header("user_uuid", "05d44c79-627b-466c-940a-c62074107226")
+                                .header("user_uuid", "bbb0dd8b-f8f3-4098-af05-7ce5813c30a1")
                                 .param("age", "1")
                 )
                 .andExpect(status().isOk())
@@ -60,9 +79,9 @@ public class WebChartTestCase extends BaseRestfulTest {
                                 fieldWithPath("userList[].name").description("姓名"),
                                 fieldWithPath("userList[].age").description("用户密码"),
                                 fieldWithPath("userList[].lastActiveTime").description("最近活动时间"),
-                                fieldWithPath("userList[].user_name").description("用户名"),
+                                fieldWithPath("userList[].userName").description("用户名"),
                                 fieldWithPath("userList[].password").description("用户密码"),
-                                fieldWithPath("userList[].uuid").description("用户UUId")
+                                fieldWithPath("userList[].userUuid").description("用户UUId")
                         )
                         )
                 );
@@ -76,7 +95,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                 .perform(
                         post("/api/webchart/test")
                                 .header("access_token", "2E14D92B-1FB1-4D04-8EA3-486DA78914BA")
-                                .header("user_uuid", "05d44c79-627b-466c-940a-c62074107226")
+                                .header("user_uuid", "2a72f073-aa0f-478d-be71-58dfccde868e")
                 )
                 .andExpect(status().isOk())
                 .andDo(document("1.2 测试接口",
