@@ -29,6 +29,10 @@ import org.springframework.web.context.WebApplicationContext;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 
@@ -64,30 +68,27 @@ public class BaseRestfulTest {
     @Test
     public void adocBuild() throws IOException {
         String appDir = System.getProperty("user.dir");
-        String adocPath = appDir + "/src/docs/api/asciidocs/apiList.adoc";
+        String adocPath = appDir + "\\src\\docs\\api\\asciidocs\\apiList.adoc";
         StringBuilder content = new StringBuilder();
-        content.append("include::" + appDir + "/src/docs/api/asciidocs/preview.adoc");
+        content.append("include::" + appDir + "\\src\\docs\\api\\asciidocs\\preview.adoc[]" + "\n\n");
 
-        File apidirs = new File(appDir + "/target/generated-snippets");
-        for (File apidir : apidirs.listFiles()) {
-            String apiName = apidir.getName();
+        Files.list(Paths.get(appDir + "\\target\\generated-snippets")).forEach(f -> {
+            String apiName = f.getFileName().toString();
             content.append("=== " + apiName + "\n\n");
-            fileAppend(content, apidir + "/request-headers.adoc", "request-headers 类型说明");
-            fileAppend(content, apidir + "/http-request.adoc", "http-request");
-            fileAppend(content, apidir + "/request-parameters.adoc", "request-parameters类型说明");
-            fileAppend(content, apidir + "/request-body.adoc", "request-body类型说明");
-            fileAppend(content, apidir + "/http-response.adoc", "http-response");
-            fileAppend(content, apidir + "/response-fields.adoc", "response-fields 类型说明");
-        }
-        File file = new File(adocPath);
-        FileUtils.writeStringToFile(file, content.toString(), "utf-8");
+            fileAppend(content, f + "\\request-headers.adoc", "request-headers 类型说明");
+            fileAppend(content, f + "\\http-request.adoc", "http-request");
+            fileAppend(content, f + "\\request-parameters.adoc", "request-parameters类型说明");
+            fileAppend(content, f + "\\request-body.adoc", "request-body类型说明");
+            fileAppend(content, f + "\\http-response.adoc", "http-response");
+            fileAppend(content, f + "\\response-fields.adoc", "response-fields 类型说明");
+        });
+        Files.write(Paths.get(adocPath), content.toString().getBytes(), StandardOpenOption.WRITE);
     }
 
     private void fileAppend(StringBuilder stringBuilder, String path, String title) {
-        File file = new File(path);
-        if (file.exists()) {
+        if (Files.exists(Paths.get(path))) {
             stringBuilder.append("==== " + title + " \n\n");
-            stringBuilder.append("include::" + file + "[]" + "\n\n");
+            stringBuilder.append("include::" + path + "[]" + "\n\n");
         }
     }
 

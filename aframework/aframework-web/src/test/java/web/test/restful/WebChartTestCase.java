@@ -95,7 +95,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                 .perform(
                         post("/api/webchart/test")
                                 .header("access_token", "2E14D92B-1FB1-4D04-8EA3-486DA78914BA")
-                                .header("user_uuid", "2a72f073-aa0f-478d-be71-58dfccde868e")
+                                .header("user_uuid", "bbb0dd8b-f8f3-4098-af05-7ce5813c30a1")
                 )
                 .andExpect(status().isOk())
                 .andDo(document("1.2 测试接口",
