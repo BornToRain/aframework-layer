@@ -8,9 +8,9 @@
     <description>aframework</description>
 
     <properties>
-        <project.build.sourceEncoding>
-            UTF-8
-        </project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 
         <junit.version>4.12</junit.version>
         <spring-restdoc.version>1.2.1.RELEASE</spring-restdoc.version>
@@ -260,7 +260,6 @@
     </dependencyManagement>
 
     <dependencies>
-
         <!-- unit begin -->
         <dependency>
             <groupId>junit</groupId>
@@ -268,9 +267,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <!-- unit end -->
-
     </dependencies>
 
     <build>
