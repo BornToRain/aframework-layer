@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 172.16.2.85
-Source Server Version : 50636
-Source Host           : 172.16.2.85:3306
-Source Database       : AFOrder
+Source Server         : 192.168.199.69
+Source Server Version : 50639
+Source Host           : 192.168.199.69:3306
+Source Database       : aforder
 
 Target Server Type    : MYSQL
-Target Server Version : 50636
+Target Server Version : 50639
 File Encoding         : 65001
 
-Date: 2017-10-09 16:44:47
+Date: 2018-02-24 14:50:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `t_order` (
   `user_id` int(11) NOT NULL,
   `unit_price` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=202 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_order
@@ -130,3 +130,104 @@ INSERT INTO `t_order` VALUES ('97', 'f9436d1f-5c58-46ac-937b-71ae2e10020b', '193
 INSERT INTO `t_order` VALUES ('98', 'e78450b8-63cc-4161-b504-76f95cf1c0ab', '112', '97.00');
 INSERT INTO `t_order` VALUES ('99', '1882996f-dd59-48fa-a4f5-a5b734858cfe', '166', '98.00');
 INSERT INTO `t_order` VALUES ('100', 'b9d5b49a-5109-419a-8f8b-262de8c7bed3', '116', '99.00');
+INSERT INTO `t_order` VALUES ('101', '2ff27625-9abb-4c8a-836c-1488b440755e', '0', '0.00');
+INSERT INTO `t_order` VALUES ('102', 'db8906b6-92e7-482f-baa9-6385e90b552d', '4', '1.00');
+INSERT INTO `t_order` VALUES ('103', '9cfe7cbd-1a83-4f01-baec-98b537d9a2d0', '6', '2.00');
+INSERT INTO `t_order` VALUES ('104', 'e44279aa-0003-4fd1-81e6-098c338c4e10', '8', '3.00');
+INSERT INTO `t_order` VALUES ('105', '392bf0b6-b1c6-41fe-aabd-d349d9e484a5', '10', '4.00');
+INSERT INTO `t_order` VALUES ('106', '992ee9f7-2382-4f44-99cf-ad522f2336da', '10', '5.00');
+INSERT INTO `t_order` VALUES ('107', '8ac2d225-7a91-4ec4-ae69-cd049031c785', '10', '6.00');
+INSERT INTO `t_order` VALUES ('108', 'f12cc99e-5693-49f3-b19d-640b44a35bba', '16', '7.00');
+INSERT INTO `t_order` VALUES ('109', '6239c4da-92a3-4480-aed4-6b715e253574', '12', '8.00');
+INSERT INTO `t_order` VALUES ('110', '488cc357-e9e6-4257-ab76-4cb45f7ab7aa', '20', '9.00');
+INSERT INTO `t_order` VALUES ('111', '430239de-2654-4576-87f9-782cd18bf1b8', '10', '10.00');
+INSERT INTO `t_order` VALUES ('112', 'ffb1e83c-c3d9-42b4-b496-68ea45d8709c', '22', '11.00');
+INSERT INTO `t_order` VALUES ('113', '28bbc2d3-7780-423b-acaa-63be489f44c1', '27', '12.00');
+INSERT INTO `t_order` VALUES ('114', '2675f83c-7456-41b7-a75c-ef39ba0e2b62', '28', '13.00');
+INSERT INTO `t_order` VALUES ('115', 'a9af012f-364c-4362-9046-55007f96bcef', '20', '14.00');
+INSERT INTO `t_order` VALUES ('116', 'f0feca7c-fa45-44d6-a067-52581356f17d', '20', '15.00');
+INSERT INTO `t_order` VALUES ('117', 'c0ff5e06-0991-4e09-ba4f-6eac7ca5d018', '34', '16.00');
+INSERT INTO `t_order` VALUES ('118', '9e2b8987-e022-4a9f-a0be-45c8ca2bb0ac', '32', '17.00');
+INSERT INTO `t_order` VALUES ('119', 'ca33e67b-580b-4d19-817c-49f72985946f', '23', '18.00');
+INSERT INTO `t_order` VALUES ('120', '502bc1fb-a6c2-4b06-9286-4bdd1358631b', '28', '19.00');
+INSERT INTO `t_order` VALUES ('121', '12780c62-43c3-494b-bc53-0544cca89248', '30', '20.00');
+INSERT INTO `t_order` VALUES ('122', '821f15b0-1c41-4965-9d5c-4093c6e76cad', '38', '21.00');
+INSERT INTO `t_order` VALUES ('123', 'c5cd664b-0fdf-4176-8e36-4df5f8946f26', '46', '22.00');
+INSERT INTO `t_order` VALUES ('124', '936744a1-9819-434f-86b0-4e5a9e9e576b', '48', '23.00');
+INSERT INTO `t_order` VALUES ('125', 'd82d1b03-a174-429f-b3ee-de5d1aea6929', '47', '24.00');
+INSERT INTO `t_order` VALUES ('126', 'dcefdd3f-ab44-46d6-9be7-b797c41a93a1', '40', '25.00');
+INSERT INTO `t_order` VALUES ('127', 'de6c7054-2542-4f31-b8e2-a13fd7bca8e8', '39', '26.00');
+INSERT INTO `t_order` VALUES ('128', 'c9d12fc9-980c-4dbd-a279-d8361ca41dc0', '50', '27.00');
+INSERT INTO `t_order` VALUES ('129', 'fb983e82-464f-4ed7-b18b-1f60160f0bf8', '43', '28.00');
+INSERT INTO `t_order` VALUES ('130', '04071130-4c80-4ae8-b50a-c92227f44ba4', '44', '29.00');
+INSERT INTO `t_order` VALUES ('131', 'd3776788-915f-40ae-9d4f-9dcf0722d94c', '55', '30.00');
+INSERT INTO `t_order` VALUES ('132', '7457dcce-0fc3-4a2a-822f-0ab5fcc775cd', '64', '31.00');
+INSERT INTO `t_order` VALUES ('133', '4c66879e-9c6b-4839-8f0b-590e5a7e04cd', '63', '32.00');
+INSERT INTO `t_order` VALUES ('134', 'a48855b4-88fb-4d26-8b39-0bad05174c35', '58', '33.00');
+INSERT INTO `t_order` VALUES ('135', '32c6ea51-a788-45b0-8be3-d9c0ddab2193', '64', '34.00');
+INSERT INTO `t_order` VALUES ('136', 'd47d49aa-7f25-458b-968d-0ff6a06ebaa1', '60', '35.00');
+INSERT INTO `t_order` VALUES ('137', '326a63da-ac38-465a-92fc-38fa0eaa3e11', '59', '36.00');
+INSERT INTO `t_order` VALUES ('138', 'c84db763-2ba5-4ec3-b75d-0ae1760a07fb', '76', '37.00');
+INSERT INTO `t_order` VALUES ('139', '385113ec-491b-4799-8330-cb43cd7b2616', '46', '38.00');
+INSERT INTO `t_order` VALUES ('140', '32bdcdd5-3e1e-4969-a32e-6ec50939a85c', '76', '39.00');
+INSERT INTO `t_order` VALUES ('141', 'a96e8685-793e-4eea-8087-76cfc03d3133', '55', '40.00');
+INSERT INTO `t_order` VALUES ('142', '990a0722-c9d5-438a-8284-5cc51cfe2f99', '46', '41.00');
+INSERT INTO `t_order` VALUES ('143', 'e2dc7b6b-55cf-4c07-9c63-358ca16e6877', '54', '42.00');
+INSERT INTO `t_order` VALUES ('144', 'faa31b6e-efb8-45b6-b584-102c9a3f7da3', '52', '43.00');
+INSERT INTO `t_order` VALUES ('145', 'c594ec62-f041-4b54-bf0f-94dff964982d', '90', '44.00');
+INSERT INTO `t_order` VALUES ('146', '7ba7f981-3b32-40b3-b256-5394c2807912', '80', '45.00');
+INSERT INTO `t_order` VALUES ('147', '9d23f804-ad6a-4c06-9b18-c1a745e030ba', '61', '46.00');
+INSERT INTO `t_order` VALUES ('148', '5d09405b-6c68-49ee-bf94-b87da3f49148', '64', '47.00');
+INSERT INTO `t_order` VALUES ('149', 'd4b25d42-e75d-48d6-94ed-a696ad4b4ea2', '90', '48.00');
+INSERT INTO `t_order` VALUES ('150', 'ceebcc78-c297-46f2-b732-b372ef42a590', '100', '49.00');
+INSERT INTO `t_order` VALUES ('151', '0e329ba1-c0ae-4408-9ac0-9fb5920362ee', '65', '50.00');
+INSERT INTO `t_order` VALUES ('152', '81b40773-fc0b-4562-a4d2-85ba2815a9ed', '76', '51.00');
+INSERT INTO `t_order` VALUES ('153', '15360b8f-d6b6-4e34-9428-4d2f7691059c', '58', '52.00');
+INSERT INTO `t_order` VALUES ('154', 'cb62005f-6a87-4261-a1e7-61f0c5c124db', '76', '53.00');
+INSERT INTO `t_order` VALUES ('155', '111e008a-a791-417f-9869-04fec88c87e5', '64', '54.00');
+INSERT INTO `t_order` VALUES ('156', '7eb08bc4-655b-4382-ba87-38645e8242fd', '100', '55.00');
+INSERT INTO `t_order` VALUES ('157', '4baeb5aa-ce99-4ad4-b9ce-9bb087924e93', '70', '56.00');
+INSERT INTO `t_order` VALUES ('158', '15486fe6-425c-480f-8f0d-365eae86e4dc', '70', '57.00');
+INSERT INTO `t_order` VALUES ('159', 'af1f13ba-c856-4edc-ac66-9ea900296476', '118', '58.00');
+INSERT INTO `t_order` VALUES ('160', 'c860923e-e37e-4972-9fa8-31fb5e50897d', '105', '59.00');
+INSERT INTO `t_order` VALUES ('161', '53d915b9-7ab8-4542-b170-883aa35a646f', '90', '60.00');
+INSERT INTO `t_order` VALUES ('162', '4a76806a-b0c6-411a-a9a4-7287a270aa76', '76', '61.00');
+INSERT INTO `t_order` VALUES ('163', 'c4991b1e-23d9-4d91-9e0b-7df6a1d78a75', '79', '62.00');
+INSERT INTO `t_order` VALUES ('164', 'f55ae8ad-3b10-4574-839e-7f3102fbf216', '112', '63.00');
+INSERT INTO `t_order` VALUES ('165', 'eadee08e-61f2-466f-9981-902cdce1ee6d', '115', '64.00');
+INSERT INTO `t_order` VALUES ('166', 'bde4ddb2-8921-422a-8816-f68da0658580', '90', '65.00');
+INSERT INTO `t_order` VALUES ('167', 'c8cc315d-f623-4590-b8a8-d51f32ade60d', '118', '66.00');
+INSERT INTO `t_order` VALUES ('168', '43a680a0-e02e-423a-a826-a76b9b76569c', '100', '67.00');
+INSERT INTO `t_order` VALUES ('169', 'bf44d90a-132f-480a-904c-42c9a3b95058', '70', '68.00');
+INSERT INTO `t_order` VALUES ('170', '514ee5d6-01bb-462f-b43a-7c3f3a4613a4', '100', '69.00');
+INSERT INTO `t_order` VALUES ('171', 'af7e635b-3311-4e42-9b5c-b28cbe7360c9', '130', '70.00');
+INSERT INTO `t_order` VALUES ('172', '84c083c1-11aa-4b9b-9b9a-354eff20c08c', '96', '71.00');
+INSERT INTO `t_order` VALUES ('173', '8e766b0a-1b3a-4d49-a24d-8d84056f6029', '76', '72.00');
+INSERT INTO `t_order` VALUES ('174', '27ea7a56-b02c-4f3a-86a7-38a10fd13f34', '142', '73.00');
+INSERT INTO `t_order` VALUES ('175', 'e13b54b6-bb45-4ea2-a35b-b9125ea14499', '127', '74.00');
+INSERT INTO `t_order` VALUES ('176', 'd6c0e5d3-2688-4418-bf50-ec0be14b3cda', '100', '75.00');
+INSERT INTO `t_order` VALUES ('177', '5cf1b6df-1c45-473d-a4a3-7c56b06e90ef', '154', '76.00');
+INSERT INTO `t_order` VALUES ('178', '0279ee1d-62a4-42e3-8fcd-62906f3c78f1', '100', '77.00');
+INSERT INTO `t_order` VALUES ('179', '4dea6b01-9b02-42fa-b524-786e8e56069b', '139', '78.00');
+INSERT INTO `t_order` VALUES ('180', '86a46029-b4c6-4dd1-98a7-3073c102e9ea', '160', '79.00');
+INSERT INTO `t_order` VALUES ('181', '9058df0a-b568-4813-9dd1-6befbbdb5343', '95', '80.00');
+INSERT INTO `t_order` VALUES ('182', 'f21b7269-fc04-4df8-a16d-4aa3f55a5427', '132', '81.00');
+INSERT INTO `t_order` VALUES ('183', 'f199535e-5ad4-44f2-8405-33162049dbd0', '163', '82.00');
+INSERT INTO `t_order` VALUES ('184', 'fd8b49b3-64a0-45c3-9d18-38c981d8daf9', '164', '83.00');
+INSERT INTO `t_order` VALUES ('185', '8bc3cfab-6570-42c2-a020-7782f4b69792', '160', '84.00');
+INSERT INTO `t_order` VALUES ('186', '55175a58-6290-4249-88f6-968533ecaff3', '100', '85.00');
+INSERT INTO `t_order` VALUES ('187', '650fdd65-13d4-45b3-ba42-48d7738ba6dd', '90', '86.00');
+INSERT INTO `t_order` VALUES ('188', '72e64447-6d98-4b34-be17-fdd006576983', '92', '87.00');
+INSERT INTO `t_order` VALUES ('189', '61f9f76b-b93a-4b8a-bd1c-a62c83ff3b03', '163', '88.00');
+INSERT INTO `t_order` VALUES ('190', '563485e5-1184-4d3a-b68e-536702ba6a5a', '148', '89.00');
+INSERT INTO `t_order` VALUES ('191', '8f88fc3f-114c-4c55-9c2f-e26a9a6083c7', '115', '90.00');
+INSERT INTO `t_order` VALUES ('192', '2f418e99-031f-4369-b4ff-27f12afc7a5f', '148', '91.00');
+INSERT INTO `t_order` VALUES ('193', '05737e90-4704-4797-99bc-1e519dfca52a', '128', '92.00');
+INSERT INTO `t_order` VALUES ('194', 'a20a15dd-9c79-482b-91ca-55e9b36dbae6', '188', '93.00');
+INSERT INTO `t_order` VALUES ('195', '4fb68f5a-e162-4572-b74f-d042c3465573', '109', '94.00');
+INSERT INTO `t_order` VALUES ('196', 'ae282695-2d9a-4fbf-9a78-2ce88df86852', '180', '95.00');
+INSERT INTO `t_order` VALUES ('197', 'd8553c70-36ad-43e5-8b82-55196270cf12', '193', '96.00');
+INSERT INTO `t_order` VALUES ('198', '809d788f-9b62-45af-9169-37df7dd0b5d9', '112', '97.00');
+INSERT INTO `t_order` VALUES ('199', '3b08f7e3-5d94-4412-9590-854d7b4fecd8', '166', '98.00');
+INSERT INTO `t_order` VALUES ('200', 'd1110eca-02ca-4272-8032-30f3b27092c2', '116', '99.00');
+INSERT INTO `t_order` VALUES ('201', 'c608e170-ab5e-4fda-8aa8-e7405004b9b0', '160', '100.00');

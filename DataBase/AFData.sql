@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 172.16.2.85
-Source Server Version : 50636
-Source Host           : 172.16.2.85:3306
-Source Database       : AFData
+Source Server         : 192.168.199.69
+Source Server Version : 50639
+Source Host           : 192.168.199.69:3306
+Source Database       : afdata
 
 Target Server Type    : MYSQL
-Target Server Version : 50636
+Target Server Version : 50639
 File Encoding         : 65001
 
-Date: 2017-10-09 16:44:54
+Date: 2018-02-24 14:50:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
