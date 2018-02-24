@@ -81,24 +81,32 @@ public class UserDSRepository implements IUserDSRepository {
 
     @Override
     public void insertUsers(List<User> users) throws SQLException {
-
-        String sql = "   insert into `t_user`  (`user_uuid`,`user_name`,`password`,`name`,`age`,`last_active_time`) values (?,?,?,?,?,?) ";
-        Connection conn = dataSource.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
-
-        for (User item : users) {
-            preparedStatement.setString(1, item.getUserUuid());
-            preparedStatement.setString(2, item.getUserName());
-            preparedStatement.setString(3, item.getPassword());
-            preparedStatement.setString(4, item.getName());
-            preparedStatement.setInt(5, item.getAge());
-            preparedStatement.setTimestamp(6, item.getLastActiveTime());
-            preparedStatement.addBatch();
+        final String sql = "   insert into `t_user`  (`user_uuid`,`user_name`,`password`,`name`,`age`,`last_active_time`) values (?,?,?,?,?,?) ";
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            conn = dataSource.getConnection();
+            preparedStatement = conn.prepareStatement(sql);
+            for (User item : users) {
+                preparedStatement.setString(1, item.getUserUuid());
+                preparedStatement.setString(2, item.getUserName());
+                preparedStatement.setString(3, item.getPassword());
+                preparedStatement.setString(4, item.getName());
+                preparedStatement.setInt(5, item.getAge());
+                preparedStatement.setTimestamp(6, item.getLastActiveTime());
+                preparedStatement.addBatch();
+            }
+            preparedStatement.executeBatch();
+        } finally {
+            if (null != preparedStatement) {
+                preparedStatement.close();
+                preparedStatement = null;
+            }
+            if (null != conn) {
+                conn.close();
+                conn = null;
+            }
         }
-
-        preparedStatement.executeBatch();
-        preparedStatement.close();
-        conn.close();
     }
 
     @Override

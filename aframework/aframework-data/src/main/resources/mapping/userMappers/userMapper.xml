@@ -111,7 +111,7 @@
     </update>
 
 
-    <delete id="deleteUserByIds">
+    <delete id="deleteUsersByIds">
         delete from `t_user` where id in
         <foreach item="id" collection="list" open="(" separator=","
                  close=")">

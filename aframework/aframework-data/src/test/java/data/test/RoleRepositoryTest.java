@@ -27,12 +27,13 @@ public class RoleRepositoryTest extends BaseTestCase {
     private IRoleRepository roleRepository;
 
     @Test
-    public void  roleRepositoryTest(){
-        Role role=new Role();
+    public void roleRepositoryTest() {
+        Role role = new Role();
         role.setName("管理员");
         role.setSystemCode("admin");
         roleRepository.insert(role);
         Assert.assertNotNull(role.getId());
+        Assert.assertNotEquals(0, role.getId().intValue());
     }
 
 }

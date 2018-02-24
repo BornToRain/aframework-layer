@@ -34,14 +34,13 @@ public class UserRepositoryTest extends BaseTestCase {
 
     @Test
     public void InsertUserTest() {
-
-        int i = 0;
-        User custoemr = new User();
-        custoemr.setName("alvis" + i);
-        custoemr.setAge(10 + i);
-        custoemr.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-        userRepository.insertUser(custoemr);
-
+        User customer = new User();
+        customer.setName("alvis_test_myBaties");
+        customer.setAge(10);
+        customer.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
+        userRepository.insertUser(customer);
+        Assert.assertNotNull(customer.getId());
+        Assert.assertNotEquals(0, customer.getId().intValue());
     }
 
 

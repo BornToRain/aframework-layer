@@ -3,6 +3,8 @@ package data.test;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,30 +30,25 @@ public class UserJTTestCase extends BaseTestCase {
 
     @Test
     public void InsertUserTest() {
-
-        int i = 0;
-        User custoemr = new User();
-        custoemr.setName("alvis" + i);
-        custoemr.setAge(10 + i);
-        custoemr.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-        userJTRepository.insertUser(custoemr);
-
+        User customer = new User();
+        customer.setName("alvis_test");
+        customer.setAge(10);
+        customer.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
+        userJTRepository.insertUser(customer);
+        Assert.assertNotNull(customer.getId());
+        Assert.assertNotEquals(0, customer.getId().intValue());
     }
 
     @Test
     public void InsertUsersTest() {
-
-        List<User> insertUsers = new ArrayList<User>(2);
-
-        for (int i = 0; i < 2; i++) {
-            User custoemr = new User();
-            custoemr.setName("alvis" + i);
-            custoemr.setAge(10 + i);
-            custoemr.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-            insertUsers.add(custoemr);
-        }
+        List<User> insertUsers = IntStream.range(1, 3).mapToObj(i -> {
+            User customer = new User();
+            customer.setName("alvis" + i);
+            customer.setAge(10 + i);
+            customer.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
+            return customer;
+        }).collect(Collectors.toList());
         userJTRepository.insertUsers(insertUsers);
-
     }
 
     @Test

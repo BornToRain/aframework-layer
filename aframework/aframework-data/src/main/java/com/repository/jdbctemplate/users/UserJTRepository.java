@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Jul 18, 2017 4:00:18 PM
  *
@@ -29,24 +29,36 @@
  *****************************************************************/
 package com.repository.jdbctemplate.users;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.domain.users.User;
 
+import javax.swing.text.html.Option;
+
 /**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName UserSqlRepository
  * @Description UserSqlRepository
- * @author Alvis
  * @Date Jul 18, 2017 4:00:18 PM
- * @version 1.0.0
  */
 @Repository("IUserJTRepository")
 public class UserJTRepository implements IUserJTRepository {
@@ -104,12 +116,27 @@ public class UserJTRepository implements IUserJTRepository {
      * Description:
      * @see com.repository.IUserSqlRepository#insertUser(com.domain.User)
      */
-    @Override
+    /* @Override
     public void insertUser(User user) {
         String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
-        Object[] parameters = new Object[] {user.getName(), user.getAge(), user.getLastActiveTime() };
+        Object[] parameters = new Object[]{user.getName(), user.getAge(), user.getLastActiveTime()};
         jdbcTemplate.update(sql, parameters);
+    }*/
+
+    @Override
+    public void insertUser(User user) {
+        final String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
+        KeyHolder key = new GeneratedKeyHolder();
+        jdbcTemplate.update((connection) -> {
+            PreparedStatement preState = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            preState.setString(1, user.getName());
+            preState.setInt(2, user.getAge());
+            preState.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            return preState;
+        }, key);
+        user.setId(key.getKey().intValue());
     }
+
 
     /*
      * Description:
@@ -117,11 +144,8 @@ public class UserJTRepository implements IUserJTRepository {
      */
     @Override
     public void insertUsers(List<User> users) {
-        String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
-        List<Object[]> batchArgs = new ArrayList<Object[]>();
-        for (User User : users) {
-            batchArgs.add(new Object[] {User.getName(), User.getAge(), User.getLastActiveTime() });
-        }
+        final String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
+        List<Object[]> batchArgs = users.stream().map(user -> new Object[]{user.getName(), user.getAge(), user.getLastActiveTime()}).collect(Collectors.toList());
         jdbcTemplate.batchUpdate(sql, batchArgs);
     }
 
@@ -132,8 +156,8 @@ public class UserJTRepository implements IUserJTRepository {
     @Override
     public void updateUser(User user) {
         String sql = "update t_user set name=?,age=?,last_active_time=? where id=?";
-        Object[] parameter = new Object[] {user.getName(), user.getAge(), user.getLastActiveTime(),
-                user.getId() };
+        Object[] parameter = new Object[]{user.getName(), user.getAge(), user.getLastActiveTime(),
+                user.getId()};
         jdbcTemplate.update(sql, parameter);
     }
 
