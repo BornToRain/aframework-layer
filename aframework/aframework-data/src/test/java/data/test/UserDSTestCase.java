@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 
@@ -30,16 +31,16 @@ public class UserDSTestCase extends BaseTestCase {
 
     @Test
     public void InsertUsersTest() throws SQLException {
-        List<User> insertUsers = new ArrayList<>(3);
-        IntStream.range(0, 3).forEach(i -> {
+        List<User> insertUsers = IntStream.range(0, 3).mapToObj(i -> {
             User customer = new User();
             customer.setUserUuid(UUID.randomUUID().toString());
             customer.setUserName("username_alvis" + i);
             customer.setName("alvis" + i);
             customer.setAge(10 + i);
             customer.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-            insertUsers.add(customer);
-        });
+            return customer;
+        }).collect(Collectors.toList());
+
         userDSRepository.insertUsers(insertUsers);
         insertUsers.forEach(user -> {
             Assert.assertNotNull(user.getId());

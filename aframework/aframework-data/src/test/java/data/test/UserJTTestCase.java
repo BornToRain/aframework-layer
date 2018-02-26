@@ -49,6 +49,10 @@ public class UserJTTestCase extends BaseTestCase {
             return customer;
         }).collect(Collectors.toList());
         userJTRepository.insertUsers(insertUsers);
+        insertUsers.forEach(user -> {
+            Assert.assertNotNull(user.getId());
+            Assert.assertNotEquals(0L, user.getId().longValue());
+        });
     }
 
     @Test

@@ -36,6 +36,7 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -86,7 +87,7 @@ public class UserDSRepository implements IUserDSRepository {
         PreparedStatement preparedStatement = null;
         try {
             conn = dataSource.getConnection();
-            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             for (User item : users) {
                 preparedStatement.setString(1, item.getUserUuid());
                 preparedStatement.setString(2, item.getUserName());
@@ -97,14 +98,17 @@ public class UserDSRepository implements IUserDSRepository {
                 preparedStatement.addBatch();
             }
             preparedStatement.executeBatch();
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            for (int i = 0; generatedKeys.next(); i++) {
+                users.get(i).setId(generatedKeys.getInt(1));
+            }
+            generatedKeys.close();
         } finally {
             if (null != preparedStatement) {
                 preparedStatement.close();
-                preparedStatement = null;
             }
             if (null != conn) {
                 conn.close();
-                conn = null;
             }
         }
     }

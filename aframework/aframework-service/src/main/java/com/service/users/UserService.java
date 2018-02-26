@@ -103,6 +103,7 @@ public class UserService implements IUserService {
         //throw new RuntimeException("test");
     }
 
+    @Override
     @Transactional
     public void insertUsers(List<User> users) {
         userRepository.insertUsers(users);
