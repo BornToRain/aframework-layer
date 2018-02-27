@@ -35,6 +35,7 @@ public class AfUserFilter extends AccessControlFilter {
     @Autowired
     private IWorkContext workContext;
 
+    @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
         boolean isAccess = true;
         Object userName = null;

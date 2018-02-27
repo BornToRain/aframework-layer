@@ -116,29 +116,6 @@
         </dependency>
         <!-- web end -->
 
-
-        <!-- log begin -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-        </dependency>
-        <!-- common-logging 实际调用slf4j -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-        </dependency>
-        <!-- java.util.logging 实际调用slf4j -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jul-to-slf4j</artifactId>
-        </dependency>
-        <!-- log end -->
-
-
         <!-- tools begin -->
         <dependency>
             <groupId>commons-io</groupId>
@@ -187,6 +164,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
 
         </plugins>
     </build>

@@ -14,7 +14,7 @@
 	<import resource="classpath:spring-core.xml" />
 	<import resource="classpath:spring-data.xml" />
 	<import resource="classpath:spring-service.xml" />
-	<import resource="classpath:spring-mvc.xml" />
+	<import resource="classpath:spring-web.xml" />
 	<import resource="classpath:spring-api.xml" />
 
 		

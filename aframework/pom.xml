@@ -67,12 +67,14 @@
 
 
     <modules>
-        <module>aframework-api</module>
-        <module>aframework-web</module>
-        <module>aframework-service</module>
+        <module>aframework-core</module>
         <module>aframework-domain</module>
         <module>aframework-data</module>
-        <module>aframework-core</module>
+        <module>aframework-service</module>
+        <module>aframework-api</module>
+        <module>aframework-web</module>
+        <module>aframework-admin</module>
+        <module>all</module>
     </modules>
 
     <dependencyManagement>
