@@ -7,15 +7,11 @@
                            http://www.springframework.org/schema/context 
                            http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-    <context:property-placeholder location="classpath:database.properties" ignore-unresolvable="true"/>
 
-    <import resource="classpath:spring-core.xml"/>
-    <import resource="classpath:spring-data.xml"/>
-    <import resource="classpath:spring-service.xml"/>
-    <import resource="classpath:spring-freemarker.xml"/>
-    <import resource="classpath:shiro-config.xml"/>
-    <import resource="classpath:spring-web.xml"/>
-    <import resource="classpath:spring-admin.xml"/>
-    <import resource="classpath:spring-api.xml"/>
+
+    <import resource="classpath:application-context.xml"/>
+
+    <context:component-scan base-package="com.web.controllers"></context:component-scan>
+
 
 </beans>

@@ -32,11 +32,12 @@ package com.api.restful;
 import java.util.List;
 
 
-import com.api.model.BaseApiResult;
+import aframework.configure.model.BaseApiResult;
 import com.core.authorizat.Authorization;
 import com.api.model.UserResult;
 import com.core.utility.IWorkContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -80,6 +81,13 @@ public class WebChartController {
     @PostMapping("/test")
     @Authorization
     public BaseApiResult Test() {
+        User user = workContext.getCurrentUser();
+        BaseApiResult result = new BaseApiResult(1, "OK");
+        return result;
+    }
+
+    @GetMapping("/get/test")
+    public BaseApiResult GetTest() {
         User user = workContext.getCurrentUser();
         BaseApiResult result = new BaseApiResult(1, "OK");
         return result;

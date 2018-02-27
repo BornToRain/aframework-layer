@@ -60,4 +60,10 @@ public class HomeController extends BaseAdminController {
         return "redirect:/admin/home/index";
     }
 
+
+    @RequestMapping("/test")
+    public String Test() {
+        return prefView + "/home/index";
+    }
+
 }

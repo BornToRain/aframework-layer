@@ -53,7 +53,7 @@ import org.springframework.web.context.WebApplicationContext;
  * @version 1.0.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)  //使用junit4进行测试  
-@ContextConfiguration(locations = {"classpath*:springTest-config.xml"})
+@ContextConfiguration(locations = {"classpath*:applicationContext.xml"})
 @WebAppConfiguration
 public class BaseControllerTest {
     @Autowired

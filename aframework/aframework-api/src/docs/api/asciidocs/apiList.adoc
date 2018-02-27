@@ -1,0 +1,46 @@
+include::E:\JAVA\aframework-layer\aframework\aframework-api\src\docs\api\asciidocs\preview.adoc[]
+
+=== 1.1 获取所有用户接口
+
+==== request-headers 类型说明 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.1 获取所有用户接口\request-headers.adoc[]
+
+==== http-request 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.1 获取所有用户接口\http-request.adoc[]
+
+==== request-parameters类型说明 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.1 获取所有用户接口\request-parameters.adoc[]
+
+==== request-body类型说明 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.1 获取所有用户接口\request-body.adoc[]
+
+==== http-response 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.1 获取所有用户接口\http-response.adoc[]
+
+==== response-fields 类型说明 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.1 获取所有用户接口\response-fields.adoc[]
+
+=== 1.2 测试接口
+
+==== request-headers 类型说明 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.2 测试接口\request-headers.adoc[]
+
+==== http-request 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.2 测试接口\http-request.adoc[]
+
+==== request-body类型说明 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.2 测试接口\request-body.adoc[]
+
+==== http-response 
+
+include::E:\JAVA\aframework-layer\aframework\aframework-api\target\generated-snippets\1.2 测试接口\http-response.adoc[]
+

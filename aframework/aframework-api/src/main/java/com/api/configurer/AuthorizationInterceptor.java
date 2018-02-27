@@ -9,7 +9,8 @@
  */
 package com.api.configurer;
 
-import com.api.model.BaseApiResult;
+
+import aframework.configure.model.BaseApiResult;
 import com.core.authorizat.Authorization;
 import com.core.utility.IWorkContext;
 import com.domain.users.User;

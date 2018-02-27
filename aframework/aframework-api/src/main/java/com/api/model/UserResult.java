@@ -9,6 +9,7 @@
  */
 package com.api.model;
 
+import aframework.configure.model.BaseApiResult;
 import com.domain.users.User;
 
 import java.util.List;
