@@ -42,7 +42,7 @@ import java.util.Map;
  * @Description IOrderRepository
  * @Date Jul 18, 2017 3:44:31 PM
  */
-
+@Repository
 public interface IOrderRepository {
 
     List<Order> getAllOrder();
