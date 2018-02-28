@@ -33,12 +33,14 @@ Thumbs.db
 *.class
 
 # web api document build ignore
-docs/*
+docs/
 
 
 # plugs ignore
 /plugs/mybatis-generator/lib/com
 /plugs/apache-jmeter-3.2/backups
 /plugs/apache-jmeter-3.2/bin/jmeter.log
-overlays/*
+
+# web all ignore
+overlays/
 
