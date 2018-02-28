@@ -5,7 +5,7 @@
  *    Copyright (c) 2001-2017 Alvis.Yu Co.,Ltd
  *    http://yu.alvis.com/
  *
- *    Package:     web.test
+ *    Package:     admin.test
  *
  *    Filename:    UserTestCase.java
  *
@@ -27,18 +27,11 @@
  *        - first revision
  *
  *****************************************************************/
-package web.test.controllers;
+package admin.testcase;
 
-import java.util.List;
-
-import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.domain.users.User;
-import com.service.users.IUserService;
-
-import web.testbase.BaseControllerTest;
+import admin.testbase.BaseControllerTest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;

@@ -134,7 +134,7 @@
             <!-- repository end -->
 
 
-            <!-- web begin -->
+            <!-- admin begin -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
@@ -219,7 +219,7 @@
                 <artifactId>freemarker</artifactId>
                 <version>2.3.26-incubating</version>
             </dependency>
-            <!-- web end -->
+            <!-- admin end -->
 
 
             <!-- log begin -->

@@ -5,7 +5,7 @@
  *    Copyright (c) 2001-2017 Alvis.Yu Co.,Ltd
  *    http://yu.alvis.com/
  *
- *    Package:     web.testbase
+ *    Package:     admin.testbase
  *
  *    Filename:    BaseTestCase.java
  *
@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package web.testbase;
+package admin.testbase;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;

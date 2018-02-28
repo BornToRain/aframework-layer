@@ -1,19 +1,15 @@
 /**
  * @Project Name :  aframework
- * @Package Name :  web.testbase
+ * @Package Name :  admin.testbase
  * @Description :  TODO
  * @author :  dell
  * @Creation Date:  2017-08-11 10:29 AM
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package web.testbase;
+package admin.testbase;
 
-import com.core.utility.AfSpringContext;
 import com.core.utility.IWebHelper;
-import com.sun.tools.internal.ws.processor.util.DirectoryUtil;
-import org.apache.commons.io.FileUtils;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,10 +23,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 

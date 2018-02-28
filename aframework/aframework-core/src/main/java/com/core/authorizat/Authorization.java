@@ -1,6 +1,6 @@
 /**
  * @Project Name :  aframework
- * @Package Name :  com.web.configurer
+ * @Package Name :  com.admin.configurer
  * @Description :  TODO
  * @author :  dell
  * @Creation Date:  2017-08-09 2:17 PM

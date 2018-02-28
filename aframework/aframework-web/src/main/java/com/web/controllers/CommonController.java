@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller("FCommonController")
 @RequestMapping("/")
-public class CommonController extends BaseFontController {
+public class CommonController extends BaseWebController {
 
     @RequestMapping("/error")
     public String Index() {

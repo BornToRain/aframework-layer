@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller("FHomeController")
 @RequestMapping("/home")
-public class HomeController extends BaseFontController {
+public class HomeController extends BaseWebController {
 
     @RequestMapping("/index")
     public String Index() {

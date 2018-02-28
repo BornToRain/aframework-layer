@@ -38,11 +38,11 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+                    <packagingExcludes>WEB-INF/admin.xml</packagingExcludes>
                     <overlays>
                         <overlay>
                             <groupId>org.aframework.web</groupId>
-                            <artifactId>aframework-web</artifactId>
+                            <artifactId>aframework-admin</artifactId>
                             <excludes>
                                 <exclude>applicationContext.xml</exclude>
                             </excludes>

@@ -50,7 +50,7 @@
             <artifactId>spring-tx</artifactId>
         </dependency>
 
-        <!-- web begin -->
+        <!-- admin begin -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -111,7 +111,7 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
         </dependency>
-        <!-- web end -->
+        <!-- admin end -->
 
         <!-- tools begin -->
         <dependency>

@@ -26,7 +26,7 @@ import com.service.users.IUserService;
  */
 @Controller("FUserController")
 @RequestMapping("/user")
-public class UserController extends BaseFontController {
+public class UserController extends BaseWebController {
 
     @Autowired
     private IUserService userService;

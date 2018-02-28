@@ -33,7 +33,7 @@
                 /error=anon
                 /api/**=anon
                 /user/**=anon
-                /web/** = user
+                /admin/** = user
                 /admin/** = user, roles[admin]
                 /**=user
             </value>
