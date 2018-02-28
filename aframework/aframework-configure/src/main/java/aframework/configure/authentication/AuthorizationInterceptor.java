@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package aframework.configure.utilities;
+package aframework.configure.authentication;
 
 import com.core.authorizat.Authorization;
 import com.core.utility.IWorkContext;

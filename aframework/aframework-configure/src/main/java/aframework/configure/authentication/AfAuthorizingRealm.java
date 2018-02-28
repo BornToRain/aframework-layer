@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package aframework.configure.utilities;
+package aframework.configure.authentication;
 
 import com.service.authentication.IAuthenticationService;
 import org.apache.shiro.authc.*;

@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package aframework.configure.utilities;
+package aframework.configure.exception;
 
 
 

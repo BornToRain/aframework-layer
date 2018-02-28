@@ -8,6 +8,7 @@
         <artifactId>aframework</artifactId>
         <version>1.0.0</version>
     </parent>
+    <version>1.0.1</version>
     <groupId>org.aframework.web</groupId>
     <artifactId>aframework-web</artifactId>
     <packaging>war</packaging>
@@ -18,22 +19,22 @@
         <dependency>
             <groupId>org.aframework.domain</groupId>
             <artifactId>aframework-domain</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${aframework-domain.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aframework.service</groupId>
             <artifactId>aframework-service</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${aframework-service.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aframework.core</groupId>
             <artifactId>aframework-core</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${aframework-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aframework.configure</groupId>
             <artifactId>aframework-configure</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${aframework-configure.version}</version>
         </dependency>
 
 

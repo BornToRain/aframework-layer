@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package aframework.configure.utilities;
+package aframework.configure.authentication;
 
 import com.core.utility.IWorkContext;
 import com.domain.users.User;
@@ -53,6 +53,7 @@ public class AfUserFilter extends AccessControlFilter {
     }
 
 
+    @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         saveRequestAndRedirectToLogin(request, response);
         return false;

@@ -14,19 +14,19 @@
         <dependency>
             <groupId>org.aframework.web</groupId>
             <artifactId>aframework-web</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${aframework-web.version}</version>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>org.aframework.admin</groupId>
             <artifactId>aframework-admin</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${aframework-admin.version}</version>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>org.aframework.api</groupId>
             <artifactId>aframework-api</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${aframework-api.version}</version>
             <type>war</type>
         </dependency>
     </dependencies>

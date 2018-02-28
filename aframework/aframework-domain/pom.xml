@@ -8,8 +8,7 @@
         <artifactId>aframework</artifactId>
         <version>1.0.0</version>
     </parent>
-
-
+    <version>1.0.0</version>
     <groupId>org.aframework.domain</groupId>
     <artifactId>aframework-domain</artifactId>
     <name>Archetype - aframework-domain</name>

@@ -21,6 +21,13 @@
         <property name="freemarkerVariables">
             <map>
                 <entry key="xml_escape" value-ref="fmXmlEscape"/>
+                <entry key="version">
+                    <map>
+                        <entry key="web" value="1.0.1"/>
+                        <entry key="admin" value="1.0.1"/>
+                        <entry key="api" value="1.0.1"/>
+                    </map>
+                </entry>
             </map>
         </property>
         <property name="defaultEncoding">
@@ -42,7 +49,6 @@
         </property>
     </bean>
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
-
     <!-- 配置freeMarker视图解析器 -->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">

@@ -8,17 +8,17 @@
         <artifactId>aframework</artifactId>
         <version>1.0.0</version>
     </parent>
+    <version>1.0.0</version>
     <groupId>org.aframework.core</groupId>
     <artifactId>aframework-core</artifactId>
     <name>Archetype - aframework-core</name>
-
     <dependencies>
 
         <!--aframework-->
         <dependency>
             <groupId>org.aframework.domain</groupId>
             <artifactId>aframework-domain</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${aframework-domain.version}</version>
         </dependency>
 
         <!--other-->

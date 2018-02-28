@@ -40,4 +40,5 @@ docs/*
 /plugs/mybatis-generator/lib/com
 /plugs/apache-jmeter-3.2/backups
 /plugs/apache-jmeter-3.2/bin/jmeter.log
+overlays/*
 

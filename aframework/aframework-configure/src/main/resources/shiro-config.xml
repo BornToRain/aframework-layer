@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
 
-    <bean id="userRealm" class="aframework.configure.utilities.AfAuthorizingRealm"/>
+    <bean id="userRealm" class="aframework.configure.authentication.AfAuthorizingRealm"/>
 
 
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
@@ -16,7 +16,7 @@
         <property name="rememberMeManager" ref="rememberMeManager"/>
     </bean>
 
-    <bean id="userFilter" class="aframework.configure.utilities.AfUserFilter"/>
+    <bean id="userFilter" class="aframework.configure.authentication.AfUserFilter"/>
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>

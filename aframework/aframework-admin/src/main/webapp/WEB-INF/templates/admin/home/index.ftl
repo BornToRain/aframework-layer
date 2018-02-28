@@ -6,7 +6,6 @@
 
 <@htmlBody>
 <div style="width: 800px; min-height: 500px;">
-
     <table>
         <tr>
             <th>Page</th>

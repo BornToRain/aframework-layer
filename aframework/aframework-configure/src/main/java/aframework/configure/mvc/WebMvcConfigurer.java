@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package aframework.configure.utilities;
+package aframework.configure.mvc;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.AntPathMatcher;

@@ -6,7 +6,7 @@
 <script type="text/javascript"
         src="${ctx}/content/admin/scripts/plugs/bootstrap-paginator/build/bootstrap-paginator.min.js"></script>
 <script type="text/javascript"
-        src="${ctx}/content/admin/scripts/pages/user-home.js?v=1.0.0"></script>
+        src="${ctx}/content/admin/scripts/pages/user-home.js?v=${version.admin}"></script>
 <script type="text/javascript">
     $(function () {
         UserHome.init();

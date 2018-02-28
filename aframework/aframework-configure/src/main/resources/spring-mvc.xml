@@ -13,7 +13,9 @@
 	<mvc:default-servlet-handler />
 	<tx:annotation-driven />
 
-	<context:component-scan base-package="aframework.configure.utilities"></context:component-scan>
+	<context:component-scan base-package="aframework.configure.authentication"></context:component-scan>
+	<context:component-scan base-package="aframework.configure.exception"></context:component-scan>
+	<context:component-scan base-package="aframework.configure.mvc"></context:component-scan>
 
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
