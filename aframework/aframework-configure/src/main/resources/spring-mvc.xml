@@ -11,7 +11,7 @@
 
 	<context:annotation-config />
 	<mvc:default-servlet-handler />
-	<tx:annotation-driven />
+	<mvc:annotation-driven />
 
 	<context:component-scan base-package="aframework.configure.authentication"></context:component-scan>
 	<context:component-scan base-package="aframework.configure.exception"></context:component-scan>
