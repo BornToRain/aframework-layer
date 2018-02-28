@@ -11,7 +11,7 @@
     <groupId>org.aframework.web</groupId>
     <artifactId>aframework-web</artifactId>
     <packaging>war</packaging>
-    <name>aframework-admin Maven Webapp</name>
+    <name>Archetype - aframework-web</name>
     <dependencies>
 
         <!--aframework-->
@@ -54,7 +54,7 @@
 
 
     <build>
-        <finalName>aframework-admin</finalName>
+        <finalName>aframework-web</finalName>
 
     </build>
 

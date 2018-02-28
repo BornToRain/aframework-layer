@@ -9,7 +9,7 @@
     <groupId>org.aframework.admin</groupId>
     <artifactId>aframework-admin</artifactId>
     <packaging>war</packaging>
-    <name>aframework-admin Maven Webapp</name>
+    <name>Archetype - aframework-admin</name>
     <url>http://maven.apache.org</url>
     <dependencies>
 

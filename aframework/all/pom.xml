@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>all</artifactId>
     <packaging>war</packaging>
-    <name>all Maven Webapp</name>
+    <name>Archetype - aframework</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -38,11 +38,11 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <packagingExcludes>WEB-INF/admin.xml</packagingExcludes>
+                    <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
                     <overlays>
                         <overlay>
                             <groupId>org.aframework.web</groupId>
-                            <artifactId>aframework-admin</artifactId>
+                            <artifactId>aframework-web</artifactId>
                             <excludes>
                                 <exclude>applicationContext.xml</exclude>
                             </excludes>
