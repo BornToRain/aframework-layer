@@ -5,6 +5,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>${title}</title>
+    <script type="text/javascript"
+            src="${ctx}/content/web/scripts/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript">
         var ctx = "${ctx}";
     </script>
