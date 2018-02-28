@@ -54,6 +54,7 @@ import com.repository.mybatis.users.IUserRepository;
  * @Date Jul 18, 2017 4:32:37 PM
  */
 @Service("IUserService")
+@Transactional
 public class UserService implements IUserService {
 
     @Autowired
@@ -97,7 +98,6 @@ public class UserService implements IUserService {
     }
 
     @Override
-    @Transactional
     public void insertUser(User user) {
         userRepository.insertUser(user);
         //throw new RuntimeException("test");

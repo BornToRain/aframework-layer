@@ -35,6 +35,7 @@ import org.springframework.stereotype.Service;
 import com.core.security.IEncryption;
 import com.domain.users.User;
 import com.service.users.IUserService;
+import org.springframework.transaction.annotation.Transactional;
 
 /** 
 * @author 

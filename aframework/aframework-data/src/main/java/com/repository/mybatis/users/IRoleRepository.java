@@ -3,7 +3,7 @@ package com.repository.mybatis.users;
 import com.domain.users.Role;
 import org.springframework.stereotype.Repository;
 
-@Repository
+
 public interface IRoleRepository {
 
     int deleteByPrimaryKey(Integer id);

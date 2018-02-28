@@ -10,5 +10,6 @@
     <import resource="classpath:spring-api.xml"/>
     <import resource="classpath:spring-admin.xml"/>
     <import resource="classpath:spring-web.xml"/>
+    <import resource="classpath:application-context.xml"/>
 
 </beans>

@@ -44,7 +44,7 @@ import com.domain.users.User;
  * @Description IUserRepository
  * @Date Jul 18, 2017 3:44:31 PM
  */
-@Repository
+
 public interface IUserRepository {
 
     List<User> getAllUser();
