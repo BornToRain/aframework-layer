@@ -54,7 +54,7 @@ import java.util.List;
  * @Description AFRealm
  * @Date Jul 18, 2017 4:54:32 PM
  */
-@Configuration
+
 public class AfAuthorizingRealm extends AuthorizingRealm {
 
     @Autowired

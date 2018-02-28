@@ -53,7 +53,7 @@ import org.springframework.stereotype.Component;
  * @version 1.0.0
  */
 
-@Component("IEncryptionService")
+@Component("IEncryption")
 public class Encryption implements IEncryption {
 
     /**

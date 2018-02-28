@@ -51,7 +51,7 @@ public class HomeController extends BaseAdminController {
         if (files.length != 0) {
             for (CommonsMultipartFile file : files) {
                 String relatePath = "/upload/admin/" + file.getOriginalFilename();
-                String phyPath = webHelper.MapPath(relatePath);
+                String phyPath = webHelper.mapPath(relatePath);
                 File destFile = new File(phyPath);
                 InputStream in = file.getInputStream();
                 FileUtils.copyInputStreamToFile(in, destFile);

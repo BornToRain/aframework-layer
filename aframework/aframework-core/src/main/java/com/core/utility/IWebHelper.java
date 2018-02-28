@@ -43,5 +43,5 @@ package com.core.utility;
  */
 public interface IWebHelper {
 
-    String MapPath(String relatePath);
+    String mapPath(String relatePath);
 }

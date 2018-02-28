@@ -53,7 +53,8 @@ public class WebHelper implements IWebHelper {
     @Autowired
     ServletContext context;
 
-    public String MapPath(String relatePath) {
+    @Override
+    public String mapPath(String relatePath) {
         String realPath = context.getRealPath(relatePath);
         return realPath;
     }
