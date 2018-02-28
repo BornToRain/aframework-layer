@@ -1,17 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Admin-Cutomer_List</title>
-<#include "/admin/common/htmlheader.ftl">
-</head>
+<#include "/admin/layout/layout.ftl"/>
 
+<@htmlHead title="list">
 
-<body>
+</@htmlHead>
 
-
-<#include "/admin/layout/header.ftl">
-
+<@htmlBody>
 <table id="tableNoAjaxContain">
     <tr>
         <th>Id</th>
@@ -19,17 +12,13 @@
         <th>Age</th>
         <th>LastActiveTime</th>
     </tr>
-<#list users as item>
-    <tr>
-        <td>${item.id}</td>
-        <td>${item.name!}</td>
-        <td>${item.age!}</td>
-        <td>${item.lastActiveTime!}</td>
-    </tr>
-</#list>
+    <#list users as item>
+        <tr>
+            <td>${item.id}</td>
+            <td>${item.name!}</td>
+            <td>${item.age!}</td>
+            <td>${item.lastActiveTime!}</td>
+        </tr>
+    </#list>
 </table>
-
-<#include "/admin/layout/footer.ftl">
-
-</body>
-</html>
+</@htmlBody>

@@ -1,33 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Admin-Cutomer_Index</title>
+<#include "/admin/layout/layout.ftl"/>
 
-<#include "/admin/common/htmlheader.ftl">
+<@htmlHead title="ajax pager">
+<script type="text/javascript"
+        src="${ctx}/content/admin/scripts/jquery/jquery-3.2.1.js"></script>
+<script type="text/javascript"
+        src="${ctx}/content/admin/scripts/plugs/bootstrap-paginator/build/bootstrap-paginator.min.js"></script>
+<script type="text/javascript"
+        src="${ctx}/content/admin/scripts/pages/user-home.js"></script>
+<script type="text/javascript">
+    $(function () {
+        UserHome.init();
+    })
+</script>
+</@htmlHead>
 
-    <script type="text/javascript"
-            src="${ctx}/content/scripts/pages/user-home.js"></script>
-
-    <script type="text/javascript">
-        $(function () {
-            UserHome.init();
-        })
-    </script>
-
-</head>
-
-<body>
-
-
-<#include "/admin/layout/header.ftl">
-
+<@htmlBody>
 <form action="${ctx}/admin/user/index" id="searchForm">
     <span>Name:</span> <input type="text" name="name"/>
     <span>Age:</span> <input type="text" name="age"/>
     <input type="button" id="search" value="查询"/>
 </form>
-
 
 <div>
     <table>
@@ -44,8 +36,4 @@
 </div>
 
 <div id="pageItems"></div>
-
-<#include "/admin/layout/footer.ftl">
-
-</body>
-</html>
+</@htmlBody>

@@ -50,7 +50,7 @@ public class HomeController extends BaseAdminController {
     public String Upload(@RequestParam("files") CommonsMultipartFile[] files) throws IOException {
         if (files.length != 0) {
             for (CommonsMultipartFile file : files) {
-                String relatePath = "/upload/" + file.getOriginalFilename();
+                String relatePath = "/upload/admin/" + file.getOriginalFilename();
                 String phyPath = webHelper.MapPath(relatePath);
                 File destFile = new File(phyPath);
                 InputStream in = file.getInputStream();

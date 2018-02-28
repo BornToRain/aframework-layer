@@ -1,14 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Login</title>
-<#include "/web/common/taglib.ftl">
-</head>
-<body>
+<#include "/web/layout/layout.ftl"/>
 
-<#include "/web/layout/header.ftl">
+<@htmlHead title="login">
 
+</@htmlHead>
+
+<@htmlBody>
 <form action="loginPost" method="post">
     <p>
         <label for="username">Username</label> <input id=username
@@ -23,7 +19,7 @@
 
 <a href="register">Register</a>
 
-<#include "/web/layout/footer.ftl">
+</@htmlBody>
 
-</body>
-</html>
+
+
