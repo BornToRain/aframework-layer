@@ -23,6 +23,12 @@
             <version>${project.parent.version}</version>
             <type>war</type>
         </dependency>
+        <dependency>
+            <groupId>org.aframework.api</groupId>
+            <artifactId>aframework-api</artifactId>
+            <version>${project.parent.version}</version>
+            <type>war</type>
+        </dependency>
     </dependencies>
     <build>
         <finalName>aframework</finalName>
@@ -37,10 +43,23 @@
                         <overlay>
                             <groupId>org.aframework.web</groupId>
                             <artifactId>aframework-web</artifactId>
+                            <excludes>
+                                <exclude>applicationContext.xml</exclude>
+                            </excludes>
                         </overlay>
                         <overlay>
                             <groupId>org.aframework.admin</groupId>
                             <artifactId>aframework-admin</artifactId>
+                            <excludes>
+                                <exclude>applicationContext.xml</exclude>
+                            </excludes>
+                        </overlay>
+                        <overlay>
+                            <groupId>org.aframework.api</groupId>
+                            <artifactId>aframework-api</artifactId>
+                            <excludes>
+                                <exclude>applicationContext.xml</exclude>
+                            </excludes>
                         </overlay>
                     </overlays>
                 </configuration>

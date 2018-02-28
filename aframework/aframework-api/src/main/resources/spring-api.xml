@@ -9,8 +9,26 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-    <import resource="classpath:spring-api.xml"/>
+    <import resource="classpath:application-context.xml"/>
 
+    <bean id="propertyConfigurer" class="com.api.configurer.PropertyConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:restfulapi.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <context:component-scan base-package="com.api"></context:component-scan>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/api/**"/>
+            <bean class="com.api.configurer.AuthorizationInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
 </beans>
