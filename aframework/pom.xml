@@ -20,7 +20,7 @@
         <mysql.version>5.1.26</mysql.version>
         <sharding-jdbc.version>1.5.1</sharding-jdbc.version>
 
-        <springframework.version>4.3.6.RELEASE</springframework.version>
+        <springframework.version>4.3.10.RELEASE</springframework.version>
         <springframework-redis.version>1.8.4.RELEASE</springframework-redis.version>
         <redis-clients.version>2.9.0</redis-clients.version>
         <jackson.version>2.8.9</jackson.version>
@@ -86,12 +86,13 @@
         <module>aframework-web</module>
         <module>aframework-admin</module>
         <module>all</module>
-
+        <module>aframework-dubbo</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
-            <!--spring unit begin -->
+
+            <!--spring unit  -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
@@ -104,9 +105,9 @@
                 <version>${spring-restdoc.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- spring unit end -->
 
-            <!-- repository begin -->
+
+            <!--  data connection -->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
@@ -117,7 +118,6 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>${mybatis-spring.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jdbc</artifactId>
@@ -128,41 +128,61 @@
                 <artifactId>spring-tx</artifactId>
                 <version>${springframework.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-oxm</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
 
-            <!-- repository end -->
 
 
-            <!-- admin begin -->
+            <!--  spring mvc  -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
                 <version>${springframework.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${springframework.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-redis</artifactId>
                 <version>${springframework-redis.version}</version>
             </dependency>
 
+
+            <!-- redis -->
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
                 <version>${redis-clients.version}</version>
             </dependency>
 
+
+            <!-- shiro  -->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-core</artifactId>
@@ -179,7 +199,9 @@
                 <version>${shiro.version}</version>
             </dependency>
 
-            <!-- spring mvc json -->
+
+
+            <!--  web  -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
@@ -195,44 +217,45 @@
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
-
             <!-- file upload -->
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>1.3.3</version>
             </dependency>
-
             <!-- 添加sevlet支持 -->
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>3.1.0</version>
             </dependency>
-
             <!-- 添加jsp支持 -->
             <dependency>
                 <groupId>javax.servlet.jsp</groupId>
                 <artifactId>javax.servlet.jsp-api</artifactId>
                 <version>2.3.1</version>
             </dependency>
-
             <!-- 添加jstl支持 -->
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jstl</artifactId>
                 <version>1.2</version>
             </dependency>
-
             <dependency>
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
                 <version>2.3.26-incubating</version>
             </dependency>
-            <!-- admin end -->
 
 
-            <!-- log begin -->
+
+            <!-- log  -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.14</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
@@ -255,10 +278,12 @@
                 <artifactId>jul-to-slf4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            <!-- log end -->
 
 
-            <!-- tools begin -->
+
+
+
+            <!-- tools  -->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
@@ -269,7 +294,22 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
-            <!-- tools end -->
+
+
+            <!-- dubbo -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>2.6.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.1</version>
+            </dependency>
+
+
         </dependencies>
 
     </dependencyManagement>
@@ -285,7 +325,11 @@
         <!-- unit end -->
 
 
-        <!-- log begin -->
+        <!-- log  -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -304,7 +348,9 @@
             <groupId>org.slf4j</groupId>
             <artifactId>jul-to-slf4j</artifactId>
         </dependency>
-        <!-- log end -->
+
+
+
 
     </dependencies>
 
