@@ -87,6 +87,7 @@
         <module>aframework-admin</module>
         <module>all</module>
         <module>aframework-dubbo</module>
+        <module>aframework-dubbo</module>
     </modules>
 
     <dependencyManagement>
@@ -144,15 +145,16 @@
                 <version>${springframework.version}</version>
             </dependency>
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${springframework.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${springframework.version}</version>
             </dependency>
+
 
 
 
@@ -171,6 +173,19 @@
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-redis</artifactId>
                 <version>${springframework-redis.version}</version>
+            </dependency>
+
+
+            <!--jdbc-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
 
 
@@ -302,7 +317,6 @@
                 <artifactId>dubbo</artifactId>
                 <version>2.6.0</version>
             </dependency>
-
             <dependency>
                 <groupId>com.github.sgroschupf</groupId>
                 <artifactId>zkclient</artifactId>

@@ -8,44 +8,28 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0.0</version>
+
     <groupId>aframework.dubbo</groupId>
     <artifactId>aframework-dubbo</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+    <modules>
+        <module>aframework-dubbo-consumer</module>
+        <module>aframework-dubbo-provider</module>
+    </modules>
 
     <dependencies>
-
-        <!--aframework-->
-        <dependency>
-            <groupId>org.aframework.domain</groupId>
-            <artifactId>aframework-domain</artifactId>
-            <version>${aframework-domain.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aframework.service</groupId>
-            <artifactId>aframework-service</artifactId>
-            <version>${aframework-service.version}</version>
-        </dependency>
 
         <!-- dubbo -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
 
     </dependencies>
+
 </project>

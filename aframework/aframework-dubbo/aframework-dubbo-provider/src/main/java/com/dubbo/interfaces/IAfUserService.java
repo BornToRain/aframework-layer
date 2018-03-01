@@ -48,7 +48,8 @@ import java.util.List;
  */
 public interface IAfUserService {
 
-    List<User> getUsers();
+    String sayHello(String name);
 
+    List<User> getUsers();
 
 }

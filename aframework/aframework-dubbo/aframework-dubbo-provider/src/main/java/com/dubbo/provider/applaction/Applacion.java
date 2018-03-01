@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package com.dubbo.applaction;
+package com.dubbo.provider.applaction;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
