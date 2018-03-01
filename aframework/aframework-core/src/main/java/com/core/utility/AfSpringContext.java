@@ -33,13 +33,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author
@@ -82,23 +76,4 @@ public class AfSpringContext implements ApplicationContextAware {
         return applicationContext.getBean(requiredType);
     }
 
-
-    public static HttpServletRequest getServletRequest() {
-        RequestAttributes requestAttr = RequestContextHolder.currentRequestAttributes();
-        if (!(requestAttr instanceof ServletRequestAttributes)) {
-            throw new IllegalStateException("Current request is not a servlet request");
-        }
-        ServletRequestAttributes sra = (ServletRequestAttributes) requestAttr;
-        return sra.getRequest();
-    }
-
-
-    public static HttpServletResponse getHttpServletResponse() {
-        RequestAttributes requestAttr = RequestContextHolder.currentRequestAttributes();
-        if (!(requestAttr instanceof ServletRequestAttributes)) {
-            throw new IllegalStateException("Current request is not a servlet request");
-        }
-        ServletRequestAttributes sra = (ServletRequestAttributes) requestAttr;
-        return sra.getResponse();
-    }
 }

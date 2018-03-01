@@ -12,7 +12,7 @@ package com.api.configurer;
 
 import aframework.configure.model.BaseApiResult;
 import com.core.authorizat.Authorization;
-import com.core.utility.IWorkContext;
+import aframework.configure.utility.IWorkContext;
 import com.domain.users.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.users.IUserService;
@@ -25,7 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Method;
 
 /**
  * @author :  dell

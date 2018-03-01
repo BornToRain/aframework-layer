@@ -9,7 +9,7 @@
  */
 package aframework.configure.authentication;
 
-import com.core.utility.IWorkContext;
+import aframework.configure.utility.IWorkContext;
 import com.domain.users.User;
 import com.service.users.IUserService;
 import org.apache.shiro.subject.Subject;

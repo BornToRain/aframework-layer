@@ -1,7 +1,7 @@
 package com.admin.controllers;
 
-import com.core.utility.IWebHelper;
-import com.core.utility.IWorkContext;
+import aframework.configure.utility.IWebHelper;
+import aframework.configure.utility.IWorkContext;
 import com.domain.users.User;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;

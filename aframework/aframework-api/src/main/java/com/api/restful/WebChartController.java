@@ -35,7 +35,7 @@ import java.util.List;
 import aframework.configure.model.BaseApiResult;
 import com.core.authorizat.Authorization;
 import com.api.model.UserResult;
-import com.core.utility.IWorkContext;
+import aframework.configure.utility.IWorkContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

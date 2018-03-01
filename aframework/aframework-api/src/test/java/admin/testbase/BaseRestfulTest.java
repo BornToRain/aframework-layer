@@ -9,7 +9,7 @@
  */
 package admin.testbase;
 
-import com.core.utility.IWebHelper;
+import aframework.configure.utility.IWebHelper;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

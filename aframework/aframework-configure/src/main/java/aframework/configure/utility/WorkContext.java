@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package com.core.utility;
+package aframework.configure.utility;
 
 import com.domain.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
