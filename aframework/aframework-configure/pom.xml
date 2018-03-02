@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>aframework</artifactId>
-        <groupId>org.aframework</groupId>
+        <groupId>com.alvis</groupId>
         <version>1.0.0</version>
     </parent>
     <version>1.0.0</version>
-    <groupId>org.aframework.configure</groupId>
+    <groupId>com.alvis</groupId>
     <artifactId>aframework-configure</artifactId>
     <name>Archetype - aframework-configure</name>
     <packaging>jar</packaging>
@@ -17,17 +17,17 @@
 
         <!--aframework-->
         <dependency>
-            <groupId>org.aframework.domain</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-domain</artifactId>
             <version>${aframework-domain.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.aframework.service</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-service</artifactId>
             <version>${aframework-service.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.aframework.core</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-core</artifactId>
             <version>${aframework-core.version}</version>
         </dependency>

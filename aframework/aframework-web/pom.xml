@@ -4,12 +4,12 @@
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.aframework</groupId>
+        <groupId>com.alvis</groupId>
         <artifactId>aframework</artifactId>
         <version>1.0.0</version>
     </parent>
     <version>1.0.1</version>
-    <groupId>org.aframework.web</groupId>
+    <groupId>com.alvis</groupId>
     <artifactId>aframework-web</artifactId>
     <packaging>war</packaging>
     <name>Archetype - aframework-web</name>
@@ -17,22 +17,22 @@
 
         <!--aframework-->
         <dependency>
-            <groupId>org.aframework.domain</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-domain</artifactId>
             <version>${aframework-domain.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.aframework.service</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-service</artifactId>
             <version>${aframework-service.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.aframework.core</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-core</artifactId>
             <version>${aframework-core.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.aframework.configure</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-configure</artifactId>
             <version>${aframework-configure.version}</version>
         </dependency>

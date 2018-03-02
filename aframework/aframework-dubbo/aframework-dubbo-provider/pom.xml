@@ -16,13 +16,13 @@
 
        <!--aframework-->
        <dependency>
-           <groupId>org.aframework.domain</groupId>
+           <groupId>com.alvis</groupId>
            <artifactId>aframework-domain</artifactId>
            <version>${aframework-domain.version}</version>
        </dependency>
 
        <dependency>
-           <groupId>org.aframework.service</groupId>
+           <groupId>com.alvis</groupId>
            <artifactId>aframework-service</artifactId>
            <version>${aframework-service.version}</version>
        </dependency>

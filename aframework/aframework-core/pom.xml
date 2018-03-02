@@ -4,19 +4,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.aframework</groupId>
+        <groupId>com.alvis</groupId>
         <artifactId>aframework</artifactId>
         <version>1.0.0</version>
     </parent>
     <version>1.0.0</version>
-    <groupId>org.aframework.core</groupId>
+    <groupId>com.alvis</groupId>
     <artifactId>aframework-core</artifactId>
     <name>Archetype - aframework-core</name>
     <dependencies>
 
         <!--aframework-->
         <dependency>
-            <groupId>org.aframework.domain</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-domain</artifactId>
             <version>${aframework-domain.version}</version>
         </dependency>

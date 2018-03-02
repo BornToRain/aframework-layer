@@ -4,12 +4,12 @@
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.aframework</groupId>
+        <groupId>com.alvis</groupId>
         <artifactId>aframework</artifactId>
         <version>1.0.0</version>
     </parent>
     <version>1.0.0</version>
-    <groupId>org.aframework.domain</groupId>
+    <groupId>com.alvis</groupId>
     <artifactId>aframework-domain</artifactId>
     <name>Archetype - aframework-domain</name>
     <packaging>jar</packaging>

@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>aframework</artifactId>
-        <groupId>org.aframework</groupId>
+        <groupId>com.alvis</groupId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,19 +12,19 @@
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
-            <groupId>org.aframework.web</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-web</artifactId>
             <version>${aframework-web.version}</version>
             <type>war</type>
         </dependency>
         <dependency>
-            <groupId>org.aframework.admin</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-admin</artifactId>
             <version>${aframework-admin.version}</version>
             <type>war</type>
         </dependency>
         <dependency>
-            <groupId>org.aframework.api</groupId>
+            <groupId>com.alvis</groupId>
             <artifactId>aframework-api</artifactId>
             <version>${aframework-api.version}</version>
             <type>war</type>
@@ -41,21 +41,21 @@
                     <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
                     <overlays>
                         <overlay>
-                            <groupId>org.aframework.web</groupId>
+                            <groupId>com.alvis</groupId>
                             <artifactId>aframework-web</artifactId>
                             <excludes>
                                 <exclude>applicationContext.xml</exclude>
                             </excludes>
                         </overlay>
                         <overlay>
-                            <groupId>org.aframework.admin</groupId>
+                            <groupId>com.alvis</groupId>
                             <artifactId>aframework-admin</artifactId>
                             <excludes>
                                 <exclude>applicationContext.xml</exclude>
                             </excludes>
                         </overlay>
                         <overlay>
-                            <groupId>org.aframework.api</groupId>
+                            <groupId>com.alvis</groupId>
                             <artifactId>aframework-api</artifactId>
                             <excludes>
                                 <exclude>applicationContext.xml</exclude>
