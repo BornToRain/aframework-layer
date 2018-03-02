@@ -30,6 +30,9 @@
         <slf4j.version>1.7.7</slf4j.version>
         <shiro.version>1.3.2</shiro.version>
 
+        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+        <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+
         <!-- aframework -->
         <aframework-core.version>1.0.0</aframework-core.version>
         <aframework-domain.version>1.0.0</aframework-domain.version>
