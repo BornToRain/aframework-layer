@@ -10,11 +10,11 @@
 	                        http://code.alibabatech.com/schema/dubbo
 	                        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-<!--    <context:property-placeholder location="classpath:database.properties" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath:database.properties" ignore-unresolvable="true"/>
 
     <import resource="classpath:spring-core.xml"/>
     <import resource="classpath:spring-data.xml"/>
-    <import resource="classpath:spring-service.xml"/>-->
+    <import resource="classpath:spring-service.xml"/>
 
 
     <!-- 提供方应用信息，用于计算依赖关系 -->

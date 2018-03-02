@@ -31,6 +31,8 @@ package com.dubbo.interfaces;
 
 
 
+import com.domain.users.User;
+
 import java.util.List;
 
 /** 
@@ -50,5 +52,5 @@ public interface IAfUserService {
 
     String sayHello(String name);
 
-
+    List<User> getUsers();
 }

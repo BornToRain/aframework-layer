@@ -12,5 +12,14 @@
     <groupId>aframework.dubbo.consumer</groupId>
     <artifactId>aframework-dubbo-consumer</artifactId>
 
+     <dependencies>
 
+         <!--aframework-->
+         <dependency>
+             <groupId>org.aframework.domain</groupId>
+             <artifactId>aframework-domain</artifactId>
+             <version>${aframework-domain.version}</version>
+         </dependency>
+
+     </dependencies>
 </project>

@@ -13,11 +13,18 @@
     <artifactId>aframework-dubbo-provider</artifactId>
 
    <dependencies>
+
        <!--aframework-->
        <dependency>
            <groupId>org.aframework.domain</groupId>
            <artifactId>aframework-domain</artifactId>
            <version>${aframework-domain.version}</version>
+       </dependency>
+
+       <dependency>
+           <groupId>org.aframework.service</groupId>
+           <artifactId>aframework-service</artifactId>
+           <version>${aframework-service.version}</version>
        </dependency>
 
    </dependencies>

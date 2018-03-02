@@ -32,6 +32,8 @@ package com.dubbo.provider.implementes;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.domain.users.User;
 import com.dubbo.interfaces.IAfUserService;
+import com.service.users.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,8 +55,8 @@ import java.util.List;
 
 public class AfUserService implements IAfUserService {
 
-/*    @Autowired
-    IUserService userService;*/
+    @Autowired
+    IUserService userService;
 
     @Override
     public String sayHello(String name) {
@@ -64,6 +66,6 @@ public class AfUserService implements IAfUserService {
 
     @Override
     public List<User> getUsers() {
-        return null;
+        return userService.getUsers();
     }
 }

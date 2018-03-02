@@ -29,6 +29,7 @@
  *****************************************************************/
 package com.domain.users;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import com.domain.base.BaseEntity;
@@ -47,7 +48,7 @@ import com.domain.base.BaseEntity;
  * @Description user
  * @Date Jul 18, 2017 3:24:08 PM
  */
-public class User extends BaseEntity {
+public class User extends BaseEntity implements Serializable {
 
     private Integer id;
 
