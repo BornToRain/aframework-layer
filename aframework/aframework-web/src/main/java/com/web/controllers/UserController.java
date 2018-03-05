@@ -41,6 +41,7 @@ public class UserController extends BaseWebController {
 
     @RequestMapping(value = "/loginPost", method = RequestMethod.POST)
     public String LoginPost(String username, String password) {
+
         Subject currentUser = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(username, password,true);
         try {

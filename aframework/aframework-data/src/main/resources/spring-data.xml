@@ -11,8 +11,8 @@
        					   http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 
-    <context:component-scan base-package="com.repository.datasource"></context:component-scan>
-    <context:component-scan base-package="com.repository.jdbctemplate"></context:component-scan>
+    <context:component-scan base-package="com.repository.datasource"/>
+    <context:component-scan base-package="com.repository.jdbctemplate"/>
 
     <import resource="classpath:spring-datasource-jdbc.xml"/>
     <import resource="classpath:spring-jdbc-user.xml"/>

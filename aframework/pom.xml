@@ -49,7 +49,6 @@
 
         <!-- environment setting -->
         <jdk.version>1.8</jdk.version>
-
     </properties>
 
     <profiles>
@@ -76,7 +75,6 @@
         </profile>
     </profiles>
 
-
     <!-- 阿里云maven仓库 -->
     <repositories>
         <repository>
@@ -102,7 +100,6 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 
     <modules>
         <module>aframework-core</module>
@@ -293,7 +290,6 @@
                 <artifactId>log4j</artifactId>
                 <version>1.2.14</version>
             </dependency>
-
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
@@ -345,7 +341,6 @@
 
 
         </dependencies>
-
     </dependencyManagement>
 
     <dependencies>
@@ -420,6 +415,5 @@
             </resource>
         </resources>
     </build>
-
 
 </project>
