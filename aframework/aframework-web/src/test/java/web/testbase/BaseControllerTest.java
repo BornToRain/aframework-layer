@@ -27,7 +27,7 @@
  *        - first revision
  *
  *****************************************************************/
-package admin.testbase;
+package web.testbase;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;

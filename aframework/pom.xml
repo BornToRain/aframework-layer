@@ -52,6 +52,31 @@
 
     </properties>
 
+    <profiles>
+        <profile>
+            <id>development</id>
+            <properties>
+                <profiles.active>development</profiles.active>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <profiles.active>production</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
+
     <!-- 阿里云maven仓库 -->
     <repositories>
         <repository>
@@ -158,8 +183,6 @@
             </dependency>
 
 
-
-
             <!--  spring mvc  -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -217,7 +240,6 @@
             </dependency>
 
 
-
             <!--  web  -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -265,7 +287,6 @@
             </dependency>
 
 
-
             <!-- log  -->
             <dependency>
                 <groupId>log4j</groupId>
@@ -295,9 +316,6 @@
                 <artifactId>jul-to-slf4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-
-
-
 
 
             <!-- tools  -->
@@ -365,9 +383,6 @@
             <artifactId>jul-to-slf4j</artifactId>
         </dependency>
 
-
-
-
     </dependencies>
 
     <build>
@@ -393,10 +408,15 @@
         </plugins>
         <resources>
             <resource>
-                <directory>src/main/java</directory>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>test/**</exclude>
+                    <exclude>production/**</exclude>
+                    <exclude>development/**</exclude>
+                </excludes>
             </resource>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>src/main/resources/${profiles.active}</directory>
             </resource>
         </resources>
     </build>
