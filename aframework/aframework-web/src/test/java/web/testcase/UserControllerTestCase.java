@@ -27,11 +27,11 @@
  *        - first revision
  *
  *****************************************************************/
-package admin.testcase;
+package web.testcase;
 
 import org.junit.Test;
 
-import admin.testbase.BaseControllerTest;
+import web.testbase.BaseControllerTest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -56,7 +56,7 @@ public class UserControllerTestCase extends BaseControllerTest {
     public void HomeIndex() throws Exception {
         this.mockMvc
                 .perform(
-                        get("/admin/home/index")
+                        get("/home/index")
                 )
                 .andExpect(status().isOk());
     }

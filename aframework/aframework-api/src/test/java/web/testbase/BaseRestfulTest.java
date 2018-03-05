@@ -7,7 +7,7 @@
  * @ModificationHistory Who    When    What
  * --------  ---------  --------------------------
  */
-package admin.testbase;
+package web.testbase;
 
 import aframework.configure.utility.IWebHelper;
 import org.junit.Before;
