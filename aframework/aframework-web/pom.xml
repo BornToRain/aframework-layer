@@ -33,11 +33,6 @@
         </dependency>
         <dependency>
             <groupId>com.alvis</groupId>
-            <artifactId>aframework-data</artifactId>
-            <version>${aframework-data.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alvis</groupId>
             <artifactId>aframework-configure</artifactId>
             <version>${aframework-configure.version}</version>
         </dependency>

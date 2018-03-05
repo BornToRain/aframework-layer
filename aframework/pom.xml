@@ -54,30 +54,28 @@
 
     <profiles>
         <profile>
-            <!-- 本地开发环境 -->
-            <id>dev</id>
+            <id>development</id>
             <properties>
-                <profiles.active>dev</profiles.active>
+                <profiles.active>development</profiles.active>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
         <profile>
-            <!-- 测试环境 -->
             <id>test</id>
             <properties>
                 <profiles.active>test</profiles.active>
             </properties>
         </profile>
         <profile>
-            <!-- 生产环境 -->
-            <id>product</id>
+            <id>production</id>
             <properties>
-                <profiles.active>product</profiles.active>
+                <profiles.active>production</profiles.active>
             </properties>
         </profile>
     </profiles>
+
 
     <!-- 阿里云maven仓库 -->
     <repositories>
@@ -185,8 +183,6 @@
             </dependency>
 
 
-
-
             <!--  spring mvc  -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -244,7 +240,6 @@
             </dependency>
 
 
-
             <!--  web  -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -292,7 +287,6 @@
             </dependency>
 
 
-
             <!-- log  -->
             <dependency>
                 <groupId>log4j</groupId>
@@ -322,9 +316,6 @@
                 <artifactId>jul-to-slf4j</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-
-
-
 
 
             <!-- tools  -->
@@ -415,14 +406,19 @@
                 </configuration>
             </plugin>
         </plugins>
-<!--        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-            </resource>
+        <resources>
             <resource>
                 <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>test/**</exclude>
+                    <exclude>production/**</exclude>
+                    <exclude>development/**</exclude>
+                </excludes>
             </resource>
-        </resources>-->
+            <resource>
+                <directory>src/main/resources/${profiles.active}</directory>
+            </resource>
+        </resources>
     </build>
 
 

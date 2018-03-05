@@ -12,10 +12,7 @@
 <body>
 
 
-<a href="${ctx}/admin/home/index">Admin Index</a>
-
-
-<a href="${ctx}/home/index">Front Index</a>
+API Index
 
 
 </body>
