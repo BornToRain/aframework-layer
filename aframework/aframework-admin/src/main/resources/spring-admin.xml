@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-
+    <import resource="classpath:spring-freemarker.xml"/>
 
     <context:component-scan base-package="com.admin.controllers"></context:component-scan>
 
