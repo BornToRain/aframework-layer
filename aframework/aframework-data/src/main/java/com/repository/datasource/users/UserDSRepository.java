@@ -82,7 +82,7 @@ public class UserDSRepository implements IUserDSRepository {
 
     @Override
     public void insertUsers(List<User> users) throws SQLException {
-        final String sql = "   insert into `t_user`  (`user_uuid`,`user_name`,`password`,`name`,`age`,`last_active_time`) values (?,?,?,?,?,?) ";
+        final String sql = "   insert into t_user  (user_uuid,user_name,password,name,age,last_active_time) values (?,?,?,?,?,?) ";
         Connection conn = null;
         PreparedStatement preparedStatement = null;
         try {

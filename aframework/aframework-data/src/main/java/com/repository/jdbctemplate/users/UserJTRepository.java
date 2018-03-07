@@ -118,14 +118,14 @@ public class UserJTRepository implements IUserJTRepository {
      */
     /* @Override
     public void insertUser(User user) {
-        String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
+        String sql = "insert into t_user  (name,age,last_active_time) values  ( ?, ?, ? );";
         Object[] parameters = new Object[]{user.getName(), user.getAge(), user.getLastActiveTime()};
         jdbcTemplate.update(sql, parameters);
     }*/
 
     @Override
     public void insertUser(User user) {
-        final String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
+        final String sql = "insert into t_user  (name,age,last_active_time) values  ( ?, ?, ? );";
         KeyHolder key = new GeneratedKeyHolder();
         jdbcTemplate.update((connection) -> {
             PreparedStatement preState = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -144,7 +144,7 @@ public class UserJTRepository implements IUserJTRepository {
      */
     @Override
     public void insertUsers(List<User> users) {
-        final String sql = "insert into t_user  (`name`,`age`,`last_active_time`) values  ( ?, ?, ? );";
+        final String sql = "insert into t_user  (name,age,last_active_time) values  ( ?, ?, ? );";
         List<Object[]> batchArgs = users.stream().map(user -> new Object[]{user.getName(), user.getAge(), user.getLastActiveTime()}).collect(Collectors.toList());
         jdbcTemplate.batchUpdate(sql, batchArgs);
     }

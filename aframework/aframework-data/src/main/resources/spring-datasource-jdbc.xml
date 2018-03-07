@@ -18,7 +18,7 @@
     <!--    AFData   master-slave  -->
     <bean id="master_ds_afdata" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="${jdbc.master.afdata.url}"/>
         <property name="username" value="${jdbc.master.afdata.username}"/>
         <property name="password" value="${jdbc.master.afdata.password}"/>
@@ -37,7 +37,7 @@
     <!--    AFOrder   master-slave  -->
     <bean id="master_ds_aforder" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="${jdbc.master.aforder.url}"/>
         <property name="username" value="${jdbc.master.aforder.username}"/>
         <property name="password" value="${jdbc.master.aforder.password}"/>

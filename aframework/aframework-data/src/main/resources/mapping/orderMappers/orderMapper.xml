@@ -23,25 +23,25 @@
 
 
     <select id="getOrderById" resultMap="BaseResultMap">
-		select * from `t_order`
+		select * from t_order
 		where id=#{value}
 	</select>
 
     <select id="getOrderByUuid" resultMap="BaseResultMap">
-        select * from `t_order`
+        select * from t_order
         where uuid=#{value}
     </select>
 
 
     <select id="orderPageList" resultMap="BaseResultMap">
-        select * from `t_order`
+        select * from t_order
         <if test="offset != null and limit != null ">
             limit #{offset}, #{limit}
         </if>
     </select>
 
     <select id="orderPageCount" resultType="java.lang.Integer">
-        select count(*) from `t_order`
+        select count(*) from t_order
     </select>
 
 

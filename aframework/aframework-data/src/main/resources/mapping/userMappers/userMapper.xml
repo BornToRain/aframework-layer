@@ -21,27 +21,27 @@
     <select id="getAllUser" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from `t_user`
+        from t_user
     </select>
 
     <select id="getUserById" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from `t_user`
+        from  t_user
         where id=#{value}
     </select>
 
     <select id="getUserByUserName" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from `t_user`
+        from t_user
         where user_name=#{value}
     </select>
 
     <select id="getUserByUuid" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from `t_user`
+        from t_user
         where user_uuid=#{value}
     </select>
 
@@ -49,7 +49,7 @@
     <select id="userPageList" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from `t_user`
+        from t_user
         <where>
             <if test="name != null and name != ''">
                 name like concat('%', #{name}, '%')
@@ -61,7 +61,7 @@
     </select>
 
     <select id="userPageCount" resultType="java.lang.Integer">
-        select count(*) from `t_user`
+        select count(*) from t_user
         <where>
             <if test="name != null and name != ''">
                 name like concat('%', #{name}, '%')
@@ -72,16 +72,16 @@
 
     <insert id="insertUser" parameterType="com.domain.users.User"
             useGeneratedKeys="true" keyProperty="id">
-		insert into `t_user`
-		(`user_uuid`,`user_name`,`password`,`name`,`age`, `last_active_time`)
+		insert into t_user
+		(user_uuid,user_name,password,name,age, last_active_time)
 		values
 		(#{userUuid},#{userName},#{password},#{name},#{age},#{lastActiveTime})
 	</insert>
 
     <insert id="insertUsers" parameterType="java.util.List"
             useGeneratedKeys="true" keyProperty="id">
-        insert into `t_user`
-        (`user_uuid`,`user_name`,`password`,`name`,`age`,`last_active_time`)
+        insert into t_user
+        (user_uuid,user_name,password,name,age,last_active_time)
         values
         <foreach collection="list" item="item" index="index"
                  separator=",">
@@ -92,18 +92,18 @@
 
 
     <update id="updateUser" parameterType="com.domain.users.User">
-        update `t_user`
+        update t_user
         <set>
-            <if test="name != null">`name` = #{name},</if>
-            <if test="age != null">`age` = #{age},</if>
-            <if test="lastActiveTime != null">`last_active_time` = #{lastActiveTime},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="lastActiveTime != null">last_active_time = #{lastActiveTime},</if>
         </set>
         where id = #{id}
     </update>
 
 
     <update id="updateUsersAge">
-        update `t_user` set age = #{age} where id in
+        update t_user set age = #{age} where id in
         <foreach item="id" collection="idslist" open="(" separator=","
                  close=")">
             #{id}
@@ -112,7 +112,7 @@
 
 
     <delete id="deleteUsersByIds">
-        delete from `t_user` where id in
+        delete from t_user where id in
         <foreach item="id" collection="list" open="(" separator=","
                  close=")">
             #{id}
