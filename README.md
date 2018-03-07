@@ -25,5 +25,5 @@ JAFrameWorkLayer is a website framework , provides distributed features such as 
 * UsePower more easy
 
 ## 6. Dubbo
-* RPC transform
+* RPC transform 
 
