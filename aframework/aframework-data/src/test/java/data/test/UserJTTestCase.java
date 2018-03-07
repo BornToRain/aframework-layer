@@ -63,7 +63,7 @@ public class UserJTTestCase extends BaseTestCase {
 
     @Test
     public void getUserTest() {
-        User User = userJTRepository.getUserById(79);
+        User User = userJTRepository.getUserById(1);
         Assert.assertNotNull(User);
     }
 
@@ -75,16 +75,16 @@ public class UserJTTestCase extends BaseTestCase {
 
     @Test
     public void updateUserTest() {
-        User User = userJTRepository.getUserById(79);
-        User.setName("hello");
-        User.setAge(87);
-        User.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-        userJTRepository.updateUser(User);
+        User user = userJTRepository.getUserById(2);
+        user.setName("hello");
+        user.setAge(87);
+        user.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
+        userJTRepository.updateUser(user);
     }
 
     @Test
     public void deleteCutomerByIdTest() {
-        userJTRepository.deleteUserById(79);
+        userJTRepository.deleteUserById(10);
     }
 
 }

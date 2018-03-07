@@ -35,6 +35,7 @@ public class UserRepositoryTest extends BaseTestCase {
     @Test
     public void InsertUserTest() {
         User customer = new User();
+        customer.setId(0);
         customer.setName("alvis_test_myBaties");
         customer.setAge(10);
         customer.setLastActiveTime(new Timestamp(System.currentTimeMillis()));

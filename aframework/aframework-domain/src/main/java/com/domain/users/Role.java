@@ -3,11 +3,11 @@ package com.domain.users;
 import com.domain.base.BaseEntity;
 
 public class Role extends BaseEntity {
-    private Integer id;
+    private Integer id = 0;
 
-    private String name;
+    private String name = "";
 
-    private String systemCode;
+    private String systemCode = "";
 
     public Integer getId() {
         return id;

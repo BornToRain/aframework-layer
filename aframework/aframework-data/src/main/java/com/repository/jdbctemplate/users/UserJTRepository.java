@@ -126,15 +126,16 @@ public class UserJTRepository implements IUserJTRepository {
     @Override
     public void insertUser(User user) {
         final String sql = "insert into t_user  (name,age,last_active_time) values  ( ?, ?, ? );";
-        KeyHolder key = new GeneratedKeyHolder();
+        KeyHolder holder = new GeneratedKeyHolder();
         jdbcTemplate.update((connection) -> {
             PreparedStatement preState = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             preState.setString(1, user.getName());
             preState.setInt(2, user.getAge());
             preState.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
             return preState;
-        }, key);
-        user.setId(key.getKey().intValue());
+        }, holder);
+        Integer id = (Integer) holder.getKeys().get("id");
+        user.setId(id);
     }
 
 

@@ -15,7 +15,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
  */
 @RunWith(SpringJUnit4ClassRunner.class)  //使用junit4进行测试  
 @ContextConfiguration(locations={"classpath*:springTest-config.xml"})
-@WebAppConfiguration
 public class BaseTestCase {
 
 }

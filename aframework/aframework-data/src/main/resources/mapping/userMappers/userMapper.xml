@@ -5,13 +5,13 @@
 <mapper namespace="com.repository.mybatis.users.IUserRepository">
 
     <resultMap id="BaseResultMap" type="com.domain.users.User">
-        <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="user_uuid" jdbcType="CHAR" property="userUuid" />
-        <result column="user_name" jdbcType="VARCHAR" property="userName" />
-        <result column="password" jdbcType="VARCHAR" property="password" />
-        <result column="name" jdbcType="VARCHAR" property="name" />
-        <result column="age" jdbcType="INTEGER" property="age" />
-        <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime" />
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_uuid" jdbcType="CHAR" property="userUuid"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -27,7 +27,7 @@
     <select id="getUserById" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from  t_user
+        from t_user
         where id=#{value}
     </select>
 
@@ -47,16 +47,17 @@
 
 
     <select id="userPageList" resultMap="BaseResultMap">
-        select
+        SELECT
         <include refid="Base_Column_List"/>
-        from t_user
+        FROM t_user
         <where>
             <if test="name != null and name != ''">
-                name like concat('%', #{name}, '%')
+                name like  concat('%',#{name},'%')
             </if>
         </where>
+         ORDER BY id
         <if test="offset != null and limit != null ">
-            limit #{offset}, #{limit}
+            limit #{limit} OFFSET #{offset}
         </if>
     </select>
 

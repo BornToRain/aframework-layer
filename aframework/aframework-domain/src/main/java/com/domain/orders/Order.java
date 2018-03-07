@@ -21,13 +21,13 @@ import java.util.UUID;
  */
 public class Order extends BaseEntity {
 
-    private Long id;
+    private Long id = 0L;
 
-    private String uuid;
+    private String uuid = "";
 
-    private Integer userId;
+    private Integer userId = 0;
 
-    private BigDecimal unitPrice;
+    private BigDecimal unitPrice = BigDecimal.ZERO;
 
     public Long getId() {
         return id;
