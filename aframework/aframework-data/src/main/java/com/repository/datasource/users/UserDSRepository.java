@@ -34,10 +34,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
@@ -94,7 +91,7 @@ public class UserDSRepository implements IUserDSRepository {
                 preparedStatement.setString(3, item.getPassword());
                 preparedStatement.setString(4, item.getName());
                 preparedStatement.setInt(5, item.getAge());
-                preparedStatement.setTimestamp(6, item.getLastActiveTime());
+                preparedStatement.setDate(6, new Date(item.getLastActiveTime().getTime()));
                 preparedStatement.addBatch();
             }
             preparedStatement.executeBatch();

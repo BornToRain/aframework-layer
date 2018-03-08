@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 
 /**
@@ -35,11 +36,11 @@ public class UserRepositoryTest extends BaseTestCase {
     @Test
     public void InsertUserTest() {
         User customer = new User();
-        customer.setId(0);
         customer.setName("alvis_test_myBaties");
         customer.setAge(10);
+        customer.setUserUuid(UUID.randomUUID().toString());
         customer.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
-        userRepository.insertUser(customer);
+        userRepository.insertSelective(customer);
         Assert.assertNotNull(customer.getId());
         Assert.assertNotEquals(0, customer.getId().intValue());
     }

@@ -5,18 +5,120 @@
 <mapper namespace="com.repository.mybatis.users.IUserRepository">
 
     <resultMap id="BaseResultMap" type="com.domain.users.User">
-        <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="user_uuid" jdbcType="CHAR" property="userUuid"/>
-        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
-        <result column="password" jdbcType="VARCHAR" property="password"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="age" jdbcType="INTEGER" property="age"/>
-        <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime"/>
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_uuid" jdbcType="VARCHAR" property="userUuid" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime" />
     </resultMap>
-
     <sql id="Base_Column_List">
     id, user_uuid, user_name, password, name, age, last_active_time
-    </sql>
+  </sql>
+
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_user
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from t_user
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.domain.users.User" useGeneratedKeys="true">
+        insert into t_user (user_uuid, user_name, password,
+        name, age, last_active_time
+        )
+        values (#{userUuid}::uuid, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{lastActiveTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.domain.users.User" useGeneratedKeys="true">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userUuid != null">
+                user_uuid,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+            <if test="lastActiveTime != null">
+                last_active_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userUuid != null">
+                #{userUuid}::uuid,
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                #{age,jdbcType=INTEGER},
+            </if>
+            <if test="lastActiveTime != null">
+                #{lastActiveTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.domain.users.User">
+        update t_user
+        <set>
+            <if test="userUuid != null">
+                user_uuid = #{userUuid}::uuid,
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                age = #{age,jdbcType=INTEGER},
+            </if>
+            <if test="lastActiveTime != null">
+                last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.domain.users.User">
+        update t_user
+        set user_uuid = #{userUuid}::uuid,
+        user_name = #{userName,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
+        age = #{age,jdbcType=INTEGER},
+        last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+
+
+
+
+
 
     <select id="getAllUser" resultMap="BaseResultMap">
         select
@@ -42,7 +144,7 @@
         select
         <include refid="Base_Column_List"/>
         from t_user
-        where user_uuid=#{value}
+        where user_uuid=#{value}::uuid
     </select>
 
 
@@ -76,7 +178,7 @@
 		insert into t_user
 		(user_uuid,user_name,password,name,age, last_active_time)
 		values
-		(#{userUuid},#{userName},#{password},#{name},#{age},#{lastActiveTime})
+		(#{userUuid}::uuid,#{userName},#{password},#{name},#{age},#{lastActiveTime})
 	</insert>
 
     <insert id="insertUsers" parameterType="java.util.List"
@@ -86,7 +188,7 @@
         values
         <foreach collection="list" item="item" index="index"
                  separator=",">
-            (#{item.userUuid},#{item.userName},#{item.password},#{item.name},#{item.age},
+            (#{item.userUuid}::uuid,#{item.userName},#{item.password},#{item.name},#{item.age},
             #{item.lastActiveTime})
         </foreach>
     </insert>

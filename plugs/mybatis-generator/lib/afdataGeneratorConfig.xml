@@ -40,7 +40,8 @@
       <!--  使用数据库原始字段名字 ，默认是驼峰命名方式  -->
 	  <!--<property name="useActualColumnNames" value="true"/> -->
       <generatedKey column="id" sqlStatement="JDBC" identity="true" />
-	  <columnOverride column="last_active_time" property="lastActiveTime" javaType="Timestamp" />
+	   <columnOverride column="user_uuid" jdbcType="VARCHAR" property="userUuid" javaType="java.lang.String" />  
+	   <!--<columnOverride column="last_active_time" property="lastActiveTime" javaType="Timestamp" />-->
     </table>
 	
 	<table  tableName="t_role" mapperName="IRoleRepository" domainObjectName="Role"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"  enableSelectByExample="false"  selectByExampleQueryId="false" >

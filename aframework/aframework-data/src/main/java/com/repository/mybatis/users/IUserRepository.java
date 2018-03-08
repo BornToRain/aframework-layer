@@ -47,6 +47,18 @@ import com.domain.users.User;
 @Repository
 public interface IUserRepository {
 
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(User record);
+
+    int insertSelective(User record);
+
+    User selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
+
     List<User> getAllUser();
 
     User getUserById(Integer id);

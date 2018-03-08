@@ -31,6 +31,7 @@ package com.domain.users;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 import com.domain.base.BaseEntity;
 
@@ -62,7 +63,7 @@ public class User extends BaseEntity implements Serializable {
 
     private Integer age;
 
-    private Timestamp lastActiveTime;
+    private Date lastActiveTime;
 
     public Integer getId() {
         return id;
@@ -112,11 +113,11 @@ public class User extends BaseEntity implements Serializable {
         this.age = age;
     }
 
-    public Timestamp getLastActiveTime() {
+    public Date getLastActiveTime() {
         return lastActiveTime;
     }
 
-    public void setLastActiveTime(Timestamp lastActiveTime) {
+    public void setLastActiveTime(Date lastActiveTime) {
         this.lastActiveTime = lastActiveTime;
     }
 }
