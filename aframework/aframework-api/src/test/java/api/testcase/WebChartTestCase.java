@@ -1,9 +1,9 @@
-package web.testcase;
+package api.testcase;
 
 
 import org.junit.Test;
 import org.springframework.restdocs.payload.JsonFieldType;
-import web.testbase.BaseRestfulTest;
+import api.testbase.BaseRestfulTest;
 
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
