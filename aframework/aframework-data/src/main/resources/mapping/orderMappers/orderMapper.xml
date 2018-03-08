@@ -1,19 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
 <mapper namespace="com.repository.mybatis.orders.IOrderRepository">
-
     <resultMap id="BaseResultMap" type="com.domain.orders.Order">
-        <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="uuid" jdbcType="CHAR" property="uuid"/>
-        <result column="user_id" jdbcType="INTEGER" property="userId"/>
-        <result column="unit_price" jdbcType="DECIMAL" property="unitPrice"/>
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="unit_price" jdbcType="NUMERIC" property="unitPrice" />
+        <result column="crete_time" jdbcType="TIMESTAMP" property="creteTime" />
+        <result column="product_name" jdbcType="VARCHAR" property="productName" />
+        <result column="price" jdbcType="REAL" property="price" />
     </resultMap>
-
     <sql id="Base_Column_List">
-        id, uuid, user_id, unit_price
+        id, uuid, user_id, unit_price, crete_time, product_name, price
     </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_order
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from t_order
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.domain.orders.Order" useGeneratedKeys="true">
+        insert into t_order (uuid, user_id, unit_price,
+        crete_time, product_name, price
+        )
+        values (#{uuid}::uuid, #{userId,jdbcType=INTEGER}, #{unitPrice,jdbcType=NUMERIC},
+        #{creteTime,jdbcType=TIMESTAMP}, #{productName,jdbcType=VARCHAR}, #{price,jdbcType=REAL}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.domain.orders.Order" useGeneratedKeys="true">
+        insert into t_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                uuid,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="unitPrice != null">
+                unit_price,
+            </if>
+            <if test="creteTime != null">
+                crete_time,
+            </if>
+            <if test="productName != null">
+                product_name,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                #{uuid}::uuid,
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="unitPrice != null">
+                #{unitPrice,jdbcType=NUMERIC},
+            </if>
+            <if test="creteTime != null">
+                #{creteTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="productName != null">
+                #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=REAL},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.domain.orders.Order">
+        update t_order
+        <set>
+            <if test="uuid != null">
+                uuid = #{uuid}::uuid,
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="unitPrice != null">
+                unit_price = #{unitPrice,jdbcType=NUMERIC},
+            </if>
+            <if test="creteTime != null">
+                crete_time = #{creteTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="productName != null">
+                product_name = #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=REAL},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.domain.orders.Order">
+    update t_order
+    set uuid = #{uuid}::uuid,
+      user_id = #{userId,jdbcType=INTEGER},
+      unit_price = #{unitPrice,jdbcType=NUMERIC},
+      crete_time = #{creteTime,jdbcType=TIMESTAMP},
+      product_name = #{productName,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+
+
 
     <select id="getAllOrder" resultMap="BaseResultMap">
         select
@@ -23,9 +121,9 @@
 
 
     <select id="getOrderById" resultMap="BaseResultMap">
-		select * from t_order
-		where id=#{value}
-	</select>
+        select * from t_order
+        where id=#{value}
+    </select>
 
     <select id="getOrderByUuid" resultMap="BaseResultMap">
         select * from t_order
@@ -45,40 +143,13 @@
     </select>
 
 
-    <insert id="insertOrder" keyColumn="id" keyProperty="id" parameterType="com.domain.orders.Order"
-            useGeneratedKeys="true">
-        insert into t_order
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="uuid != null">
-                uuid,
-            </if>
-            <if test="userId != null">
-                user_id,
-            </if>
-            <if test="unitPrice != null">
-                unit_price,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="uuid != null">
-                #{uuid,jdbcType=CHAR},
-            </if>
-            <if test="userId != null">
-                #{userId,jdbcType=INTEGER},
-            </if>
-            <if test="unitPrice != null">
-                #{unitPrice,jdbcType=DECIMAL},
-            </if>
-        </trim>
-    </insert>
-
-
     <select id="selectOrders" parameterType="java.lang.String" resultType="com.domain.orders.Order">
-      ${value}
+        ${value}
     </select>
 
     <!--    <select id="selectOrders" parameterType="java.lang.String" resultMap="BaseResultMap">
             ${value}
         </select>-->
+
 
 </mapper>

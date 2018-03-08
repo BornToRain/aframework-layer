@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -27,17 +28,33 @@ public class OrderRepositoryTest extends BaseTestCase {
 
     @Test
     public void InsertOrderSqlTest() throws InterruptedException {
-        IntStream.rangeClosed(0, 100).forEach(j -> {
+        IntStream.rangeClosed(0, 10).forEach(j -> {
             Random rand = new Random(1);
             Integer userId = j + rand.nextInt(j + 5);
             Order order = new Order();
             order.setUserId(userId);
             order.setUuid(UUID.randomUUID().toString());
             order.setUnitPrice(BigDecimal.valueOf(j));
-            orderRepository.insertOrder(order);
+            order.setCreteTime(new Timestamp(System.currentTimeMillis()));
+            orderRepository.insertSelective(order);
             Assert.assertNotNull(order.getId());
             Assert.assertNotEquals(0L, order.getId().longValue());
         });
+    }
+
+    @Test
+    public void DeleteSqlTest() throws InterruptedException {
+        Order order = orderRepository.selectByPrimaryKey(215);
+        int deresult = orderRepository.deleteByPrimaryKey(order.getId());
+        Assert.assertNotEquals(0, deresult);
+    }
+
+
+    @Test
+    public void updateOrdersTest() {
+        Order order = orderRepository.selectByPrimaryKey(216);
+        order.setCreteTime(new Timestamp(System.currentTimeMillis()));
+        orderRepository.updateByPrimaryKeySelective(order);
     }
 
 

@@ -1,27 +1,10 @@
-/**
- * @Project Name :  aframework
- * @Package Name :  com.domain.orders
- * @Description :  TODO
- * @author :  dell
- * @Creation Date:  2017-08-14 3:15 PM
- * @ModificationHistory Who    When    What
- * --------  ---------  --------------------------
- */
 package com.domain.orders;
 
-import com.domain.base.BaseEntity;
-
 import java.math.BigDecimal;
-import java.util.UUID;
+import java.util.Date;
 
-/**
- * @author :  dell
- * @Description :  TODO
- * @Creation Date:  2017-08-14 3:15 PM
- */
-public class Order extends BaseEntity {
-
-    private Long id;
+public class Order {
+    private Integer id;
 
     private String uuid;
 
@@ -29,11 +12,17 @@ public class Order extends BaseEntity {
 
     private BigDecimal unitPrice;
 
-    public Long getId() {
+    private Date creteTime;
+
+    private String productName;
+
+    private Float price;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -59,5 +48,29 @@ public class Order extends BaseEntity {
 
     public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public Date getCreteTime() {
+        return creteTime;
+    }
+
+    public void setCreteTime(Date creteTime) {
+        this.creteTime = creteTime;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName == null ? null : productName.trim();
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
     }
 }

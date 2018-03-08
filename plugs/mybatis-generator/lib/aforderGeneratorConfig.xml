@@ -39,6 +39,7 @@
     <table  tableName="t_order" mapperName="IOrderRepository" domainObjectName="Order"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"  enableSelectByExample="false"  selectByExampleQueryId="false" >
       <!--<property name="useActualColumnNames" value="true"/>-->
       <generatedKey column="id" sqlStatement="JDBC" identity="true" />
+	  <columnOverride column="uuid" jdbcType="VARCHAR" property="uuid" javaType="java.lang.String" />  
     </table>
 	
 
