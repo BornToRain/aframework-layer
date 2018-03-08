@@ -50,17 +50,17 @@ import com.domain.base.BaseEntity;
  */
 public class User extends BaseEntity implements Serializable {
 
-    private Integer id = 0;
+    private Integer id;
 
-    private String userUuid = "";
+    private String userUuid;
 
-    private String userName = "";
+    private String userName;
 
-    private String password = "";
+    private String password;
 
-    private String name = "";
+    private String name;
 
-    private Integer age = 0;
+    private Integer age;
 
     private Timestamp lastActiveTime;
 
