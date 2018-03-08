@@ -49,6 +49,11 @@
         </dependency>
         <!-- spring unit end -->
 
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

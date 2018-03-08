@@ -1,7 +1,10 @@
 package api.testcase;
 
 
+import com.api.model.NewsRequest;
+import com.google.gson.Gson;
 import org.junit.Test;
+import org.springframework.http.MediaType;
 import org.springframework.restdocs.payload.JsonFieldType;
 import api.testbase.BaseRestfulTest;
 
@@ -18,6 +21,8 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.requestF
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
+import static org.springframework.restdocs.snippet.Attributes.attributes;
+import static org.springframework.restdocs.snippet.Attributes.key;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -39,7 +44,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                 .perform(
                         post("/api/webchart/list")
                                 .header("access_token", "2E14D92B-1FB1-4D04-8EA3-486DA78914BA")
-                                .header("user_uuid", "2a72f073-aa0f-478d-be71-58dfccde868e")
+                                .header("user_uuid", "ff360329-0eee-4ad6-8d47-cb4c0e6c5667")
                                 .param("age", "1")
                 )
                 .andExpect(status().isOk())
@@ -91,15 +96,27 @@ public class WebChartTestCase extends BaseRestfulTest {
     }
 
 
-
     @Test
-    public void GetTest() throws Exception {
-
+    public void NewsTest() throws Exception {
+        Gson gson = new Gson();
+        NewsRequest newsRequest = new NewsRequest();
+        newsRequest.setTitile("testtitle");
+        newsRequest.setContent("testtcontent");
+        String request = gson.toJson(newsRequest);
         this.mockMvc
                 .perform(
-                        get("/api/webchart/get/test")
-                )
-                .andExpect(status().isOk());
+                        post("/api/webchart/news")
+                                .contentType(MediaType.APPLICATION_JSON).content(request)
+                ).andExpect(status().isOk())
+                .andDo(document("1.3 新闻用户接口",
+                        preprocessRequest(prettyPrint()),
+                        preprocessResponse(prettyPrint()),
+                        requestFields(
+                                fieldWithPath("titile").description("标题"),
+                                fieldWithPath("content").description("内容")
+                        )
+                        )
+                );
     }
 
 }

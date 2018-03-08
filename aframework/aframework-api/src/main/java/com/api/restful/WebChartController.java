@@ -33,14 +33,12 @@ import java.util.List;
 
 
 import aframework.configure.model.BaseApiResult;
+import com.api.model.NewsRequest;
 import com.core.authorizat.Authorization;
 import com.api.model.UserResult;
 import aframework.configure.utility.IWorkContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.domain.users.User;
 import com.service.users.IUserService;
@@ -88,7 +86,13 @@ public class WebChartController {
 
     @GetMapping("/get/test")
     public BaseApiResult GetTest() {
-        User user = workContext.getCurrentUser();
+        BaseApiResult result = new BaseApiResult(1, "OK");
+        return result;
+    }
+
+
+    @PostMapping("/news")
+    public BaseApiResult News(@RequestBody NewsRequest request) {
         BaseApiResult result = new BaseApiResult(1, "OK");
         return result;
     }

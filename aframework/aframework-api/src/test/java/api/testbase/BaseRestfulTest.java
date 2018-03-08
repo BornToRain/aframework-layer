@@ -71,12 +71,13 @@ public class BaseRestfulTest {
             content.append("=== " + apiName + "\n\n");
             fileAppend(content, f + "\\request-headers.adoc", "request-headers 类型说明");
             fileAppend(content, f + "\\http-request.adoc", "http-request");
+            fileAppend(content, f + "\\request-fields.adoc", "request-fields 类型说明");
             fileAppend(content, f + "\\request-parameters.adoc", "request-parameters类型说明");
             fileAppend(content, f + "\\request-body.adoc", "request-body类型说明");
             fileAppend(content, f + "\\http-response.adoc", "http-response");
             fileAppend(content, f + "\\response-fields.adoc", "response-fields 类型说明");
         });
-        Files.write(Paths.get(adocPath), content.toString().getBytes(), StandardOpenOption.WRITE);
+        Files.write(Paths.get(adocPath), content.toString().getBytes(), StandardOpenOption.CREATE);
     }
 
     private void fileAppend(StringBuilder stringBuilder, String path, String title) {
