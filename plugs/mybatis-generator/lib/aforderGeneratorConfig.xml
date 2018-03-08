@@ -32,11 +32,11 @@
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
 
-    <javaClientGenerator type="XMLMAPPER" targetPackage="com.repository.orders"  targetProject="E:\JAVA\aframework-layer\plugs\mybatis-generator">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.repository.mybatis.orders"  targetProject="E:\JAVA\aframework-layer\plugs\mybatis-generator">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
 
-    <table  tableName="t_order" domainObjectName="Order"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"  enableSelectByExample="false"  selectByExampleQueryId="false" >
+    <table  tableName="t_order" mapperName="IOrderRepository" domainObjectName="Order"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"  enableSelectByExample="false"  selectByExampleQueryId="false" >
       <!--<property name="useActualColumnNames" value="true"/>-->
       <generatedKey column="id" sqlStatement="JDBC" identity="true" />
     </table>
