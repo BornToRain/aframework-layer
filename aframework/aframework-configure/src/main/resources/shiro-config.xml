@@ -31,7 +31,6 @@
         <property name="filterChainDefinitions">
             <value>
                 /error=anon
-                /content/**=anon    <!--静态资源-->
                 /api/**=anon
                 /user/**=anon
                 /admin/** = user

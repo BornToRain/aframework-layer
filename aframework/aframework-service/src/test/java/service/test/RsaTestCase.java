@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Jul 24, 2017 3:19:47 PM
  *
@@ -29,6 +29,7 @@
  *****************************************************************/
 package service.test;
 
+import com.core.mail.IAfMail;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +38,12 @@ import com.core.security.IEncryption;
 
 import service.testbase.BaseTestCase;
 
-/** 
-* @author 
-* @version 创建时间：Jul 24, 2017 3:19:47 PM 
-* 类说明 
-*/
+/**
+ * @author
+ * @version 创建时间：Jul 24, 2017 3:19:47 PM
+ * 类说明
+ */
+
 /**
  * @ClassName RsaTestCase
  * @Description TODO
@@ -64,4 +66,6 @@ public class RsaTestCase extends BaseTestCase {
         str = encryptionService.rsaDecode(privateKey, str);
         Assert.assertEquals("alvis", str);
     }
+
+
 }

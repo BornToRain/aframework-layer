@@ -33,7 +33,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.service.event.OnRegistrationCompleteEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,6 +60,9 @@ public class UserService implements IUserService {
 
     @Autowired
     private IUserRepository userRepository;
+
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
 
     @Override
     public List<User> getUsers() {
@@ -99,6 +104,7 @@ public class UserService implements IUserService {
     @Override
     public void insertUser(User user) {
         userRepository.insertSelective(user);
+        eventPublisher.publishEvent(new OnRegistrationCompleteEvent(user));
         //throw new RuntimeException("test");
     }
 
