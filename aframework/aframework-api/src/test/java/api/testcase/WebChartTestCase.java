@@ -2,11 +2,14 @@ package api.testcase;
 
 
 import com.api.model.NewsRequest;
+import com.core.serialization.ISerialization;
 import com.google.gson.Gson;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.payload.JsonFieldType;
 import api.testbase.BaseRestfulTest;
+import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
@@ -36,6 +39,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 
 public class WebChartTestCase extends BaseRestfulTest {
+
+    @Autowired
+    private ISerialization serialization;
 
     @Test
     public void GetAllUserTest() throws Exception {
@@ -98,11 +104,10 @@ public class WebChartTestCase extends BaseRestfulTest {
 
     @Test
     public void NewsTest() throws Exception {
-        Gson gson = new Gson();
         NewsRequest newsRequest = new NewsRequest();
         newsRequest.setTitile("testtitle");
         newsRequest.setContent("testtcontent");
-        String request = gson.toJson(newsRequest);
+        String request = serialization.convertToString(newsRequest);
         this.mockMvc
                 .perform(
                         post("/api/webchart/news")
