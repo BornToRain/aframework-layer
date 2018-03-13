@@ -66,7 +66,7 @@ public class WebChartController {
     private IWorkContext workContext;
 
 
-    @PostMapping("/list")
+    @PostMapping("/v1.0.1/list")
     @Authorization
     public UserResult GetAllUser(Integer age) {
         User user = workContext.getCurrentUser();
@@ -76,7 +76,7 @@ public class WebChartController {
         return customerResult;
     }
 
-    @PostMapping("/test")
+    @PostMapping("/v1.0.1/test")
     @Authorization
     public BaseApiResult Test() {
         User user = workContext.getCurrentUser();
@@ -84,14 +84,14 @@ public class WebChartController {
         return result;
     }
 
-    @GetMapping("/get/test")
+    @GetMapping("/v1.0.1/test")
     public BaseApiResult GetTest() {
         BaseApiResult result = new BaseApiResult(1, "OK");
         return result;
     }
 
 
-    @PostMapping("/news")
+    @PostMapping("/v1.0.1/news")
     public BaseApiResult News(@RequestBody NewsRequest request) {
         BaseApiResult result = new BaseApiResult(1, "OK");
         return result;

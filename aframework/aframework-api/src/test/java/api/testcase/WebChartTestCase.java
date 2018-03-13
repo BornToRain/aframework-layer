@@ -48,7 +48,7 @@ public class WebChartTestCase extends BaseRestfulTest {
 
         this.mockMvc
                 .perform(
-                        post("/api/webchart/list")
+                        post("/api/webchart/v1.0.1/list")
                                 .header("access_token", "2E14D92B-1FB1-4D04-8EA3-486DA78914BA")
                                 .header("user_uuid", "ff360329-0eee-4ad6-8d47-cb4c0e6c5667")
                                 .param("age", "1")
@@ -85,7 +85,7 @@ public class WebChartTestCase extends BaseRestfulTest {
 
         this.mockMvc
                 .perform(
-                        post("/api/webchart/test")
+                        post("/api/webchart/v1.0.1/test")
                                 .header("access_token", "2E14D92B-1FB1-4D04-8EA3-486DA78914BA")
                                 .header("user_uuid", "2a72f073-aa0f-478d-be71-58dfccde868e")
                 )
@@ -110,7 +110,7 @@ public class WebChartTestCase extends BaseRestfulTest {
         String request = serialization.convertToString(newsRequest);
         this.mockMvc
                 .perform(
-                        post("/api/webchart/news")
+                        post("/api/webchart/v1.0.1/news")
                                 .contentType(MediaType.APPLICATION_JSON).content(request)
                 ).andExpect(status().isOk())
                 .andDo(document("1.3 新闻用户接口",
