@@ -13,6 +13,7 @@ package com.api.configurer;
 import aframework.configure.model.BaseApiResult;
 import com.core.authorizat.Authorization;
 import aframework.configure.utility.IWorkContext;
+import com.core.exception.SystemCode;
 import com.domain.users.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.service.users.IUserService;
@@ -66,14 +67,16 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         if (authorization.equals(localAccesToken)) {
             User user = userService.getUserByUuid(userUuid);
             if (user == null) {
-                BaseApiResult result = new BaseApiResult(401, "User Uuid Unvalidated!");
+                SystemCode uuidError = SystemCode.UUIDError;
+                BaseApiResult result = new BaseApiResult(uuidError.getCode(), uuidError.getMessage());
                 msgWrite(response, result);
                 return false;
             }
             workContext.setCurrentUser(user);
             return true;
         } else {
-            BaseApiResult result = new BaseApiResult(400, "AccessToken Unvalidated!");
+            SystemCode accessTokenError = SystemCode.AccessTokenError;
+            BaseApiResult result = new BaseApiResult(accessTokenError.getCode(), accessTokenError.getMessage());
             msgWrite(response, result);
             return false;
         }

@@ -10,8 +10,8 @@
 package aframework.configure.exception;
 
 
-
 import aframework.configure.model.BaseApiResult;
+import com.core.exception.SystemCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -39,7 +39,8 @@ public class AfExceptionHandler {
         String contentType = req.getContentType();
         logger.error(e.getMessage());
         if (contentType != null && contentType.contains("application/json")) {
-            BaseApiResult result = new BaseApiResult(500, "Api Inner Exception!");
+            SystemCode innerError = SystemCode.InnerError;
+            BaseApiResult result = new BaseApiResult(innerError.getCode(), innerError.getMessage());
             MappingJackson2JsonView jv = new MappingJackson2JsonView();
             jv.setExtractValueFromSingleKeyModel(true);
             ModelAndView mav = new ModelAndView(jv);
