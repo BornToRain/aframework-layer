@@ -5,14 +5,25 @@
 </@htmlHead>
 
 <@htmlBody>
-<form action="loginPost" method="post">
+<form action="login" method="post">
+
+
+
     <p>
-        <label for="username">Username</label> <input id=username
-                                                      name="username" type="text"/>
+        <label for="username">Username</label>
+        <input type="text" name="username" value="${(viewModel.username)!}"/>
+        <#if viewModel??>
+            <@spring.bind "viewModel.username" />
+            <@spring.showErrors "<br>"/>
+        </#if>
     </p>
     <p>
-        <label for="password">Password</label> <input id="password"
-                                                      name="password" type="password"/>
+        <label for="password">Password</label>
+        <input type="text" name="password" value="${(viewModel.password)!}"/>
+        <#if viewModel??>
+            <@spring.bind "viewModel.password" />
+            <@spring.showErrors "<br>"/>
+        </#if>
     </p>
     <input type="submit" value="Login"/>
 </form>

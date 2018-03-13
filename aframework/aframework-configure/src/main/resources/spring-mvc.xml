@@ -36,7 +36,7 @@
 		<property name="maxUploadSize" value="10485760000"></property>
 		<property name="maxInMemorySize" value="40960"></property>
 	</bean>
-	
+
 	
 	<!-- task scheduler -->
 <!--	<task:scheduler id="taskScheduler" pool-size="100" />-->

@@ -3,12 +3,17 @@ package com.web.controllers;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+import com.web.viewmodel.UserViewModel;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.domain.users.User;
 import com.service.authentication.IAuthenticationService;
 import com.service.users.IUserService;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author Alvis
@@ -35,21 +41,26 @@ public class UserController extends BaseWebController {
     private IAuthenticationService authenticationService;
 
     @RequestMapping("/login")
-    public String Login() {
+    public String Login(Model model) {
+        model.addAttribute("viewModel", new UserViewModel());
         return prefView + "/user/login";
     }
 
-    @RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-    public String LoginPost(String username, String password) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String Login(@Validated @ModelAttribute("viewModel") UserViewModel viewModel, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return prefView + "/user/login";
+        }
 
-        Subject currentUser = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password,true);
+        UsernamePasswordToken token = new UsernamePasswordToken(viewModel.getUsername(), viewModel.getPassword(), true);
         try {
+            Subject currentUser = SecurityUtils.getSubject();
             currentUser.login(token);
             return "redirect:/admin/home/index";
             // return "redirect:/Home/Index";
         } catch (AuthenticationException e) {
             e.printStackTrace();
+            bindingResult.rejectValue("username", "用户名或密码错误", "用户名或密码错误");
             return prefView + "/user/login";
         }
 
@@ -70,30 +81,44 @@ public class UserController extends BaseWebController {
     }
 
     @RequestMapping("/register")
-    public String Register() {
+    public String Register(Model model) {
+        model.addAttribute("viewModel", new UserViewModel());
         return prefView + "/user/register";
     }
 
-    @PostMapping("/registerPost")
-    public String RegisterPost(String username, String password) {
+    @PostMapping("/register")
+    public String Register(@Validated @ModelAttribute("viewModel") UserViewModel viewModel, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return prefView + "/user/register";
+        }
+
+        User exituser = userService.getUserByUserName(viewModel.getUsername());
+        if (null != exituser) {
+            bindingResult.rejectValue("username", "该用户名已存在", "该用户名已存在");
+            return prefView + "/user/register";
+        }
 
         User user = new User();
         UUID uuid = UUID.randomUUID();
         user.setUserUuid(uuid.toString());
-        String encodePwd = authenticationService.pwdEncode(password);
+        String encodePwd = authenticationService.pwdEncode(viewModel.getPassword());
         user.setPassword(encodePwd);
-        user.setUserName(username);
-        user.setName(username);
+        user.setUserName(viewModel.getUsername());
+        user.setName(viewModel.getUsername());
         user.setLastActiveTime(new Timestamp(System.currentTimeMillis()));
         userService.insertUser(user);
-        return prefView + "/user/login";
+
+        return "redirect:/user/login";
     }
 
     @RequestMapping("/loginout")
     public String Loginout() {
-        Subject currentUser = SecurityUtils.getSubject();
-        currentUser.logout();
-        return prefView + "/user/login";
+        try {
+            Subject currentUser = SecurityUtils.getSubject();
+            currentUser.logout();
+        } finally {
+            return "redirect:/user/login";
+        }
     }
 
 
