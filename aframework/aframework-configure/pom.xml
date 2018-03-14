@@ -45,10 +45,26 @@
         </dependency>
         <!-- spring unit end -->
 
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
         </dependency>
+
+        <!--  spring security  -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+        </dependency>
+
 
         <!-- admin begin -->
         <dependency>
@@ -56,18 +72,7 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-        </dependency>
+
 
         <!-- spring mvc json -->
         <dependency>
@@ -112,10 +117,6 @@
             <artifactId>freemarker</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>net.mingsoft</groupId>
-            <artifactId>shiro-freemarker-tags</artifactId>
-        </dependency>
         <!-- admin end -->
 
         <!-- tools begin -->

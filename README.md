@@ -21,8 +21,8 @@ JAFrameWorkLayer is a website framework , provides distributed features such as 
 * Web Test use most popular Unit framework
 
 
-## 5. Shiro
-* UsePower more easy
+## 5. spring-security
+* UsePower more easy and more unit
 
 ## 6. Dubbo
 * RPC transform 

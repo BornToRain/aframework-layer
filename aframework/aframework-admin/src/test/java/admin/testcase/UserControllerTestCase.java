@@ -33,6 +33,7 @@ import org.junit.Test;
 
 import admin.testbase.BaseControllerTest;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -56,7 +57,7 @@ public class UserControllerTestCase extends BaseControllerTest {
     public void HomeIndex() throws Exception {
         this.mockMvc
                 .perform(
-                        get("/admin/home/index")
+                        get("/admin/home/index").with(httpBasic("alvis2", "alvis2"))
                 )
                 .andExpect(status().isOk());
     }

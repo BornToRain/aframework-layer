@@ -21,13 +21,14 @@
         <sharding-jdbc.version>1.5.1</sharding-jdbc.version>
 
         <springframework.version>4.3.10.RELEASE</springframework.version>
+        <springframework.security.version>4.2.4.RELEASE</springframework.security.version>
         <springframework-redis.version>1.8.4.RELEASE</springframework-redis.version>
         <redis-clients.version>2.9.0</redis-clients.version>
         <jackson.version>2.8.9</jackson.version>
 
         <druid.version>1.1.2</druid.version>
         <slf4j.version>1.7.7</slf4j.version>
-        <shiro.version>1.3.2</shiro.version>
+
 
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
         <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
@@ -197,6 +198,31 @@
             </dependency>
 
 
+            <!--  spring security  -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-taglibs</artifactId>
+                <version>${springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-test</artifactId>
+                <version>${springframework.security.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+
+
             <!--jdbc-->
             <dependency>
                 <groupId>org.postgresql</groupId>
@@ -218,27 +244,6 @@
             </dependency>
 
 
-            <!-- shiro  -->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-core</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-web</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.mingsoft</groupId>
-                <artifactId>shiro-freemarker-tags</artifactId>
-                <version>0.1</version>
-            </dependency>
 
 
             <!--  web  -->

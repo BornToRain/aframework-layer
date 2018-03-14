@@ -14,7 +14,7 @@
 
     <!-- FreeMarker模板路径 -->
     <bean id="freemarkerConfig"
-          class="aframework.configure.mvc.ShiroTagFreeMarkerConfigurer">
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath">
             <value>/WEB-INF/templates/</value>
         </property>

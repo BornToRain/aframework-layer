@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Jul 25, 2017 3:33:10 PM
  *
@@ -37,17 +37,18 @@ import com.domain.users.User;
 import com.service.users.IUserService;
 import org.springframework.transaction.annotation.Transactional;
 
-/** 
-* @author 
-* @version 创建时间：Jul 25, 2017 3:33:10 PM 
-* 类说明 
-*/
 /**
+ * @author
+ * @version 创建时间：Jul 25, 2017 3:33:10 PM
+ * 类说明
+ */
+
+/**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName AuthenticationService
  * @Description TODO
- * @author Alvis
  * @Date Jul 25, 2017 3:33:10 PM
- * @version 1.0.0
  */
 @Service("IAuthenticationService")
 public class AuthenticationService implements IAuthenticationService {
@@ -69,7 +70,13 @@ public class AuthenticationService implements IAuthenticationService {
     @Override
     public boolean authUser(String username, String password) {
         User user = userService.getUserByUserName(username);
+        if (user == null) {
+            return false;
+        }
         String encodePwd = user.getPassword();
+        if (null == encodePwd || encodePwd.length() == 0) {
+            return false;
+        }
         String pwd = pwdDecode(encodePwd);
         return pwd.equals(password);
     }

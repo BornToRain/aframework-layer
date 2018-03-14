@@ -39,6 +39,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+
 /**
  * @author
  * @version 创建时间：Jul 21, 2017 2:28:08 PM
@@ -64,7 +66,7 @@ public class BaseControllerTest {
     @Before
     public void setUp() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context)
-                .build();
+                .apply(springSecurity()).build();
     }
 }
  
