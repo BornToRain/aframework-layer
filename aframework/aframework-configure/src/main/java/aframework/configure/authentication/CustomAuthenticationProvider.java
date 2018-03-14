@@ -32,7 +32,7 @@ import java.util.Collection;
  * @Description :  TODO
  * @Creation Date:  2018-03-14 3:18 PM
  */
-@Component("customAuthenticationProvider")
+
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired

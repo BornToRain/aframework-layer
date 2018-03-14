@@ -18,7 +18,7 @@
                     authentication-failure-url="/user/login?error=error"/>
         <logout logout-url="/user/logout" logout-success-url="/"
                 invalidate-session="true" delete-cookies="JSESSIONID"/>
-        <csrf disabled="true" />
+        <csrf disabled="true"/>
 
     </http>
 
@@ -27,6 +27,11 @@
         <authentication-provider ref="customAuthenticationProvider"/>
     </authentication-manager>
 
+    <beans:bean id="customAuthenticationProvider"
+                class="aframework.configure.authentication.CustomAuthenticationProvider"/>
+
 </beans:beans>
+
+
 
 
