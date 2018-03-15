@@ -8,11 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName HomeController
  * @Description HomeController
- * @author Alvis
  * @Date Jul 6, 2017 4:12:46 PM
- * @version 1.0.0
  */
 @Controller("FHomeController")
 @RequestMapping("/home")
@@ -20,12 +20,9 @@ public class HomeController extends BaseWebController {
 
     @RequestMapping("/index")
     public String Index() {
-        AfAuthUser userDetails = (AfAuthUser) SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getPrincipal();
+        System.out.println("============== current user: " + getCurrentUser().getUserUuid());
         return prefView + "/home/index";
     }
-
 
 
 }
