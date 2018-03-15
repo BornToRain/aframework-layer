@@ -20,7 +20,6 @@ public class HomeController extends BaseWebController {
 
     @RequestMapping("/index")
     public String Index() {
-        System.out.println("============== current user: " + getCurrentUser().getUserUuid());
         return prefView + "/home/index";
     }
 

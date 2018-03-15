@@ -11,6 +11,6 @@ import aframework.configure.mvc.BaseController;
  */
 public class BaseWebController extends BaseController {
 
-    final static String prefView = "/web";
+    final static String prefView = "web";
     final static Integer pageSize = 10;
 }

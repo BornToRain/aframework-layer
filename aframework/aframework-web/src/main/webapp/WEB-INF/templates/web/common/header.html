@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+<div th:fragment="header">
+    <div class="header" style="width:800px;">
+        <div style="width:400px;float:left;height:100px;">
+            <a th:href="@{/home/index}">Web Home Pager</a>
+        </div>
+    </div>
+    <div style="width:400px;float:left;height:100px;">
+        <a th:href="@{/user/logout}">登出</a>
+    </div>
+
+    <div style="clear:both;"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{web/layout/layout}">
+
+<head th:replace="web/layout/layout :: head(~{this :: title})">
+    <title>Web Home Index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div>
+
+    <header th:replace="~{web/layout/layout :: header}">
+    </header>
+
+
+    <div layout:fragment="content">
+        Home Index
+    </div>
+
+
+
+</div>
+</body>
+</html>

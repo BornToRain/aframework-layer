@@ -11,6 +11,6 @@ import aframework.configure.mvc.BaseController;
  */
 public class BaseAdminController extends BaseController {
 
-    final static String prefView = "/admin";
+    final static String prefView = "admin";
     final static Integer pageSize = 10;
 }
