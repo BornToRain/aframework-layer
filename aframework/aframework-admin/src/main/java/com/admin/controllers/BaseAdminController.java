@@ -1,13 +1,15 @@
 package com.admin.controllers;
 
+import aframework.configure.mvc.BaseController;
+
 /**
+ * @author Alvis
+ * @version 1.0.0
  * @ClassName BaseAdminController
  * @Description BaseAdminController
- * @author Alvis
  * @Date Jul 6, 2017 4:12:16 PM
- * @version 1.0.0
  */
-public class BaseAdminController {
+public class BaseAdminController extends BaseController {
 
     final static String prefView = "/admin";
     final static Integer pageSize = 10;

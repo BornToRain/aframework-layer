@@ -82,6 +82,19 @@ public class AuthenticationService implements IAuthenticationService {
     }
 
     @Override
+    public boolean authUser(User user, String username, String password) {
+        if (user == null) {
+            return false;
+        }
+        String encodePwd = user.getPassword();
+        if (null == encodePwd || encodePwd.length() == 0) {
+            return false;
+        }
+        String pwd = pwdDecode(encodePwd);
+        return pwd.equals(password);
+    }
+
+    @Override
     public String pwdEncode(String password) {
         String pwd = encryption.rsaEncode(publicKey, password);
         return pwd;

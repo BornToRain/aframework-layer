@@ -10,6 +10,7 @@
 package aframework.configure.authentication;
 
 import com.service.authentication.IAuthenticationService;
+import com.service.users.IUserService;
 import com.sun.tools.javac.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -37,13 +38,15 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     IAuthenticationService authenticationService;
+    @Autowired
+    IUserService userService;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
-
-        boolean result = authenticationService.authUser(username, password);
+        com.domain.users.User user = userService.getUserByUserName(username);
+        boolean result = authenticationService.authUser(user, username, password);
 
         if (!result) {
             throw new BadCredentialsException("Username or Password not found.");
@@ -51,8 +54,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        User user = new User(username, password, grantedAuthorities);
-        return new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
+
+        AfAuthUser afAuthUser = new AfAuthUser(username, password, grantedAuthorities);
+        afAuthUser.setUser(user);
+        return new UsernamePasswordAuthenticationToken(afAuthUser, password, afAuthUser.getAuthorities());
     }
 
     @Override

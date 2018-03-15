@@ -15,9 +15,9 @@
  *
  *    Company:     Alvis.Yu Co.,Ltd
  *
- *    @author:     dell
+ *    @author: dell
  *
- *    @version:    1.0.0
+ *    @version: 1.0.0
  *
  *    Create at:   Jul 25, 2017 2:14:22 PM
  *
@@ -30,10 +30,13 @@
 package com.service.authentication;
 
 /**
-* @author 
-* @version 创建时间：Jul 25, 2017 2:14:22 PM 
-* 类说明 
-*/
+ * @author
+ * @version 创建时间：Jul 25, 2017 2:14:22 PM
+ * 类说明
+ */
+
+import com.domain.users.User;
+
 /**
  * @ClassName IAuthenticationService
  * @Description TODO
@@ -44,6 +47,8 @@ package com.service.authentication;
 public interface IAuthenticationService {
 
     boolean authUser(String username, String password);
+
+    boolean authUser(User user, String username, String password);
 
     String pwdEncode(String password);
 
