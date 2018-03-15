@@ -15,7 +15,15 @@
 
 
     <div layout:fragment="content">
-        Home Index
+        <p>
+            <a th:href="@{/admin/home/index}">Admin Index</a>
+        </p>
+        <p>
+            Home Index
+        </p>
+        <p>
+            <a th:href="@{/home/index}">Front Index</a>
+        </p>
     </div>
 
     <div th:replace="~{web/common/footer :: footer}">
