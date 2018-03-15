@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{web/layout/default}">
+
+<head th:replace="web/layout/default :: head(~{this :: title})">
+    <title>User Home Index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div>
+
+    <header th:replace="~{web/common/header :: header}">
+    </header>
+
+
+    <div layout:fragment="content">
+        <form action="#" th:action="@{/user/register}" th:object="${viewModel}" method="post">
+            <p>
+                <label>username:</label>
+                <input type="text" th:field="*{username}"/>
+                <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username error</label>
+            </p>
+            <p>
+                <label>password:</label>
+                <input type="text" th:field="*{password}"/>
+                <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</label>
+            </p>
+            <p>
+                <input type="submit" value="register"/>
+            </p>
+        </form>
+    </div>
+
+    <div th:replace="~{web/common/footer :: footer}">
+        <div>footer</div>
+    </div>
+
+
+</div>
+</body>
+</html>
