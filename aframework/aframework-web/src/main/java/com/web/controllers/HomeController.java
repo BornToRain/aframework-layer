@@ -18,14 +18,10 @@ import java.security.Principal;
  * @Date Jul 6, 2017 4:12:46 PM
  */
 @Controller("FHomeController")
+@RequestMapping("/home")
 public class HomeController extends BaseWebController {
 
-    @GetMapping("/")
-    String Index() {
-        return "redirect:/home/index";
-    }
-
-    @RequestMapping("/home/index")
+    @RequestMapping("/index")
     public String HomeIndex() {
         return prefView + "/home/index";
     }
