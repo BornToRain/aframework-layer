@@ -10,7 +10,7 @@
     <script type="text/javascript"
             th:src="@{/content/admin/scripts/plugs/bootstrap-paginator/build/bootstrap-paginator.min.js}"></script>
     <script type="text/javascript"
-            th:src="@{/content/admin/scripts/pages/user-home.js}"></script>
+            th:src="@{/content/admin/scripts/pages/user-home.js(v='')} + ${T(com.admin.controllers.BaseAdminController).VERSION}"></script>
     <script type="text/javascript">
         $(function () {
             UserHome.init();
