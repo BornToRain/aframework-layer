@@ -9,12 +9,22 @@
  */
 package com.api.model;
 
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotBlank;
+
 /**
  * @author :  Alvis
  * @Description :  TODO
  * @Creation Date:  2018-03-08 9:33 AM
  */
 public class NewsRequest {
+    
+    @NotBlank(message = "username can't empty!")
+    private String titile;
+    private String content;
+
+
     public String getTitile() {
         return titile;
     }
@@ -31,6 +41,5 @@ public class NewsRequest {
         this.content = content;
     }
 
-    private String titile;
-    private String content;
+
 }

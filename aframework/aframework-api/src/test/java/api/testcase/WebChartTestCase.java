@@ -27,6 +27,7 @@ import static org.springframework.restdocs.request.RequestDocumentation.requestP
 import static org.springframework.restdocs.snippet.Attributes.attributes;
 import static org.springframework.restdocs.snippet.Attributes.key;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
@@ -53,7 +54,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                                 .header("user_uuid", "ff360329-0eee-4ad6-8d47-cb4c0e6c5667")
                                 .param("age", "1")
                 )
-                .andExpect(status().isOk())
+                .andExpect(status().isOk()).andDo(print())
                 .andDo(document("1.1 获取所有用户接口",
                         preprocessRequest(prettyPrint()),
                         preprocessResponse(prettyPrint()),
@@ -89,7 +90,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                                 .header("access_token", "2E14D92B-1FB1-4D04-8EA3-486DA78914BA")
                                 .header("user_uuid", "2a72f073-aa0f-478d-be71-58dfccde868e")
                 )
-                .andExpect(status().isOk())
+                .andExpect(status().isOk()).andDo(print())
                 .andDo(document("1.2 测试接口",
                         requestHeaders(
                                 headerWithName("access_token").description(
@@ -105,14 +106,14 @@ public class WebChartTestCase extends BaseRestfulTest {
     @Test
     public void NewsTest() throws Exception {
         NewsRequest newsRequest = new NewsRequest();
-        newsRequest.setTitile("testtitle");
+        newsRequest.setTitile("te");
         newsRequest.setContent("testtcontent");
         String request = serialization.convertToString(newsRequest);
         this.mockMvc
                 .perform(
                         post("/api/webchart/v1.0.1/news")
                                 .contentType(MediaType.APPLICATION_JSON).content(request)
-                ).andExpect(status().isOk())
+                ).andExpect(status().isOk()).andDo(print())
                 .andDo(document("1.3 新闻用户接口",
                         preprocessRequest(prettyPrint()),
                         preprocessResponse(prettyPrint()),
@@ -123,5 +124,7 @@ public class WebChartTestCase extends BaseRestfulTest {
                         )
                 );
     }
+
+
 
 }

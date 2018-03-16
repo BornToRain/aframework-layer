@@ -38,6 +38,8 @@ import com.core.authorizat.Authorization;
 import com.api.model.UserResult;
 import aframework.configure.utility.IWorkContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.domain.users.User;
@@ -92,7 +94,7 @@ public class WebChartController {
 
 
     @PostMapping("/v1.0.1/news")
-    public BaseApiResult News(@RequestBody NewsRequest request) {
+    public BaseApiResult News(@Validated  @RequestBody NewsRequest request, Errors errors) {
         BaseApiResult result = new BaseApiResult(1, "OK");
         return result;
     }
