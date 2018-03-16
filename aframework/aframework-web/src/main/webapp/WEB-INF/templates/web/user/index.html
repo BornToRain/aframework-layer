@@ -2,25 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{web/layout/default}">
 
-<head th:replace="web/layout/default :: head(~{this :: title})">
+<head>
     <title>User Home Index</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 
 <div>
 
-    <header th:replace="~{web/common/header :: header}">
-    </header>
 
 
     <div layout:fragment="content">
        User  Home Index
     </div>
 
-    <div th:replace="~{web/common/footer :: footer}">
-        <div>footer</div>
-    </div>
 
 
 </div>

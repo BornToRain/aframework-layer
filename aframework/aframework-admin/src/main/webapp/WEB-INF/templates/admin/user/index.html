@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default}">
+
+<head>
+    <title>User Index</title>
+
+    <script type="text/javascript"
+            th:src="@{/content/admin/scripts/jquery/jquery-3.2.1.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/content/admin/scripts/plugs/bootstrap-paginator/build/bootstrap-paginator.min.js}"></script>
+    <script type="text/javascript"
+            th:src="@{/content/admin/scripts/pages/user-home.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+            UserHome.init();
+        })
+    </script>
+</head>
+
+<body>
+
+<div>
+
+    <div layout:fragment="content">
+        <form th:action="@{/admin/user/index}" id="searchForm">
+            <span>Name:</span> <input type="text" name="name"/>
+            <span>Age:</span> <input type="text" name="age"/>
+            <input type="button" id="search" value="查询"/>
+        </form>
+
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>LastActiveTime</th>
+                </tr>
+                </thead>
+                <tbody id="tableContain"></tbody>
+            </table>
+        </div>
+
+        <div id="pageItems"></div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -2,29 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Web</title>
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Admin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script type="text/javascript"
-            th:src="@{/content/web/scripts/jquery/jquery-3.2.1.js}"></script>
+            th:src="@{/content/admin/scripts/jquery/jquery-3.2.1.js}"></script>
     <script>
         var ctx = "[[@{/}]]";
         ctx = ctx.substring(0, ctx.length - 1)
     </script>
 </head>
-
-
 <body>
-
 <div>
 
-    <header th:replace="~{web/common/header :: header}">
+    <header th:replace="~{admin/common/header :: header}">
         <div>Header</div>
     </header>
 
     <div layout:fragment="content">
     </div>
 
-    <div th:replace="~{web/common/footer :: footer}">
+    <div th:replace="~{admin/common/footer :: footer}">
         <div>footer</div>
     </div>
 

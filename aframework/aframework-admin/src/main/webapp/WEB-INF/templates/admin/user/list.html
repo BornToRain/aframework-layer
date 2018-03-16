@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default}">
+
+<head>
+    <title>User List</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+
+<div>
+
+
+    <div layout:fragment="content">
+        <table id="tableNoAjaxContain">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>LastActiveTime</th>
+            </tr>
+
+            <tr th:each="item : ${users}">
+                <td th:text="${item.id}">id</td>
+                <td th:text="${item.name}">name</td>
+                <td th:text="${item.age}">age</td>
+                <td th:text="${#calendars.format(item.lastActiveTime)}">lastActiveTime</td>
+            </tr>
+
+        </table>
+    </div>
+
+
+</div>
+</body>
+</html>

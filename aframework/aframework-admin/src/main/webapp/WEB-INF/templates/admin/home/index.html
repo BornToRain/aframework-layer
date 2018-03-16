@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default}">
+
+<head>
+    <title>Home Index</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+
+<div>
+
+
+    <div layout:fragment="content">
+        <table>
+            <tr>
+                <th>Page</th>
+                <th>Url</th>
+            </tr>
+            <tr>
+                <td>ajax page</td>
+                <td><a th:href="@{/admin/user/index}">ajax page</a></td>
+            </tr>
+            <tr>
+                <td>list</td>
+                <td><a th:href="@{/admin/user/list}">list</a></td>
+            </tr>
+            <tr>
+                <td>fileload</td>
+                <td><a th:href="@{/admin/home/uploadfile}">fileload</a></td>
+            </tr>
+        </table>
+    </div>
+
+
+</div>
+</body>
+</html>

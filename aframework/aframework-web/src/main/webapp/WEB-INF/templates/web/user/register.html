@@ -2,16 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{web/layout/default}">
 
-<head th:replace="web/layout/default :: head(~{this :: title})">
-    <title>User Home Index</title>
+<head>
+    <title>User Home Regiseter</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 
 <div>
-
-    <header th:replace="~{web/common/header :: header}">
-    </header>
 
 
     <div layout:fragment="content">
@@ -31,11 +28,6 @@
             </p>
         </form>
     </div>
-
-    <div th:replace="~{web/common/footer :: footer}">
-        <div>footer</div>
-    </div>
-
 
 </div>
 </body>
