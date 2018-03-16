@@ -15,6 +15,7 @@ import com.sun.tools.javac.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -22,6 +23,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +36,7 @@ import java.util.Collection;
  * @Creation Date:  2018-03-14 3:18 PM
  */
 
-public class CustomAuthenticationProvider implements AuthenticationProvider {
+public class AfAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     IAuthenticationService authenticationService;
@@ -46,11 +48,20 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = (String) authentication.getCredentials();
         com.domain.users.User user = userService.getUserByUserName(username);
-        boolean result = authenticationService.authUser(user, username, password);
-
-        if (!result) {
-            throw new BadCredentialsException("Username or Password not found.");
+        if (user == null) {
+            throw new UsernameNotFoundException("Username  not found.");
         }
+
+        boolean result = authenticationService.authUser(user, username, password);
+        if (!result) {
+            throw new BadCredentialsException("Username or Password error.");
+        }
+
+/*
+        if (true) {
+            throw new LockedException("Account Lock .");
+        }
+*/
 
         ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));

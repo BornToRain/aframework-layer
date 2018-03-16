@@ -49,7 +49,7 @@ public class UserController extends BaseWebController {
     @RequestMapping("/login")
     public String Login(Model model, @RequestParam(value = "error", required = false) String error) {
         if (error != null) {
-            model.addAttribute("error", "用户名或密码错误");
+            model.addAttribute("error", error);
         }
         return prefView + "/user/login";
     }
