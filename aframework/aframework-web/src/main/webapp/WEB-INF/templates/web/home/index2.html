@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{web/layout/default}">
+
+<head>
+    <title> Home Index2</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+
+<div>
+
+
+    <div layout:fragment="content">
+        <p>
+            <a th:href="@{/admin/home/index}">Admin Index</a>
+        </p>
+        <p>
+            Home Index2
+        </p>
+        <p>
+            <a th:href="@{/home/index}">Front Index</a>
+        </p>
+    </div>
+
+
+</div>
+</body>
+</html>
