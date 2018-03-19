@@ -20,7 +20,7 @@ import javax.validation.constraints.NotBlank;
  */
 public class NewsRequest {
     
-    @NotBlank(message = "username can't empty!")
+    @NotBlank(message = "titile can't empty!")
     private String titile;
     private String content;
 

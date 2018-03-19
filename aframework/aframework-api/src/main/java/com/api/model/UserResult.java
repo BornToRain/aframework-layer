@@ -27,6 +27,10 @@ public class UserResult extends BaseApiResult {
         super(code);
     }
 
+    public UserResult(int code, String msg) {
+        super(code, msg);
+    }
+
     private List<User> userList;
 
     public List<User> getUserList() {

@@ -37,7 +37,9 @@ import com.api.model.NewsRequest;
 import com.core.authorizat.Authorization;
 import com.api.model.UserResult;
 import aframework.configure.utility.IWorkContext;
+import com.core.exception.SystemCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -58,7 +60,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/api/webchart")
-public class WebChartController {
+public class WebChartController extends RestBaseController {
 
     @Autowired
     private IUserService customerService;
@@ -71,8 +73,8 @@ public class WebChartController {
     @PostMapping("/v1.0.1/list")
     @Authorization
     public UserResult GetAllUser(Integer age) {
+        UserResult customerResult = new UserResult(systemCode.getCode(), systemCode.getMessage());
         User user = workContext.getCurrentUser();
-        UserResult customerResult = new UserResult(1);
         List<User> customers = customerService.getUsers();
         customerResult.setUserList(customers);
         return customerResult;
@@ -81,21 +83,25 @@ public class WebChartController {
     @PostMapping("/v1.0.1/test")
     @Authorization
     public BaseApiResult Test() {
+        UserResult result = new UserResult(systemCode.getCode(), systemCode.getMessage());
         User user = workContext.getCurrentUser();
-        BaseApiResult result = new BaseApiResult(1, "OK");
         return result;
     }
 
     @GetMapping("/v1.0.1/test")
     public BaseApiResult GetTest() {
-        BaseApiResult result = new BaseApiResult(1, "OK");
+        UserResult result = new UserResult(systemCode.getCode(), systemCode.getMessage());
         return result;
     }
 
 
     @PostMapping("/v1.0.1/news")
-    public BaseApiResult News(@Validated  @RequestBody NewsRequest request, Errors errors) {
-        BaseApiResult result = new BaseApiResult(1, "OK");
+    public BaseApiResult News(@Validated @RequestBody NewsRequest request, BindingResult bindingResult) {
+        UserResult result = new UserResult(systemCode.getCode(), systemCode.getMessage());
+        if (bindingResult.hasErrors()) {
+            result.setCdMe(SystemCode.ParameterError.getCode(), SystemCode.ParameterError.getMessage());
+            return result;
+        }
         return result;
     }
 

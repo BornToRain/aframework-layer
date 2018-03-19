@@ -9,6 +9,8 @@
         http://www.springframework.org/schema/security/spring-security.xsd">
 
 
+    <http pattern="/error" security="none"/>
+    <http pattern="/favicon.ico" security="none"/>
     <http pattern="/content/**" security="none"/>
     <http pattern="/api/**" security="none"/>
 

@@ -18,8 +18,10 @@ public enum SystemCode {
 
 
     /* api */
-    UUIDError(401, "User Uuid Unvalidated!"),
+    OK(1, "Ok!"),
     AccessTokenError(400, "AccessToken Unvalidated!"),
+    UUIDError(401, "User Uuid Unvalidated!"),
+    ParameterError(402, "Parameter Error!"),
     InnerError(500, "Api Inner Exception!");
 
 

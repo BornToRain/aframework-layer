@@ -106,8 +106,8 @@ public class WebChartTestCase extends BaseRestfulTest {
     @Test
     public void NewsTest() throws Exception {
         NewsRequest newsRequest = new NewsRequest();
-        newsRequest.setTitile("te");
-        newsRequest.setContent("testtcontent");
+        newsRequest.setTitile("");
+        newsRequest.setContent("");
         String request = serialization.convertToString(newsRequest);
         this.mockMvc
                 .perform(
