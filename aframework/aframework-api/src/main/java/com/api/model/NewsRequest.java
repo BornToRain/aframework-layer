@@ -19,8 +19,8 @@ import javax.validation.constraints.NotBlank;
  * @Creation Date:  2018-03-08 9:33 AM
  */
 public class NewsRequest {
-    
-    @NotBlank(message = "titile can't empty!")
+
+    @NotBlank(message = "username can't empty!")
     private String titile;
     private String content;
 

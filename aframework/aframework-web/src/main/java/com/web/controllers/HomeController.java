@@ -2,14 +2,15 @@ package com.web.controllers;
 
 
 import aframework.configure.authentication.AfAuthUser;
+import com.web.viewmodel.HomeViewModel;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.time.LocalDate;
 
 /**
  * @author Alvis
@@ -29,8 +30,10 @@ public class HomeController extends BaseWebController {
 
 
     @GetMapping("/index2")
-    public String HomeIndex2() {
+    public String HomeIndex2(HomeViewModel homeViewModel) {
+
         return prefView + "/home/index";
     }
+
 
 }

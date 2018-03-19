@@ -14,12 +14,21 @@
 
 	<context:annotation-config />
 	<mvc:default-servlet-handler />
-	<mvc:annotation-driven />
+	<mvc:annotation-driven conversion-service="afConversionService" />
 
 	<context:component-scan base-package="aframework.configure.authentication"/>
 	<context:component-scan base-package="aframework.configure.exception"/>
 	<context:component-scan base-package="aframework.configure.mvc"/>
 	<context:component-scan base-package="aframework.configure.utility"/>
+
+	<bean id="afConversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<set>
+				<bean class="aframework.configure.mvc.converter.DateConverter"/>
+				<bean class="aframework.configure.mvc.converter.LocalDateConverter"/>
+			</set>
+		</property>
+	</bean>
 
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
