@@ -21,10 +21,11 @@
                 <input type="text" name="password" id="password"/>
             </p>
             <p>
-
-
+                <label for="password">自动登录</label>
+                <input type="checkbox" name="remember-me" />
+            </p>
+            <p>
             <div th:text="${error}"></div>
-
             </p>
             <input type="submit" value="Login"/>
         </form>
