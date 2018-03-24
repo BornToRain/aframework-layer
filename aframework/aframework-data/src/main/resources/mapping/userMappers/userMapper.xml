@@ -159,6 +159,7 @@
         </where>
          ORDER BY id
         <if test="offset != null and limit != null ">
+            <bind name="patternadd" value="limit*offset"/>
             limit #{limit} OFFSET #{offset}
         </if>
     </select>
