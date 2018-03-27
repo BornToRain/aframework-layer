@@ -11,9 +11,12 @@ package aframework.configure.exception;
 
 
 import aframework.configure.model.BaseApiResult;
+import com.alibaba.druid.support.json.JSONUtils;
 import com.core.exception.SystemCode;
+import com.core.serialization.ISerialization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -39,6 +42,9 @@ public class AfExceptionHandler {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
+    @Autowired
+    private ISerialization serialization;
+
     @ExceptionHandler(Exception.class)
     public ModelAndView AfException(HttpServletRequest req, Exception e) {
         String contentType = req.getContentType();
@@ -62,7 +68,7 @@ public class AfExceptionHandler {
      */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public BaseApiResult handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+    public ModelAndView handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         logger.error("参数验证失败", e);
         BindingResult result = e.getBindingResult();
         StringBuffer sb = new StringBuffer();
@@ -72,8 +78,13 @@ public class AfExceptionHandler {
             String message = String.format("%s:%s", field, code);
             sb.append(message);
         }
-        SystemCode innerError = SystemCode.InnerError;
-        return new BaseApiResult(innerError.getCode(), innerError.getMessage());
+        SystemCode parameterError = SystemCode.ParameterError;
+        BaseApiResult error = new BaseApiResult(parameterError.getCode(), sb.toString());
+        MappingJackson2JsonView jv = new MappingJackson2JsonView();
+        jv.setExtractValueFromSingleKeyModel(true);
+        ModelAndView mav = new ModelAndView(jv);
+        mav.addObject(error);
+        return mav;
     }
 
 

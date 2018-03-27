@@ -49,6 +49,7 @@ import com.service.users.IUserService;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 
 /**
@@ -96,12 +97,12 @@ public class WebChartController extends RestBaseController {
 
 
     @PostMapping("/v1.0.1/news")
-    public BaseApiResult News(@Validated @RequestBody NewsRequest request, BindingResult bindingResult) {
+    public BaseApiResult News(@RequestBody  @Valid NewsRequest request) {
         UserResult result = new UserResult(systemCode.getCode(), systemCode.getMessage());
-        if (bindingResult.hasErrors()) {
+        /*if (bindingResult.hasErrors()) {
             result.setCdMe(SystemCode.ParameterError.getCode(), SystemCode.ParameterError.getMessage());
             return result;
-        }
+        }*/
         return result;
     }
 
