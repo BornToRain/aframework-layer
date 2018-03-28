@@ -11,6 +11,9 @@ import org.springframework.restdocs.payload.JsonFieldType;
 import api.testbase.BaseRestfulTest;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
+
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
@@ -106,8 +109,8 @@ public class WebChartTestCase extends BaseRestfulTest {
     @Test
     public void NewsTest() throws Exception {
         NewsRequest newsRequest = new NewsRequest();
-        newsRequest.setTitile("23");
-        newsRequest.setContent("3213");
+        newsRequest.setTitile("123456");
+        newsRequest.setContent("789");
         String request = serialization.convertToString(newsRequest);
         this.mockMvc
                 .perform(
