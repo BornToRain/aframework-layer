@@ -37,8 +37,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * @author Alvis
  * @version 1.0.0
- * @ClassName UserSqlTestCase
- * @Description User sql Test Classs
+ * @ClassName WebChartTestCase
+ * @Description WebChartTestCase
  * @Date Jul 7, 2017 9:37:55 PM
  */
 
@@ -110,7 +110,7 @@ public class WebChartTestCase extends BaseRestfulTest {
     public void NewsTest() throws Exception {
         NewsRequest newsRequest = new NewsRequest();
         newsRequest.setTitile("123456");
-        newsRequest.setContent("789");
+        newsRequest.setContent("78919");
         String request = serialization.convertToString(newsRequest);
         this.mockMvc
                 .perform(
