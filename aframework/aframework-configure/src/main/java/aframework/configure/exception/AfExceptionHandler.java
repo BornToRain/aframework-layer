@@ -64,7 +64,7 @@ public class AfExceptionHandler {
 
 
     /**
-     * 400 - Bad Request
+     * 402 - Bad Request
      */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
