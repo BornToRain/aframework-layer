@@ -32,6 +32,7 @@ package com.repository.mybatis.users;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.domain.users.User;
@@ -64,6 +65,8 @@ public interface IUserRepository {
     User getUserById(Integer id);
 
     User getUserByUserName(String username);
+
+    User getUserByUserNamePwd(@Param("username") String username, @Param("pwd") String pwd);
 
     User getUserByUuid(String uuid);
 
