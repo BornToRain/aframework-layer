@@ -22,8 +22,8 @@ public enum SystemCode {
     AccessTokenError(400, "AccessToken Unvalidated!"),
     UUIDError(401, "User Uuid Unvalidated!"),
     ParameterError(402, "Parameter Error!"),
-    InnerError(500, "Api Inner Exception!");
-
+    InnerError(500, "Api Inner Exception!"),
+    WebApiInnerError(501, "Web Api Inner Exception!");
 
     int code;
     String message;

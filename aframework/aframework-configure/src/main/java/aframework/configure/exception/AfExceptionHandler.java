@@ -36,8 +36,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Creation Date:  2017-08-09 11:20 AM
  */
 
-@ControllerAdvice
-@Controller
+@ControllerAdvice(basePackages = {"com.admin.controllers", "com.web.controllers"})
 public class AfExceptionHandler {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
@@ -50,7 +49,7 @@ public class AfExceptionHandler {
         String contentType = req.getContentType();
         logger.error(e.getMessage());
         if (contentType != null && contentType.contains("application/json")) {
-            SystemCode innerError = SystemCode.InnerError;
+            SystemCode innerError = SystemCode.WebApiInnerError;
             BaseApiResult result = new BaseApiResult(innerError.getCode(), innerError.getMessage());
             MappingJackson2JsonView jv = new MappingJackson2JsonView();
             jv.setExtractValueFromSingleKeyModel(true);
@@ -61,31 +60,5 @@ public class AfExceptionHandler {
             return new ModelAndView("redirect:/error");
         }
     }
-
-
-    /**
-     * 402 - Bad Request
-     */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ModelAndView handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        logger.error("参数验证失败", e);
-        BindingResult result = e.getBindingResult();
-        StringBuffer sb = new StringBuffer();
-        for (ObjectError error : result.getAllErrors()) {
-            String field = error.getCode();
-            String code = error.getDefaultMessage();
-            String message = String.format("%s:%s", field, code);
-            sb.append(message);
-        }
-        SystemCode parameterError = SystemCode.ParameterError;
-        BaseApiResult error = new BaseApiResult(parameterError.getCode(), sb.toString());
-        MappingJackson2JsonView jv = new MappingJackson2JsonView();
-        jv.setExtractValueFromSingleKeyModel(true);
-        ModelAndView mav = new ModelAndView(jv);
-        mav.addObject(error);
-        return mav;
-    }
-
 
 }
