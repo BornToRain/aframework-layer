@@ -21,7 +21,7 @@
 
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>webPath</param-value>
+        <param-value>adminPath</param-value>
     </context-param>
 
     <listener>
