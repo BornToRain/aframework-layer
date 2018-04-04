@@ -14,6 +14,8 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.validation.Validation;
 import javax.validation.ValidatorFactory;
 
+import java.time.LocalDateTime;
+
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
@@ -111,7 +113,9 @@ public class WebChartTestCase extends BaseRestfulTest {
         NewsRequest newsRequest = new NewsRequest();
         newsRequest.setTitile("123456");
         newsRequest.setContent("78919");
-        String request = serialization.convertToString(newsRequest);
+        //newsRequest.setDateTime(LocalDateTime.now());
+        //String request = serialization.convertToString(newsRequest);
+        String request = "{\"titile\":\"123456\",\"content\":\"78919\",\"dateTime\":\"2018-03-01T00:00:00.000+0800\"}";
         this.mockMvc
                 .perform(
                         post("/api/webchart/v1.0.1/news")
@@ -127,7 +131,6 @@ public class WebChartTestCase extends BaseRestfulTest {
                         )
                 );
     }
-
 
 
 }
