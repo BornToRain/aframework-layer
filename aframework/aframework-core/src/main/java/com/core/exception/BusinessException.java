@@ -14,44 +14,44 @@ package com.core.exception;
  * @Description :  TODO
  * @Creation Date:  2018-04-19 9:50 AM
  */
-public class BussinessException extends RuntimeException {
+public class BusinessException extends RuntimeException {
 
     public static final int UNKNOWN_EXCEPTION = 0;
 
     private int code; // BussinessException不能有子类，异常类型用ErrorCode表示，以便保持兼容。
 
-    public BussinessException() {
+    public BusinessException() {
         super();
     }
 
-    public BussinessException(String message, Throwable cause) {
+    public BusinessException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public BussinessException(String message) {
+    public BusinessException(String message) {
         super(message);
     }
 
-    public BussinessException(Throwable cause) {
+    public BusinessException(Throwable cause) {
         super(cause);
     }
 
-    public BussinessException(int code) {
+    public BusinessException(int code) {
         super();
         this.code = code;
     }
 
-    public BussinessException(int code, String message, Throwable cause) {
+    public BusinessException(int code, String message, Throwable cause) {
         super(message, cause);
         this.code = code;
     }
 
-    public BussinessException(int code, String message) {
+    public BusinessException(int code, String message) {
         super(message);
         this.code = code;
     }
 
-    public BussinessException(int code, Throwable cause) {
+    public BusinessException(int code, Throwable cause) {
         super(cause);
         this.code = code;
     }
