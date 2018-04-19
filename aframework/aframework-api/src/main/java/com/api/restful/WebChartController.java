@@ -32,6 +32,7 @@ package com.api.restful;
 import java.util.List;
 
 
+import aframework.configure.model.ApiResponse;
 import aframework.configure.model.BaseApiResult;
 import com.api.model.NewsRequest;
 import com.core.authorizat.Authorization;
@@ -39,6 +40,8 @@ import com.api.model.UserResult;
 import aframework.configure.utility.IWorkContext;
 import com.core.exception.SystemCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -89,6 +92,20 @@ public class WebChartController extends RestBaseController {
         return result;
     }
 
+    @PostMapping("/v1.0.1/test2")
+    @Authorization
+    public ApiResponse<User> Test2() {
+        User user = workContext.getCurrentUser();
+        return new ApiResponse(systemCode.getCode(), systemCode.getMessage(), user);
+    }
+
+    @PostMapping("/v1.0.1/test3")
+    @Authorization
+    public ResponseEntity<User> Test3() {
+        User user = workContext.getCurrentUser();
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+    }
+
     @GetMapping("/v1.0.1/test")
     public BaseApiResult GetTest() {
         UserResult result = new UserResult(systemCode.getCode(), systemCode.getMessage());
@@ -97,7 +114,7 @@ public class WebChartController extends RestBaseController {
 
 
     @PostMapping("/v1.0.1/news")
-    public BaseApiResult News(@RequestBody  @Valid NewsRequest request) {
+    public BaseApiResult News(@RequestBody @Valid NewsRequest request) {
         UserResult result = new UserResult(systemCode.getCode(), systemCode.getMessage());
         /*if (bindingResult.hasErrors()) {
             result.setCdMe(SystemCode.ParameterError.getCode(), SystemCode.ParameterError.getMessage());
