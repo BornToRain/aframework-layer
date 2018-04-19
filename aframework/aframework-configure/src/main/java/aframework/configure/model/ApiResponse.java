@@ -9,6 +9,8 @@
  */
 package aframework.configure.model;
 
+import com.core.exception.SystemCode;
+
 /**
  * @author :  Alvis
  * @Description :  TODO
@@ -30,6 +32,15 @@ public class ApiResponse<T> {
         this.response = response;
     }
 
+    public static ApiResponse ok() {
+        SystemCode systemCode = SystemCode.OK;
+        return new ApiResponse(systemCode.getCode(), systemCode.getMessage());
+    }
+
+    public static <F> ApiResponse ok(F response) {
+        SystemCode systemCode = SystemCode.OK;
+        return new ApiResponse<>(systemCode.getCode(), systemCode.getMessage(), response);
+    }
 
     public int getCode() {
         return code;

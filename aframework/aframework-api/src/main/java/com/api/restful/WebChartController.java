@@ -96,14 +96,14 @@ public class WebChartController extends RestBaseController {
     @Authorization
     public ApiResponse<User> Test2() {
         User user = workContext.getCurrentUser();
-        return new ApiResponse(systemCode.getCode(), systemCode.getMessage(), user);
+        return ApiResponse.ok(user);
     }
 
     @PostMapping("/v1.0.1/test3")
     @Authorization
     public ResponseEntity<User> Test3() {
         User user = workContext.getCurrentUser();
-        return ResponseEntity.status(HttpStatus.OK).body(user);
+        return ResponseEntity.ok(user);
     }
 
     @GetMapping("/v1.0.1/test")
