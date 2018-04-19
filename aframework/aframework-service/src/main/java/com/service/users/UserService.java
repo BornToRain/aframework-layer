@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.core.exception.BussinessException;
 import com.service.event.OnRegistrationCompleteEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -105,14 +106,14 @@ public class UserService implements IUserService {
     public void insertUser(User user) {
         userRepository.insertSelective(user);
         eventPublisher.publishEvent(new OnRegistrationCompleteEvent(user));
-        //throw new RuntimeException("test");
+        //throw new BussinessException("test");
     }
 
     @Override
     @Transactional
     public void insertUsers(List<User> users) {
         userRepository.insertUsers(users);
-        // throw new RuntimeException("test");//抛出unchecked异常，触发事物，回滚
+        //throw new BussinessException("test");//抛出unchecked异常，触发事物，回滚
     }
 
     @Override
